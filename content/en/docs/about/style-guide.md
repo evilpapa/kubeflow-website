@@ -298,6 +298,6 @@ For more help, see the guide to [Bootstrap image styling](https://getbootstrap.c
 
 The [Google Developer Documentation Style Guide](https://developers.google.com/style/) contains detailed information about specific aspects of writing clear, readable, succinct documentation for a developer audience.
 
-## Next steps
+## 下一步
 
 - Take a look at the [documentation README](https://github.com/kubeflow/website/blob/master/README.md) for guidance on contributing to the Kubeflow docs.

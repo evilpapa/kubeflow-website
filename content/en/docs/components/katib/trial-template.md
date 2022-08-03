@@ -309,7 +309,7 @@ It would be great, if you let us know about your experiments.
 The [developer guide](https://github.com/kubeflow/katib/blob/master/docs/developer-guide.md)
 is a good starting point to know how to contribute to the project.
 
-## Next steps
+## 下一步
 
 - Learn how to
   [configure and run your Katib experiments](/docs/components/katib/experiment/).

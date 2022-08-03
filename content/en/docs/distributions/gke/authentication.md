@@ -239,6 +239,6 @@ By default, `Roles` and `RoleBindings` apply only to resources in a specific nam
 You can find more information in the 
 [Kubernetes docs](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole).
 
-## Next steps
+## 下一步
 
 See the [troubleshooting guide](/docs/gke/troubleshooting-gke/) for help with diagnosing and fixing issues you may encounter with Kubeflow on Google Cloud

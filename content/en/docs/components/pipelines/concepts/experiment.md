@@ -10,7 +10,7 @@ your pipelines. You can use experiments to organize your runs into logical
 groups. Experiments can contain arbitrary runs, including 
 [recurring runs](/docs/components/pipelines/concepts/run/).
 
-## Next steps
+## 下一步
 
 * Read an [overview of Kubeflow Pipelines](/docs/components/pipelines/introduction/).
 * Follow the [pipelines quickstart guide](/docs/components/pipelines/overview/quickstart/) 

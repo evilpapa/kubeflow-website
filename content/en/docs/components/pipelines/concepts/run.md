@@ -23,7 +23,7 @@ concurrent runs, to limit the number of runs launched in parallel. This can be
 helpful if the pipeline is expected to run for a long period of time and is
 triggered to run frequently.
 
-## Next steps
+## 下一步
 
 * Read an [overview of Kubeflow Pipelines](/docs/components/pipelines/introduction/).
 * Follow the [pipelines quickstart guide](/docs/components/pipelines/overview/quickstart/) 

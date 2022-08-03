@@ -264,7 +264,7 @@ For better understanding, please refer to the following samples:
 [1](https://github.com/kubeflow/pipelines/blob/master/samples/core/volume_snapshot_ops/volume_snapshot_ops.py),
 [2](https://github.com/kubeflow/pipelines/blob/master/samples/contrib/volume_snapshot_ops/volume_snapshotop_rokurl.py)
 
-## Next steps
+## 下一步
 
 * See samples in Kubeflow Pipelines 
   [repository](https://github.com/kubeflow/pipelines/tree/master/samples).

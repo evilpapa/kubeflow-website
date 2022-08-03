@@ -585,7 +585,7 @@ See this [sample component][org-sample] for a real-life component example.
 
 [org-sample]: https://github.com/kubeflow/pipelines/tree/master/components/sample/keras/train_classifier
 
-## Next steps
+## 下一步
 
 * Consolidate what you've learned by reading the
   [best practices](/docs/components/pipelines/sdk/best-practices) for designing and

@@ -100,7 +100,7 @@ Follow these steps to set up your Google Cloud project:
 You do not need a running GKE cluster. The deployment process creates a
 cluster for you.
 
-## Next steps
+## 下一步
 
 * [Set up an OAuth credential](/docs/distributions/gke/deploy/oauth-setup) to use 
   [Cloud Identity-Aware Proxy (Cloud IAP)](https://cloud.google.com/iap/docs/).

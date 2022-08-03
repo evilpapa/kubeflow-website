@@ -113,7 +113,7 @@ The response should be something like this:
 /<PATH_TO_YOUR_USER_BIN>/miniconda3/envs/mlpipeline/bin/dsl-compile
 ```
 
-## Next steps
+## 下一步
 
 * [See how to use the SDK](/docs/components/pipelines/sdk/sdk-overview/).
 * [Build a component and a pipeline](/docs/components/pipelines/sdk/component-development/).

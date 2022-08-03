@@ -13,7 +13,7 @@ different runs. Artifacts also make it possible to understand how the pipeline�
 various components work. An artifact can range from a plain textual view of the
 data to rich interactive visualizations.
 
-## Next steps
+## 下一步
 
 * Read an [overview of Kubeflow Pipelines](/docs/components/pipelines/introduction/).
 * Follow the [pipelines quickstart guide](/docs/components/pipelines/overview/quickstart/) 

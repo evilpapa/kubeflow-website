@@ -526,7 +526,7 @@ To remove Katib from your Kubernetes cluster run:
 kubectl delete -k "github.com/kubeflow/katib.git/manifests/v1beta1/installs/katib-standalone?ref=master"
 ```
 
-## Next steps
+## 下一步
 
 - Learn how to
   [configure and run your Katib experiments](/docs/components/katib/experiment/).

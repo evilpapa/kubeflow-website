@@ -13,7 +13,7 @@ available:
   or every 45 minutes).
 * Cron: for specifying `cron` semantics for scheduling runs.
 
-## Next steps
+## 下一步
 
 * Read an [overview of Kubeflow Pipelines](/docs/components/pipelines/introduction/).
 * Follow the [pipelines quickstart guide](/docs/components/pipelines/overview/quickstart/) 

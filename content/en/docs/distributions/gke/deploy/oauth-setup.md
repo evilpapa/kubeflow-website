@@ -94,6 +94,6 @@ address to verify the user's identity.
   section of the Google Cloud Console. You need to retrieve the **client ID** and 
   **client secret** later when you're ready to enable Cloud IAP.
   
-## Next steps
+## 下一步
 * [Set up your management cluster](/docs/distributions/gke/deploy/management-setup/).
 * [Grant your users the IAP-secured Web App User IAM role](https://cloud.google.com/iam/docs/granting-changing-revoking-access#granting-console) so they can access the Kubeflow console through IAP.

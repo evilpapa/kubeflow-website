@@ -49,7 +49,7 @@ The following are the goals of the [Kubeflow Fairing project][fairing-repo]:
 * **Easily train ML models in a hybrid cloud environment:** Provide a high-level API for training ML models to make it easy to run training jobs in the cloud, without needing to understand the underlying infrastructure.
 * **Streamline the process of deploying a trained model:** Make it easy for ML practitioners to deploy trained ML models to a hybrid cloud environment. 
 
-## Next steps
+## 下一步
 
 *  Learn how to [set up a Jupyter notebooks instance on your Kubeflow
    cluster][kubeflow-notebooks].

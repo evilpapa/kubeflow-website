@@ -55,7 +55,7 @@ in the same process and cannot directly share in-memory data. You must serialize
 so that the data can travel over the distributed network. You must then
 deserialize the data for use in the downstream component.
 
-## Next steps
+## 下一步
 
 * Read an [overview of Kubeflow Pipelines](/docs/components/pipelines/introduction/).
 * Follow the [pipelines quickstart guide](/docs/components/pipelines/overview/quickstart/) 

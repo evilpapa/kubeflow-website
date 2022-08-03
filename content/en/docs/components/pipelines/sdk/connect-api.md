@@ -251,7 +251,7 @@ print(client.list_experiments())
 
 Refer to [more configurable environment variables here](https://github.com/kubeflow/pipelines/blob/54ac9a6a7173aecbbb30a043b2077e790cac6953/sdk/python/kfp/_client.py#L84-L90).
 
-## Next Steps
+## 下一步
 
 * [Using the Kubeflow Pipelines SDK](/docs/components/pipelines/tutorials/sdk-examples/)
 * [Kubeflow Pipelines SDK Reference](https://kubeflow-pipelines.readthedocs.io/en/stable/)

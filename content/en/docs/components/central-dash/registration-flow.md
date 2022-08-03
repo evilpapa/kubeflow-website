@@ -62,4 +62,4 @@ Kubeflow 在以下情况下会提示您创建命名空间：
 ## 下一步
 
 * 在 Kubeflow [设置 Jupyter notebook](/docs/components/notebooks/setup/)。
-* 阅读跟多 [Kubeflow 多卒读](/docs/components/multi-tenancy/)。
+* 阅读更多 [Kubeflow 多租户](/docs/components/multi-tenancy/)内容。

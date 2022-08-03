@@ -222,7 +222,7 @@ To configure Kubeflow Fairing with access to the environment you would like to
 use for training and deployment, follow the instructions in the guide to
 [configuring Kubeflow Fairing][conf].
 
-## Next steps
+## 下一步
 
 *  [Configure your Kubeflow Fairing development environment][conf] with access
    to run training jobs remotely.

@@ -218,5 +218,5 @@ When you are done, make sure you delete your resource group to avoid extra charg
 	az group delete -n MyResourceGroup
 You can optionally choose to delete individual resources on your clusters using the [Azure cluster docs](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-tutorial-delete-cluster).
 
-## Next steps
+## 下一步
 Build your own pipeline using the [Kubeflow Pipelines SDK](/docs/components/pipelines/sdk/sdk-overview/).

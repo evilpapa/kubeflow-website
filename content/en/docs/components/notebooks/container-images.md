@@ -1,31 +1,31 @@
 +++
 title = "容器镜像"
-description = "About Container Images for Kubeflow Notebooks"
+description = "关于 Kubeflow Notebooks 的容器镜像"
 weight = 30
                     
 +++
-Kubeflow Notebooks natively supports three types of notebooks, [JupyterLab](https://github.com/jupyterlab/jupyterlab), [RStudio](https://github.com/rstudio/rstudio), and [Visual Studio Code (code-server)](https://github.com/cdr/code-server), but any web-based IDE should work.
-Notebook servers run as containers inside a Kubernetes Pod, which means the type of IDE (and which packages are installed) is determined by the Docker image you pick for your server.
+Kubeflow Notebooks 原生支持三种类型的 notebook，[JupyterLab](https://github.com/jupyterlab/jupyterlab)、[RStudio](https://github.com/rstudio/rstudio)、[Visual Studio Code (code-server)](https://github.com/cdr/code-server)，任何基于 Web 的 IDE 都可以使用。
+Notebook 服务器作为 Kubernetes Pod 容器运行，这意味着 IDE 的类型（以及安装的软件包）取决于您为服务器选择的 Docker 映像。
 
-## Images
+## 镜像
 
-We provide a number of [example container images](https://github.com/kubeflow/kubeflow/tree/master/components/example-notebook-servers) to get you started.
+我们提供了很多 [容器镜像示例](https://github.com/kubeflow/kubeflow/tree/master/components/example-notebook-servers) 来帮你入门。
 
-### Base Images
+### 基础镜像
 
-These images provide a common starting point for Kubeflow Notebook containers.
-See [custom images](#custom-images) to learn how to extend them with your own packages.
+这些镜像为 Kubeflow Notebook 容器提供了一个共同的起点。
+查看 [自定义镜像](#custom-images) 以了解如何使用您自己的包来扩展它们。
 
 Dockerfile | Registry | Notes
 --- | --- | ---
-[base](https://github.com/kubeflow/kubeflow/tree/master/components/example-notebook-servers/base) | [`public.ecr.aws/j1r0q0g6/notebooks/notebook-servers/base:{TAG}`](https://gallery.ecr.aws/j1r0q0g6/notebooks/notebook-servers/base) | common base image
-[codeserver](https://github.com/kubeflow/kubeflow/tree/master/components/example-notebook-servers/codeserver) | [`public.ecr.aws/j1r0q0g6/notebooks/notebook-servers/codeserver:{TAG}`](https://gallery.ecr.aws/j1r0q0g6/notebooks/notebook-servers/codeserver) | base [code-server](https://github.com/cdr/code-server) (Visual Studio Code) image
-[jupyter](https://github.com/kubeflow/kubeflow/tree/master/components/example-notebook-servers/jupyter) | [`public.ecr.aws/j1r0q0g6/notebooks/notebook-servers/jupyter:{TAG}`](https://gallery.ecr.aws/j1r0q0g6/notebooks/notebook-servers/jupyter) | base [JupyterLab](https://github.com/jupyterlab/jupyterlab) image
-[rstudio](https://github.com/kubeflow/kubeflow/tree/master/components/example-notebook-servers/rstudio) | [`public.ecr.aws/j1r0q0g6/notebooks/notebook-servers/rstudio:{TAG}`](https://gallery.ecr.aws/j1r0q0g6/notebooks/notebook-servers/rstudio) | base [RStudio](https://github.com/rstudio/rstudio) image
+[base](https://github.com/kubeflow/kubeflow/tree/master/components/example-notebook-servers/base) | [`public.ecr.aws/j1r0q0g6/notebooks/notebook-servers/base:{TAG}`](https://gallery.ecr.aws/j1r0q0g6/notebooks/notebook-servers/base) | 公共基础镜像
+[codeserver](https://github.com/kubeflow/kubeflow/tree/master/components/example-notebook-servers/codeserver) | [`public.ecr.aws/j1r0q0g6/notebooks/notebook-servers/codeserver:{TAG}`](https://gallery.ecr.aws/j1r0q0g6/notebooks/notebook-servers/codeserver) | [code-server](https://github.com/cdr/code-server) (Visual Studio Code) 基础镜像
+[jupyter](https://github.com/kubeflow/kubeflow/tree/master/components/example-notebook-servers/jupyter) | [`public.ecr.aws/j1r0q0g6/notebooks/notebook-servers/jupyter:{TAG}`](https://gallery.ecr.aws/j1r0q0g6/notebooks/notebook-servers/jupyter) | [JupyterLab](https://github.com/jupyterlab/jupyterlab) 基础镜像
+[rstudio](https://github.com/kubeflow/kubeflow/tree/master/components/example-notebook-servers/rstudio) | [`public.ecr.aws/j1r0q0g6/notebooks/notebook-servers/rstudio:{TAG}`](https://gallery.ecr.aws/j1r0q0g6/notebooks/notebook-servers/rstudio) | [RStudio](https://github.com/rstudio/rstudio) 基础镜像
 
-### Full Images
+### 完整镜像
 
-These images extend the [base images](#base-images) with common packages used by Data Scientists and ML Engineers.
+这些镜像扩展自 [基础镜像](#base-images) 并使用数据科学家和 ML 工程师使用的通用包。
 
 Dockerfile | Registry | Notes
 --- | --- | ---
@@ -41,35 +41,35 @@ Dockerfile | Registry | Notes
 [jupyter-tensorflow-full (CUDA)](https://github.com/kubeflow/kubeflow/tree/master/components/example-notebook-servers/jupyter-tensorflow-full) | [`public.ecr.aws/j1r0q0g6/notebooks/notebook-servers/jupyter-tensorflow-cuda-full:{TAG}`](https://gallery.ecr.aws/j1r0q0g6/notebooks/notebook-servers/jupyter-tensorflow-cuda-full) | JupyterLab + TensorFlow (CUDA) + [common](https://github.com/kubeflow/kubeflow/tree/master/components/example-notebook-servers/jupyter-tensorflow-full/requirements.txt) packages
 [rstudio-tidyverse](https://github.com/kubeflow/kubeflow/tree/master/components/example-notebook-servers/rstudio-tidyverse) | [`public.ecr.aws/j1r0q0g6/notebooks/notebook-servers/rstudio-tidyverse:{TAG}`](https://gallery.ecr.aws/j1r0q0g6/notebooks/notebook-servers/rstudio-tidyverse) | RStudio + [Tidyverse](https://www.tidyverse.org/) packages
 
-### Image Dependency Chart
+### 镜像依赖图
 
-This flow-chart shows how our notebook container images depend on each other.
+此流程图显示了我们的笔记本容器映像如何相互依赖。
 
 <img src="/docs/images/notebook-container-image-chart.png" 
      alt="A flow-chart showing how notebook container images depend on each other"  
      class="mt-3 mb-3 border border-info rounded">
 
-## Custom Images
+## 自定义镜像
 
-Packages installed by users __after spawning__ a Kubeflow Notebook will only last the lifetime of the pod (unless installed into a PVC-backed directory).
+用户在生成 Kubeflow Notebook 后 __生产__ 的包只会持续 pod 的生命周期（除非安装到 PVC 支持的目录中）。
 
-To ensure packages are preserved throughout Pod restarts users will need to either:
-1. [Build custom images that include them](https://github.com/kubeflow/kubeflow/tree/master/components/example-notebook-servers#custom-images), or
-2. Ensure they are installed in a PVC-backed directory
+为确保在 Pod 重新启动期间保留包，用户需要：
+1. [构建包含它们的自定义镜像](https://github.com/kubeflow/kubeflow/tree/master/components/example-notebook-servers#custom-images)，或者
+2. 确保它们安装在 PVC 支持的目录中
 
-### Image Requirements
+### 镜像要求
 
-For Kubeflow Notebooks to work with a container image, the image must:
-- expose an HTTP interface on port `8888`:
-  - kubeflow sets an environment variable `NB_PREFIX` at runtime with the URL path we expect the container be listening under
-  - kubeflow uses IFrames, so ensure your application sets `Access-Control-Allow-Origin: *` in HTTP response headers
-- run as a user called `jovyan`:
-  - the home directory of `jovyan` should be `/home/jovyan`
-  - the UID of `jovyan` should be `1000`
-- start successfully with an empty PVC mounted at `/home/jovyan`:
-  - kubeflow mounts a PVC at `/home/jovyan` to keep state across Pod restarts
+要让 Kubeflow Notebooks 使用容器镜像，该镜像必须：
+- 在端口上公开一个 HTTP 接口 `8888`:
+  - kubeflow 在运行时设置一个 `NB_PREFIX` 环境变量来让容器能够监听该 URL 路径
+  - kubeflow 使用 IFrames，所以确保应用在 HTTP 响应头设置 `Access-Control-Allow-Origin: *`
+- 以 `jovyan` 用户运行：
+  - `jovyan` 主目录应为 `/home/jovyan`
+  - `jovyan` UID 应为 `1000`
+- 能成功启动挂载在 `/home/jovyan` 的空 PVC：
+  - kubeflow 将 PVC 挂载在 `/home/jovyan` 来是 Pod 重启之后能够保持状态
   
-## Next steps
+## 下一步
 
-- Use your container image by specifying it when spawning your notebook server.
-  (See the [quickstart guide](/docs/components/notebooks/quickstart-guide/).)
+- 通过在生成笔记本服务器时指定容器映像来使用它。
+  (查看 [快速指南](/docs/components/notebooks/quickstart-guide/)。)

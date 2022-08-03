@@ -359,7 +359,7 @@ kubectl --context=${MGMTCTXT} --namespace=${KF_PROJECT} describe containernodepo
 ```
 
 
-## Next steps
+## 下一步
 
 * Explore further options for [customizing Kubeflow on Google Cloud](/docs/gke/).
 * See how to [build pipelines with the SDK](/docs/components/pipelines/sdk/).

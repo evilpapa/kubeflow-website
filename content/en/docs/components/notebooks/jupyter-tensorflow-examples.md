@@ -1,19 +1,19 @@
 +++
 title = "Jupyter TensorFlow 示例"
-description = "Examples using Jupyter and TensorFlow in Kubeflow Notebooks"
+description = "在 Kubeflow Notebooks 中使用 Jupyter 和 TensorFlow 的示例"
 weight = 40
 
 +++
 
-## Mnist Example
+## Mnist 示例
 
-(adapted from [tensorflow/tensorflow - mnist_softmax.py](https://github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/examples/tutorials/mnist/mnist_softmax.py))
+(改编自 [tensorflow/tensorflow - mnist_softmax.py](https://github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/examples/tutorials/mnist/mnist_softmax.py))
 
-1. When creating your notebook server choose a [container image](/docs/components/notebooks/container-images/) which has Jupyter and TensorFlow installed.
+1. 创建笔记本服务器时，请选择安装了 Jupyter 和 TensorFlow的 [容器镜像](/docs/components/notebooks/container-images/)。
 
-2. Use Jupyter's interface to create a new **Python 3** notebook.
+2. 使用 Jupyter 的界面创建一个新的 **Python 3** 笔记本。
 
-3. Copy the following code and paste it into your notebook:
+3. 复制以下代码并将其粘贴到您的笔记本中：
 
     ```python
     from tensorflow.examples.tutorials.mnist import input_data
@@ -45,14 +45,14 @@ weight = 40
     print("Accuracy: ", sess.run(accuracy, feed_dict={x: mnist.test.images, y_: mnist.test.labels}))
     ```
 
-4. Run the code. You should see a number of `WARNING` messages from TensorFlow, followed by a line showing a training accuracy something like this:
+4. 运行代码。您应该会看到很多来自 Tensorflow 的 `WARNING` 信息，然后是显示训练准确性的一行，如下所示：
 
     ```
     Accuracy:  0.9012
     ```
 
-## Next steps
+## 下一步
 
-- See a [simple example](https://github.com/kubeflow/examples/tree/master/pipelines/simple-notebook-pipeline) of creating Kubeflow pipelines in a Jupyter notebook.
-- Build machine-learning pipelines with the [Kubeflow Pipelines SDK](/docs/components/pipelines/sdk/sdk-overview/).
-- Learn the advanced features available from a Kubeflow notebook, such as [submitting Kubernetes resources](/docs/components/notebooks/submit-kubernetes/) or [building Docker images](/docs/components/notebooks/custom-notebook/). 
+- 请参阅在 Jupyter 笔记本中创建 Kubeflow 管道的 [简单示例](https://github.com/kubeflow/examples/tree/master/pipelines/simple-notebook-pipeline)。
+- 使用 [Kubeflow Pipelines SDK](/docs/components/pipelines/sdk/sdk-overview/) 构建机器学习工作流。
+- 了解 Kubeflow Notebook 提供的高级功能，例如 [提交 Kubernetes 资源](/docs/components/notebooks/submit-kubernetes/) 或 [构建 Docker 镜像](/docs/components/notebooks/custom-notebook/)。 

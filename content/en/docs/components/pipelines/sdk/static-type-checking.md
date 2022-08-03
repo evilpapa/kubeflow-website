@@ -187,7 +187,7 @@ DSL compiler passes the type checking if either of the upstream or the downstrea
 The effects are the same as that of ignoring the type information. However, 
 type checking would still fail if some I/Os lack the type information and some I/O types are incompatible.
 
-## Next steps
+## 下一步
 
 Learn how to define a KubeFlow pipeline with Python DSL and compile the
 pipeline with type checking: a 

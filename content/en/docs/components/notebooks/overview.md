@@ -1,6 +1,6 @@
 +++
 title = "概述"
-description = "Kubeflow Notebooks 概述"
+description = "Kubeflow 笔记本概述"
 weight = 5
                     
 +++
@@ -18,5 +18,5 @@ Kubeflow Notebooks 提供了一种在 Kubernetes 集群中运行基于 Web 的�
 
 ## 下一步
 
-- 使用[快速入门指南](/docs/components/notebooks/quickstart-guide/)开始使用 Kubeflow Notebooks。
+- 使用[快速入门指南](/docs/components/notebooks/quickstart-guide/)开始使用 Kubeflow 笔记本。
 - 了解如何创建自己的 [容器镜像](/docs/components/notebooks/container-images/)。

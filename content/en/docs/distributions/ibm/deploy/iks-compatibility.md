@@ -38,6 +38,6 @@ The following table relates compatibility between Kubernetes versions 1.20+ of I
 - **No known issues**: the combination has not been fully tested but there are no reported issues
 
 
-## Next Steps
+## 下一步
 
 1. 2. Go here for installing [Kubeflow on IKS](/docs/distributions/ibm/deploy/install-kubeflow-on-iks)

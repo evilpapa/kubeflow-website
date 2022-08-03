@@ -286,7 +286,7 @@ The service accounts are:
 
 Refer to [Upgrading Kubeflow cluster](/docs/distributions/gke/deploy/upgrade#upgrading-kubeflow-cluster).
 
-## Next steps
+## 下一步
 
 * Run a full ML workflow on Kubeflow, using the
   [end-to-end MNIST tutorial](https://github.com/kubeflow/examples/blob/master/mnist/mnist_gcp.ipynb) or the

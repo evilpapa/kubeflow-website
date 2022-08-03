@@ -90,7 +90,7 @@ The Kubeflow deployment is exposed with a Route. To find the Route you can use
 oc get route -n istio-system istio-ingressgateway -o=jsonpath='{.spec.host}'
 ```
 
-## Next steps
+## 下一步
 
 To secure the Kubeflow dashboard with HTTPS, follow the steps in [Exposing the Kubeflow dashboard with DNS and TLS termination](/docs/ibm/deploy/authentication/#setting-up-an-nlb).
 

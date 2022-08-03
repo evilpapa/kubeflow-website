@@ -59,12 +59,12 @@ weight = 10
 
 9. 指定一个 __“工作空间卷”__ 作为 PVC 卷安装在您的主文件夹上。
 
-10. *(可选)* 指定一个或多个 __"data volumes"__ 作为 PVC 卷挂载。
+10. *（可选）* 指定一个或多个 __"data volumes"__ 作为 PVC 卷挂载。
 
-11. *(可选)* 指定一个或多个附加 __"configurations"__
-    - These correspond to [PodDefault resources](https://github.com/kubeflow/kubeflow/blob/master/components/admission-webhook/README.md) which exit in your profile namespace.
-    - Kubeflow matches the labels in the __"configurations"__ field against the properties specified in the PodDefault manifest.
-    - For example, select the label `add-gcp-secret` in the __"configurations"__ field to match to a PodDefault manifest containing the following configuration:
+11. *（可选）* 指定一个或多个附加 __"configurations"__
+    - 这些对应存在与你的配置属性相同空间的 [PodDefault 资源](https://github.com/kubeflow/kubeflow/blob/master/components/admission-webhook/README.md)。
+    - Kubeflow 将 __"configurations"__ 字段中的标签与 PodDefault 清单中指定的属性进行匹配。
+    - 比如，选择 __"configurations"__ 字段中 `add-gcp-secret` 标签来匹配包含如下配置的 PodDefault 清单：
     ```yaml
     apiVersion: kubeflow.org/v1alpha1
     kind: PodDefault
@@ -85,29 +85,29 @@ weight = 10
         secretName: gcp-secret
     ```
 
-12. *(Optional)* Specify any __"GPUs"__ that your notebook server will request.
-    - Kubeflow uses "limits" in Pod requests to provision GPUs onto the notebook Pods
-      (Details about scheduling GPUs can be found in the [Kubernetes Documentation](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/).)
+12. *（可选）* 指定您的笔记本服务器要请求的任何 __"GPUs"__ 。
+    - Kubeflow 在 Pod 资源请求中使用 "limits" 限制笔记本 Pod 使用资源
+      （调度 GPU 资源可在 [Kubernetes 文档](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/)查看细节。）
 
-13. *(Optional)* Specify the setting for __"enable shared memory"__.
-    - Some libraries like PyTorch use shared memory for multiprocessing.
-    - Currently, there is no implementation in Kubernetes to activate shared memory.
-    - As a workaround, Kubeflow mounts an empty directory volume at `/dev/shm`.
+13. *（可选）* 指定 __"开启内存分享"__ 设置。
+    - PyTorch 等一些库使用共享内存进行批处理。
+    - 目前，Kubernetes 中没有实现共享内存的激活。
+    - 作为一种解决方法，Kubeflow 在 `/dev/shm` 挂载了一个空目录。
 
-14. Click __"LAUNCH"__ to create a new Notebook CRD with your specified settings.
-    - You should see an entry for your new notebook server on the __"Notebook Servers"__ page
-    - There should be a spinning indicator in the __"Status"__ column.
-    - It can take a few minutes for kubernetes to provision the notebook server pod.
-    - You can check the status of your Pod by hovering your mouse cursor over the icon in the __"Status"__ column.
+14. 点击 __"LAUNCH"__ 创建一个新的指定配置的 Notebook CRD。
+    - 您应该会在 __“笔记本服务器”__ 页面上看到新笔记本服务器的条目
+    - __“状态”__ 栏中应该有一个旋转指示器。
+    - Kubernetes 可能需要几分钟来配置 notebook 服务器 pod。
+    - 您可以通过将鼠标光标悬停在 __“状态”__ 列中的图标上来检查 Pod 的状态。
 
-15. Click __"CONNECT"__ to view the web interface exposed by your notebook server.
+15. 点击 __"CONNECT"__ 以查看笔记本服务器公开的 Web 界面。
 
     <img src="/docs/images/notebook-servers.png"
     alt="Opening notebooks from the Kubeflow UI"
     class="mt-3 mb-3 border border-info rounded">
 
-## Next steps
+## 下一步
 
-- Learn how to create your own [container images](/docs/components/notebooks/container-images/).
-- Review examples of using [jupyter and tensorflow](/docs/components/notebooks/jupyter-tensorflow-examples/).
-- Visit the [troubleshooting guide](/docs/components/notebooks/troubleshooting) to fix common errors.
+- 了解如何创建自己的 [容器镜像](/docs/components/notebooks/container-images/)。
+- 查看使用 [jupyter 和 tensorflow](/docs/components/notebooks/jupyter-tensorflow-examples/)的示例。
+- 访问 [故障排除指南](/docs/components/notebooks/troubleshooting) 以修复常见错误。

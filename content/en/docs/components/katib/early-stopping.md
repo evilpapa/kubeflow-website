@@ -193,7 +193,7 @@ this trial is early stopped:
   alt="UI form to view trial info"
   class="mt-3 mb-3 border border-info rounded">
 
-## Next steps
+## 下一步
 
 - Learn how to
   [configure and run your Katib experiments](/docs/components/katib/experiment/).

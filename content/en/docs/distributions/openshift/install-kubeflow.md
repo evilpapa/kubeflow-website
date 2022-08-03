@@ -97,7 +97,7 @@ Use the following steps to install Kubeflow 1.3 on OpenShift 4.x.
     oc get routes -n istio-system istio-ingressgateway -o jsonpath='http://{.spec.host}/'
     ```
 
-## Next steps
+## 下一步
 
 * See how to [uninstall](/docs/openshift/uninstall-kubeflow) your Kubeflow deployment 
   using the CLI.

@@ -73,7 +73,7 @@ Kubeflow cluster.
     clusters][kubectl-access], to update your `kubeconfig` with appropriate
     credentials and endpoint information to access your Kubeflow cluster. 
 
-## Next steps
+## 下一步
 
 *  Follow the [samples and tutorials][tutorials] to learn more about how to run
    training jobs remotely with Kubeflow Fairing. 

@@ -16,7 +16,7 @@ cloud environments, helping you to automate policy and security at scale.
 We are collecting interest for Kubeflow on GKE On Prem. You can subscribe
 to the GitHub issue [kubeflow/gcp-blueprints#138](https://github.com/kubeflow/gcp-blueprints/issues/138).
 
-## Next steps
+## 下一步
 
 While waiting for a response from the support team, you may like to [deploy
 Kubeflow on GKE](/docs/gke/deploy/).

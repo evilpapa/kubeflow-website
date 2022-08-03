@@ -36,6 +36,6 @@ Important notes: Multi-user isolation has several configurable dependencies, esp
 
 When configuring multi-user isolation along with your security and identity management requirements, it is recommended that you consult with your [distribution provider](https://www.kubeflow.org/docs/distributions/).   This KubeCon [presentation](https://www.youtube.com/watch?v=U8yWOKOhzes) provides a detailed review of the architecture and implementation.   For on-premise deployments, Kubeflow uses Dex as a federated OpenID connection provider and can be integrated with LDAP or Active Directory to provide authentication and identity services.   This can be an advanced configuration and it is recommended that you consult with a distribution provider, or a team that provides advanced technical support for on-premise Kubeflow.   
 
-## Next steps
+## 下一步
 
 * Learn more about [multi-user isolation design](/docs/components/multi-tenancy/design/).

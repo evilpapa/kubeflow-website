@@ -199,6 +199,6 @@ kubectl --context=${MGMT_NAME} get IAMServiceAccount <service-account-name> -n $
 
 For a more detailed explanation of the drastic changes happened in Kubeflow v1.1 on Google Cloud, read [kubeflow/gcp-blueprints #123](https://github.com/kubeflow/gcp-blueprints/issues/123).
 
-## Next steps
+## 下一步
 * [Deploy Kubeflow](/docs/distributions/gke/deploy/deploy-cli) using kubectl, kustomize and kpt.
 

@@ -223,7 +223,7 @@ Katib has these CRD examples in upstream:
 
 By offering the above worker job types, Katib supports multiple ML frameworks.
 
-## Next steps
+## 下一步
 
 Follow the [getting-started guide](/docs/components/katib/hyperparameter/)
 to set up Katib and run some hyperparameter tuning examples.

@@ -50,7 +50,7 @@ master should share the same identity management.
 ## Supported platforms
 * Kubeflow multi-tenancy is enabled by default if you deploy Kubeflow on GCP with [IAP](/docs/gke/deploy).
 
-## Next steps
+## 下一步
 
 * Learn [how to use multi-user isolation and profiles](/docs/components/multi-tenancy/getting-started/).
 * Read more about [Istio in Kubeflow](/docs/external-add-ons/istio/istio-in-kubeflow/).

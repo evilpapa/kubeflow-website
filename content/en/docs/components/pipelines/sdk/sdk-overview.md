@@ -196,7 +196,7 @@ Use the following options to create or reuse pipeline components.
     [Learn more about reusing prebuilt components](/docs/examples/shared-resources/).
 
 
-## Next steps
+## 下一步
 
 * Learn how to [write recursive functions in the 
   DSL](/docs/components/pipelines/sdk/dsl-recursion).

@@ -958,7 +958,7 @@ View the results of the experiment in the Katib UI:
      alt="Trials that ran during the experiment"
      class="mt-3 mb-3 border border-info rounded">
 
-## Next steps
+## 下一步
 
 - Learn how to run the
   [random search algorithm and other Katib examples](/docs/components/katib/hyperparameter/#random-search).

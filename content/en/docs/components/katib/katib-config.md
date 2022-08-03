@@ -436,7 +436,7 @@ any other settings, a default value is set automatically.
 
    The default value is `IfNotPresent`
 
-## Next steps
+## 下一步
 
 - Learn how to
   [configure and run your Katib experiments](/docs/components/katib/experiment/).

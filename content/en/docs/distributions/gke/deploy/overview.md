@@ -47,7 +47,7 @@ Once you finish deployment, you will be able to:
     alt="Full Kubeflow Central Dashboard"
     class="mt-3 mb-3 border border-info rounded">
 
-## Next steps
+## 下一步
 
 * Repeat [Deploy Kubeflow Cluster](/docs/distributions/gke/deploy/deploy-cli/) if you want to deploy multiple clusters.
 * Run a full ML workflow on Kubeflow, using the [end-to-end MNIST tutorial](/docs/distributions/gke/gcp-e2e/).

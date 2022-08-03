@@ -1,31 +1,31 @@
 +++
-title = "Submit Kubernetes Resources"
-description = "Submitting Kubernetes resources from a Notebook"
+title = "提交 Kubernetes 资源"
+description = "从 Notebook 提交 Kubernetes 资源"
 weight = 40
                     
 +++
 
 ## Notebook Pod ServiceAccount
 
-Kubeflow assigns the `default-editor` Kubernetes ServiceAccount to the Notebook Pods.
-The Kubernetes `default-editor` ServiceAccount is bound to the `kubeflow-edit` ClusterRole, which has namespace-scoped permissions to many Kubernetes resources.
+Kubeflow 将 Kubernetes ServiceAccount `default-editor` 分配给 Notebook Pod。
+Kubernetes `default-editor` ServiceAccount 绑定到 `kubeflow-edit` ClusterRole，它对许多 Kubernetes 资源具有命名空间范围的权限。
 
-You can get the full list of RBAC for `ClusterRole/kubeflow-edit` using:
+你可以使用如下命令获取所有 `ClusterRole/kubeflow-edit` RBAC 的信息：
 ```
 kubectl describe clusterrole kubeflow-edit
 ```
 
-## Kubectl in Notebook Pod
+## Notebook Pod 中的 Kubectl
 
-Because every Notebook Pod has the highly-privileged `default-editor` Kubernetes ServiceAccount bound to it, you can run `kubectl` inside it without providing additional authentication.
+因为每个 Notebook Pod 都绑定了高权限的 Kubernetes ServiceAccount `default-editor`，所以您可在其中运行 `kubectl` 而无需提供额外的身份验证。
 
-For example, the following command will create the resources defined in `test.yaml`:
+例如，以下命令将创建中定义的资源 `test.yaml`：
 
 ```shell
 kubectl create -f "test.yaml" --namespace "MY_PROFILE_NAMESPACE"
 ```
 
-## Next steps
+## 下一步
 
-- See the Kubeflow Notebook [quickstart guide](/docs/components/notebooks/quickstart-guide/).
-- Explore the other [components of Kubeflow](/docs/components/).
+- 参阅 Kubeflow Notebook [入门指南](/docs/components/notebooks/quickstart-guide/)。
+- 探索其他 [Kubeflow 组件](/docs/components/)。

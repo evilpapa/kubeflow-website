@@ -268,7 +268,7 @@ _**Important notice**: Exposing cluster/compute resources publicly without setti
 is very insecure and can have very serious consequences(even legal). If there is no need to expose cluster services publicly,
 Socks proxy method or `kubectl port-forward` method are recommended._
 
-## Next steps: secure the Kubeflow dashboard with HTTPS
+## 下一步: secure the Kubeflow dashboard with HTTPS
 
 ### Prerequisites
 

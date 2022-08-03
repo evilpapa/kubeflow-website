@@ -52,7 +52,7 @@ export PATH=/some/path:$PATH
 # order is important here. $PATH needs to be the last thing. We are trying to put our kustomize before the kustomize installtion in system.
 ```
 
- ## Next Steps
+ ## 下一步
 
  1. Check [Kubeflow Compatibility](/docs/distributions/ibm/deploy/iks-compatibility)
  2. Go here for installing [Kubeflow on IKS](/docs/distributions/ibm/deploy/install-kubeflow-on-iks)

@@ -16,6 +16,6 @@ You can view the connection between Artifacts and Executions across Pipeline Run
 one Artifact is being used by multiple Executions in different Runs. This connection visualization
 is called a *Lineage Graph*.
 
-## Next steps
+## 下一步
 
 * Learn about [output Aritfact](/docs/components/pipelines/concepts/output-artifact).

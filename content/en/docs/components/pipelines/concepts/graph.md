@@ -22,7 +22,7 @@ At the top right of each node is an icon indicating its status: running,
 succeeded, failed, or skipped. (A node can be skipped when its 
 parent contains a conditional clause.)
 
-## Next steps
+## 下一步
 
 * Read an [overview of Kubeflow Pipelines](/docs/components/pipelines/introduction/).
 * Follow the [pipelines quickstart guide](/docs/components/pipelines/overview/quickstart/) 

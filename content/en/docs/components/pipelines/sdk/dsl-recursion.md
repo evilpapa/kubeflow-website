@@ -91,6 +91,6 @@ access the output from the recursive functions.
 * A known [issue](https://github.com/kubeflow/pipelines/issues/1065) is that the recursion fails to work when there are 
 multiple recursive function calls in the function body.
 
-## Next steps
+## 下一步
 
 * See [recursion sample](https://github.com/kubeflow/pipelines/blob/master/samples/core/recursion/recursion.py)

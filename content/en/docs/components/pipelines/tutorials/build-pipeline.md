@@ -124,7 +124,7 @@ The following notebooks are available:
   component. Note that the container image may not be self contained because the 
   source code is not built into the container.
 
-## Next steps
+## 下一步
 
 * Learn the various ways to use the [Kubeflow Pipelines 
   SDK](/docs/components/pipelines/sdk/sdk-overview/).

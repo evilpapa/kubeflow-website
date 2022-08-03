@@ -1,10 +1,10 @@
 +++
 title = "Notebook (v1)"
-description = "Reference documentation for the `v1` version of the `Notebook` resource"
+description = "`Notebook` 资源 `v1` 版本参考手册"
 weight = 10
 +++
 
-<p>Packages:</p>
+<p>包:</p>
 <ul>
 <li>
 <a href="#kubeflow.org%2fv1">kubeflow.org/v1</a>
@@ -12,26 +12,26 @@ weight = 10
 </ul>
 <h2 id="kubeflow.org/v1">kubeflow.org/v1</h2>
 <p>
-<p>Package v1 contains API Schema definitions for the kubeflow.org v1 API group</p>
+<p>v1 包包含了 kubeflow.org v1 API 组定义的 API 架构 </p>
 </p>
-Resource Types:
+资源类型：
 <ul></ul>
 <h3 id="kubeflow.org/v1.Notebook">Notebook
 </h3>
 <p>
-<p>Notebook is the Schema for the notebooks API</p>
+<p>Notebook 是 notebooks API 的架构</p>
 </p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
-<th>Description</th>
+<th>字段</th>
+<th>描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>
-<code>metadata</code></br>
+<code>元数据</code></br>
 <em>
 <a href="https://v1-18.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
 Kubernetes meta/v1.ObjectMeta
@@ -39,8 +39,8 @@ Kubernetes meta/v1.ObjectMeta
 </em>
 </td>
 <td>
-Refer to the Kubernetes API documentation for the fields of the
-<code>metadata</code> field.
+参考 Kubernetes API 文档的
+<code>metadata</code> 字段.
 </td>
 </tr>
 <tr>

@@ -50,7 +50,7 @@ Please see our [tutorials](https://docs.feast.dev/tutorials/tutorials-overview) 
 * [Fraud detection on GCP](https://docs.feast.dev/tutorials/fraud-detection)
 * [Real-time credit scoring on AWS](https://docs.feast.dev/tutorials/real-time-credit-scoring-on-aws)
 
-## Next steps
+## 下一步
 
 * For more details on Feast concepts please see the [Feast documentation](https://docs.feast.dev/)
 

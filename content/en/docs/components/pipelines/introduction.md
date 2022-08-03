@@ -272,7 +272,7 @@ At a high level, the execution of a pipeline proceeds as follows:
   information about individual pipeline runs, execution status about individual
   pipeline runs.
 
-## Next steps
+## 下一步
 
 * Follow the 
   [pipelines quickstart guide](/docs/components/pipelines/overview/quickstart) to 

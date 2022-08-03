@@ -122,7 +122,7 @@ GKE][kubeflow-gcp-install] to set one up.
     gcloud container clusters get-credentials $CLUSTER_NAME --region $ZONE
     ```
 
-## Next steps
+## 下一步
 
 *  Follow the [GCP samples and tutorials][tutorials] to learn more about how to run
    training jobs remotely on GCP with Kubeflow Fairing. 

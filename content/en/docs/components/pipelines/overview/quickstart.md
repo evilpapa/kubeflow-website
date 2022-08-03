@@ -91,7 +91,7 @@ Follow these steps to run the sample:
 
 You can find the [source code for the **XGBoost - Iterative model training** demo](https://github.com/kubeflow/pipelines/tree/master/samples/core/xgboost_training_cm) in the Kubeflow Pipelines repo.
 
-## Next steps
+## 下一步
 
 * Learn more about the 
   [important concepts](/docs/pipelines/overview/concepts/) in Kubeflow

@@ -126,7 +126,7 @@ Check the
 [`from-volume-resume.yaml`](https://github.com/kubeflow/katib/blob/master/examples/v1beta1/resume-experiment/from-volume-resume.yaml#L18)
 example for more details.
 
-## Next steps
+## 下一步
 
 - Learn how to
   [configure and run your Katib experiments](/docs/components/katib/experiment/).

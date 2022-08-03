@@ -17,7 +17,7 @@ start Docker containers, and the containers in turn start your programs.
 
 After developing your pipeline, you can upload your pipeline using the Kubeflow Pipelines UI or the Kubeflow Pipelines SDK.
 
-## Next steps
+## 下一步
 * Read an [overview of Kubeflow Pipelines](/docs/components/pipelines/introduction/).
 * Follow the [pipelines quickstart guide](/docs/components/pipelines/overview/quickstart/) 
   to deploy Kubeflow and run a sample pipeline directly from the Kubeflow 
