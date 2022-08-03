@@ -1,5 +1,5 @@
 +++
-title = "Quickstart Guide"
+title = "快速指引"
 description = "Getting started with Kubeflow Notebooks"
 weight = 10
                     

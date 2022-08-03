@@ -1,5 +1,5 @@
 +++
-title = "Jupyter TensorFlow Examples"
+title = "Jupyter TensorFlow 示例"
 description = "Examples using Jupyter and TensorFlow in Kubeflow Notebooks"
 weight = 40
 

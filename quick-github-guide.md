@@ -1,4 +1,4 @@
-# Quick guide to working with a GitHub repository
+# GitHub 存储库快速工作指引
 
 This page is intended for people who want to update the
 [Kubeflow docs](https://www.kubeflow.org/docs/) and
@@ -6,7 +6,7 @@ who don't use Git or GitHub often. The page gives you a quick guide to
 get going with a GitHub repository, using either the GitHub web user interface 
 (UI) or Git on the command line.
 
-## Using the GitHub web UI
+## 使用 GitHub web UI
 
 **Note:** The GitHub web UI is suitable for quick updates to a single file. If
 your update is more complex or you need to update more than one file within one

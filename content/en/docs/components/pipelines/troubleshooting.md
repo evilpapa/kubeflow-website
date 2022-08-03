@@ -1,5 +1,5 @@
 +++
-title = "Troubleshooting"
+title = "问题排查"
 description = "Troubleshooting guide for Kubeflow Pipelines"
 weight = 90
                     

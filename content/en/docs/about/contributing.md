@@ -1,91 +1,91 @@
 +++
-title = "Contributing"
-description = "Guidelines for contributing to Kubeflow"
+title = "贡献"
+description = "Kubeflow 贡献指引"
 weight = 20
 aliases = ["/docs/contributing/"]
 +++
 
-This document is the single source of truth for how to contribute to the code base.
-We'd love to accept your patches and contributions to this project.
-There are just a few small guidelines you need to follow.
+本文档是有关如何为代码库做出贡献的唯一真实来源。
+我们很乐意接受您对该项目的补丁和贡献。
+您只需要遵循一些小准则。
 
-## Getting Started
+## 开始
 
 ### Sign the CLA
 
-Contributions to this project must be accompanied by a Contributor License Agreement (CLA).
-You (or your employer) retain the copyright to your contribution.
-This gives us permission to use and redistribute your contributions as part of the project.
-Head over to <https://cla.developers.google.com/> to see your current agreements on file or to sign a new one.
+对该项目的贡献必须附有贡献者许可协议 (CLA)。 
+您（或您的雇主）保留您贡献的版权。
+这使我们有权在项目中使用和重新分配您的贡献。
+前往 <https://cla.developers.google.com/> 查看您当前存档的协议或签署新协议。
 
-You generally only need to submit a CLA once, so if you've already submitted one (even if it was for a different project),
-you probably don't need to do it again.
+您通常只需要提交一次 CLA，因此如果您已经提交了一份（即使是针对不同的项目），
+您可能不需要再次提交。
 
-### Follow the code of conduct
+### 遵守行为准则
 
-Please make sure to read and observe our [Code of Conduct](https://github.com/kubeflow/community/blob/master/CODE_OF_CONDUCT.md)
-and [inclusivity document](https://github.com/kubeflow/community/blob/master/INCLUSIVITY.md).
+请务必阅读并遵守我们的[行为准则](https://github.com/kubeflow/community/blob/master/CODE_OF_CONDUCT.md)和
+[包容性文件](https://github.com/kubeflow/community/blob/master/INCLUSIVITY.md)。
 
-## Joining the community
+## 加入社区
 
-Follow these instructions if you want to:
+如果您想执行以下操作，请遵循以下说明：
 
-- Become a member of the Kubeflow GitHub org (see below)
-- Become part of the Kubeflow build cop or release teams
-- Be recognized as an individual or organization contributing to Kubeflow
+- 成为 Kubeflow GitHub 组织的成员（见下文）
+- 成为 Kubeflow 构建警察或发布团队的一员
+- 被认可为对 Kubeflow 做出贡献的个人或组织
 
-### Joining the Kubeflow GitHub Org
+### 加入 Kubeflow GitHub 组织
 
-Before asking to join the community, we ask that you first make a small number of contributions
-to demonstrate your intent to continue contributing to Kubeflow.
+在要求加入社区之前，我们要求您首先做出少量贡献，
+以表明您打算继续为 Kubeflow 做出贡献。
 
-- **Note**: Anyone can contribute to Kubeflow, adding yourself as a member in [org.yaml](https://github.com/kubeflow/internal-acls/blob/master/github-orgs/kubeflow/org.yaml)
-  is not a mandatory step.
+- **注意**: 任何人都可以为 Kubeflow 做出贡献，将自己
+  添加为 [org.yaml](https://github.com/kubeflow/internal-acls/blob/master/github-orgs/kubeflow/org.yaml) 中的成员不是强制性的步骤。 
 
-There are a number of ways to contribute to Kubeflow:
+有多种方式可以为 Kubeflow 做出贡献：
 
-- Submit PRs
-- File issues reporting bugs or providing feedback
-- Answer questions on Slack or GitHub issues
+- 提交 PRs
+- 报告错误或提供反馈的文件问题
+- 回答有关 Slack 或 GitHub 讨论的问题
 
-You can use this [table](http://devstats.kubeflow.org/d/9/developers-summary) to see how many contributions you've made.
+您可以使用[此表](http://devstats.kubeflow.org/d/9/developers-summary)查看您做出了多少贡献。
 
-- **Note**: This only counts GitHub related ways of contributing
+- **注意**: 这仅计算 GitHub 相关的贡献方式
 
-When you are ready to join
+当你已经准备加入
 
-- Send a PR adding yourself as a member in [org.yaml](https://github.com/kubeflow/internal-acls/blob/master/github-orgs/kubeflow/org.yaml#L19).
-  Follow the instructions in [Joining the Kubeflow GitHub organization](https://github.com/kubeflow/internal-acls#joining-kubeflow-github-organization)
-  for more information about artifacts to include with your PR and how to test your PR.
-- After the PR is merged an admin will send you an invitation
-  - This is a manual process that's generally run a couple of times a week
-  - If a week passes without receiving an invitation reach out on [kubeflow#community](https://kubeflow.slack.com/messages/C8Q0QJYNB/convo/CABQ2BWHW-1544147308.002500/)
+- 发送 PR 将自己添加为 [org.yaml](https://github.com/kubeflow/internal-acls/blob/master/github-orgs/kubeflow/org.yaml#L19) 的成员。
+  按照[加入 Kubeflow GitHub 组织中的说明](https://github.com/kubeflow/internal-acls#joining-kubeflow-github-organization)，
+  了解有关要包含在 PR 中的工件以及如何测试 PR 的更多信息。
+- PR 合并后，管理员会向您发送邀请
+  - 这是一个手动过程，通常每周运行几次
+  - 如果一周后没有收到邀请，请在 [kubeflow#community](https://kubeflow.slack.com/messages/C8Q0QJYNB/convo/CABQ2BWHW-1544147308.002500/) 联系
 
-### Companies/organizations
+### 公司/组织
 
-If you would like your company or organization to be acknowledged for contributing to Kubeflow,
-or participating in the community (being a user counts),
-please send a PR adding the relevant info to [member_organizations.yaml](https://github.com/kubeflow/community/blob/master/member_organizations.yaml).
+如果您希望您的公司或组织因对 Kubeflow 做出贡献
+或参与社区（作为用户数）而获得认可，
+请发送 PR，将相关信息添加到 [member_organizations.yaml](https://github.com/kubeflow/community/blob/master/member_organizations.yaml)。
 
-If you want your employee's GitHub contributions to be attributed to your company,
-please ask them to set the company field in their GitHub profile.
+如果您希望员工的 GitHub 贡献归因于您的公司，
+请让他们在其 GitHub 个人资料中设置公司字段。
 
-## Your first contribution
+## 您的第一个贡献
 
-### Find something to work on
+### 找到可以做的事情
 
-Help is always welcome!
-For example, documentation (like the text you are reading now) can always use improvement.
-There's always code that can be clarified and variables or functions that can be renamed or commented.
-There's always a need for more test coverage.
-You get the idea - if you ever see something you think should be fixed, you should own it.
-Here is how you get started.
+随时欢迎帮助！
+例如，文档（如您现在正在阅读的文本）总是可以使用改进。
+总有可以阐明的代码和可以重命名或注释的变量或函数。
+总是需要更多的测试覆盖率。
+你明白了——如果你看到一些你认为应该修复的东西，你应该主导它。
+这是您如何开始的。
 
-### Starter issues
+### 入门问题
 
-To find Kubeflow issues that make good entry points:
+找到具有良好切入点的 Kubeflow 问题：
 
-- Start with issues labeled **good first issue**.
+- 从标记的 **good first issue** 开始。
   For example, see the good first issues in the [kubeflow/website repository](https://github.com/kubeflow/website/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
   for doc updates, and in the [kubeflow/kubeflow repository](https://github.com/kubeflow/kubeflow/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
   for updates to the core Kubeflow code.
@@ -307,14 +307,14 @@ We should strive to:
 - ensure OWNERS files only contain people are actively contributing to or reviewing the code they own
 - remove inactive people from OWNERS files
 
-Bad examples of OWNERS usage:
+OWNERS 使用的坏用例：
 
 - directories that lack OWNERS files, resulting in too many hitting root OWNERS
 - OWNERS files that have a single person as both approver and reviewer
 - OWNERS files that haven't been touched in over 6 months
 - OWNERS files that have non-collaborators present
 
-Good examples of OWNERS usage:
+OWNERS 良好用例：
 
 - there are more `reviewers` than `approvers`
 - the `approvers` are not in the `reviewers` section

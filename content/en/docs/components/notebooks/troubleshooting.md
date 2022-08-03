@@ -1,5 +1,5 @@
 +++
-title = "Troubleshooting"
+title = "问题排查"
 description = "Problems and solutions for common problems with Kubeflow Notebooks"
 weight = 100
                     

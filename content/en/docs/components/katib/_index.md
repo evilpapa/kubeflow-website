@@ -1,5 +1,5 @@
 +++
 title = "Katib"
-description = "Documentation for Kubeflow Katib"
+description = "Kubeflow Katib 文档"
 weight = 70
 +++

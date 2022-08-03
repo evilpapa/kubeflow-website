@@ -1,5 +1,5 @@
 +++
-title = "Registration Flow"
+title = "注册流程"
 description = "Setting up your namespace in Kubeflow"
 weight = 10
                     

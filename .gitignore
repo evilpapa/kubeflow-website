@@ -17,3 +17,6 @@ resources/
 #
 # vim files
 **/*.swp
+
+# hugo
+.hugo_build.lock

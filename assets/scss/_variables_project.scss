@@ -7,9 +7,9 @@ html.smooth-scroll {
 }
 
 // Theme colors
-$primary: #4279f4;
+$primary: #FF7E72;
 $secondary: #fff;
-$dark: #213d7a;
+$dark: #FF3E33;
 $info: #adb5bd;
 $light: #dee2e6;
 
@@ -35,9 +35,9 @@ $google_font_family: "Open+Sans:300,300i,400,400i,600,600i,700,700i&display=swap
   background-color: $dark;
 
   a {
-    border-bottom: 1px dotted paleturquoise;
+    border-bottom: 1px dotted #eeafd5;
     
-    color: paleturquoise !important;
+    color: #eeafd5 !important;
     font-weight: 600;
     padding: 0 2px 1px 2px;
     text-decoration: none;
@@ -92,11 +92,11 @@ $google_font_family: "Open+Sans:300,300i,400,400i,600,600i,700,700i&display=swap
     font-size: 1.125em;}
 
 #overview {
-  border-bottom: 2px solid #b6d0ff;
+  border-bottom: 2px solid #FFBAB1;
 }
 
 #community {
-  border-top: 2px solid #b6d0ff;
+  border-top: 2px solid #FFBAB1;
 }
 
 #pageContent .lead {

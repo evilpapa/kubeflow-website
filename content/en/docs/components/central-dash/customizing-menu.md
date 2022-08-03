@@ -1,6 +1,6 @@
 +++
-title = "Customizing menu items"
-description = "Customizing menu items to integrate third party apps"
+title = "自定义菜单"
+description = "自定义菜单选项来实现三方应用"
 weight = 10
                     
 +++

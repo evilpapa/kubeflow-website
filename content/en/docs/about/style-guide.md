@@ -1,5 +1,5 @@
 +++
-title =  "Documentation Style Guide"
+title =  "文档样式指引"
 description = "Style guide for writing Kubeflow documentation"
 weight = 90
 +++
@@ -16,7 +16,7 @@ The Kubeflow docs aim for:
 - Clear, concise writing so that readers can quickly find and understand the
   information they need.
 
-## Use standard American spelling
+## 使用标准美式拼写
 
 Use American spelling rather than Commonwealth or British spelling.
 Refer to [Merriam-Webster's Collegiate Dictionary, Eleventh Edition](http://www.merriam-webster.com/).

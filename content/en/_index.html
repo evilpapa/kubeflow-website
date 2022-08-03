@@ -5,18 +5,18 @@ title = "Kubeflow"
 <!-- Hero section -->
 {{<blocks/cover title="Kubeflow" image_anchor="center" color="dark">}}
 <div class="mx-auto">
-  <p class="lead mt-5">The Machine Learning Toolkit for Kubernetes</p>
+  <p class="lead mt-5">Kubernetes 机器学习工具集</p>
   <a
     class="btn btn-lg btn-primary mr-3 mb-4"
     href="/docs/started/"
   >
-    Get Started <i class="fas fa-arrow-alt-circle-right ml-2"></i>
+    入门 <i class="fas fa-arrow-alt-circle-right ml-2"></i>
   </a>
   <a
     class="btn btn-lg btn-secondary mr-3 mb-4"
     href="/docs/about/contributing/"
   >
-    Contribute <i class="fas fa-pencil-alt ml-2"></i>
+    贡献 <i class="fas fa-pencil-alt ml-2"></i>
   </a>
   <div class="mx-auto mt-5">
     {{<blocks/link-down color="light">}}
@@ -28,12 +28,12 @@ title = "Kubeflow"
   <div class="contain">
     <h4 class="section-head">What is Kubeflow?</h4>
     <p>
-      The Kubeflow project is dedicated to making deployments of machine
-      learning (ML) workflows on Kubernetes simple, portable and scalable. Our
-      goal is not to recreate other services, but to provide a straightforward
-      way to deploy best-of-breed open-source systems for ML to diverse
-      infrastructures. Anywhere you are running Kubernetes, you should be able
-      to run Kubeflow.
+      Kubeflow 项目致力于将机器学习 (ML) 部署到
+      Kubernetes 上简单化、可移植且可扩展。 我们的
+      目标不是重新创建其他服务，而是提供一种直接的方式来将
+      用于 ML 的同类最佳开源系统
+      部署到不同的基础设施。
+      在任何运行 Kubernetes 的地方，都应该能够运行 Kubeflow。
     </p>
   </div>
 </div>
@@ -52,10 +52,10 @@ title = "Kubeflow"
         <div class="card-body bg-primary-dark">
           <h5 class="card-title text-white section-head">Notebooks</h5>
           <p class="card-text text-white">
-            Kubeflow includes services to create and manage interactive <a target="_blank" rel="noopener" href="/docs/components/notebooks/">Jupyter
-            notebooks</a>.  You can customize your notebook deployment and your compute resources to
-            suit your data science needs. Experiment with your workflows locally, then
-            deploy them to a cloud when you're ready.
+            Kubeflow 包括创建和管理交互式的 <a target="_blank" rel="noopener" href="/docs/components/notebooks/">Jupyter
+            notebooks</a>。您可以自定义笔记本部署和计算资源
+            以满足您的数据科学需求。在本地试验您的工作流程，
+            然后在您准备好后将它们部署到云中。
           </p>
         </div>
       </div>
@@ -69,12 +69,12 @@ title = "Kubeflow"
         />
         <div class="card-body bg-primary-dark">
           <h5 class="card-title text-white section-head">
-            TensorFlow model training
+            TensorFlow 模型训练
           </h5>
           <p class="card-text text-white">
-            Kubeflow provides a custom <a target="_blank" rel="noopener" href="/docs/components/training/tftraining/">TensorFlow training job operator</a>
-            that you can use to train your ML model. In particular, Kubeflow's job operator can handle distributed TensorFlow training jobs. 
-            Configure the training controller to use CPUs or GPUs and to suit various cluster sizes.
+            Kubeflow 提供了一个自定义的 <a target="_blank" rel="noopener" href="/docs/components/training/tftraining/">TensorFlow 训练任务控制器</a>
+            你可以用来训练你自己的 ML 模型。通常 Kubeflow 的 job operator 可以处理分布式 TensorFlow 训练任务。
+            将训练控制器配置为使用 CPU 或 GPU 并适应各种集群大小。
           </p>
         </div>
       </div>
@@ -87,13 +87,13 @@ title = "Kubeflow"
           alt="Model serving image"
         />
         <div class="card-body bg-primary-dark">
-          <h5 class="card-title text-white section-head">Model serving</h5>
+          <h5 class="card-title text-white section-head">模型服务</h5>
           <p class="card-text text-white">
-            Kubeflow supports a <a target="_blank" rel="noopener" href="/docs/external-add-ons/serving/tfserving_new/">TensorFlow Serving</a> container to export trained
-            TensorFlow models to Kubernetes. Kubeflow is also integrated with
-            <a target="_blank" rel="noopener" href="/docs/external-add-ons/serving/seldon/">Seldon Core</a>, an open source platform for deploying machine learning
-            models on Kubernetes, <a target="_blank" rel="noopener" href="/docs/external-add-ons/serving/tritoninferenceserver/">NVIDIA Triton Inference Server</a> for
-            maximized GPU utilization when deploying ML/DL models at scale, and <a target="_blank" rel="noopener" href="/docs/external-add-ons/serving/mlrun/">MLRun Serving</a>, an open-source serverless framework for deployment and monitoring of real-time ML/DL pipelines.
+            Kubeflow 支持 <a target="_blank" rel="noopener" href="/docs/external-add-ons/serving/tfserving_new/">TensorFlow Serving</a> 容器将经过训练的 TensorFlow
+            模型导出到 Kubernetes。 Kubeflow 还集成了
+            <a target="_blank" rel="noopener" href="/docs/external-add-ons/serving/seldon/">Seldon Core</a>，在 Kubernetes 上部署机器学习模型的
+            开源平台，在大规模部署 ML/DL 模型时最大化 GPU 利用率的 <a target="_blank" rel="noopener" href="/docs/external-add-ons/serving/tritoninferenceserver/">NVIDIA Triton Inference Server</a>
+            以及 <a target="_blank" rel="noopener" href="/docs/external-add-ons/serving/mlrun/">MLRun Serving</a>，用于部署和监控的开源无服务器框架。
           </p>
         </div>
       </div>
@@ -109,11 +109,11 @@ title = "Kubeflow"
           alt="Pipelines Logo"
         />
         <div class="card-body bg-primary-dark">
-          <h5 class="card-title text-white section-head">Pipelines</h5>
+          <h5 class="card-title text-white section-head">工作流</h5>
           <p class="card-text text-white">
-			<a target="_blank" rel="noopener" href="/docs/components/pipelines/introduction/" >Kubeflow Pipelines</a> is a comprehensive solution for deploying
-            and managing end-to-end ML workflows. Use Kubeflow Pipelines for rapid and reliable experimentation.
-            You can schedule and compare runs, and examine detailed reports on each run.
+			<a target="_blank" rel="noopener" href="/docs/components/pipelines/introduction/" >Kubeflow 工作流</a> Pipeline是部署和管理端到端ML工作流的综合解决方案。
+            使用Kubeflow管道进行快速可靠的实验。
+            您可以安排和比较运行，并检查每次运行的详细报告。
           </p>
         </div>
       </div>
@@ -126,21 +126,21 @@ title = "Kubeflow"
           alt="Multiple Framework Logos"
         />
         <div class="card-body bg-primary-dark">
-          <h5 class="card-title text-white section-head">Multi-framework</h5>
+          <h5 class="card-title text-white section-head">多框架支持</h5>
           <p class="card-text text-white">
-            Our development plans extend beyond TensorFlow. We're working
-			hard to extend the support of 
+            我们的发展计划超越了TensorFlow。我们正在工作
+            难以扩展的支持
 			<a target="_blank" rel="noopener" href="/docs/components/training/pytorch/">PyTorch</a>, 
 			<a target="_blank" rel="noopener" href="/docs/components/training/mxnet/"> Apache MXNet</a>, 
 		  	<a target="_blank" rel="noopener" href="/docs/components/training/mpi/"> MPI</a>,
 		  	<a target="_blank" rel="noopener" href="/docs/components/training/xgboost/"> XGBoost</a>,
-			<a target="_blank" rel="noopener" href="/docs/components/training/chainer/"> Chainer</a>, and more. We
-			also integrate with 
-			<a target="_blank" rel="noopener" href="https://istio.io/">Istio</a> and 
-			<a target="_blank" rel="noopener" href="https://www.getambassador.io/">Ambassador</a> for ingress, 
-			<a target="_blank" rel="noopener" href="https://nuclio.io/">Nuclio</a> as a
-            fast multi-purpose serverless framework, and <a target="_blank" rel="noopener" href="https://www.pachyderm.io/">Pachyderm</a> for managing
-            your data science pipelines.
+			<a target="_blank" rel="noopener" href="/docs/components/training/chainer/"> Chainer</a> 等等。我们
+			也集成了
+			<a target="_blank" rel="noopener" href="https://istio.io/">Istio</a> 及
+			<a target="_blank" rel="noopener" href="https://www.getambassador.io/">Ambassador</a> 流量入口，
+			<a target="_blank" rel="noopener" href="https://nuclio.io/">Nuclio</a> 作为一个
+            快速多用途服务网格框架，并使用 <a target="_blank" rel="noopener" href="https://www.pachyderm.io/">Pachyderm</a> 管理
+            你的数据实验工作流。
           </p>
         </div>
       </div>
@@ -153,10 +153,10 @@ title = "Kubeflow"
           alt="People Icon"
         />
         <div class=" card-body bg-primary-dark">
-          <h5 class="card-title text-white section-head">Community</h5>
+          <h5 class="card-title text-white section-head">社区</h5>
           <p class="card-text text-white">
-            We are an open and welcoming community of software developers, data scientists, and organizations!
-            Join our <a target="_blank" rel="noopener" href="/docs/about/community/#slack">Slack Workspace</a>!
+            我们是一个开放、欢迎软件开发人员、数据科学家和组织的社区！
+            加入 <a target="_blank" rel="noopener" href="/docs/about/community/#slack">Slack 工作空间</a>!
           </p>
         </div>
       </div>
@@ -169,16 +169,16 @@ title = "Kubeflow"
 
 <div id="community">
   <div class="contain">
-    <h4 class="section-head">Join our community</h4>
+    <h4 class="section-head">加入社区</h4>
     <p>
-      Check out the <a href="/docs/about/community/#weekly-community-call">weekly community call</a>, get involved in discussions on the <a href="/docs/about/community/#mailing-list">mailing list</a> or chat with others on the <a href="/docs/about/community/#slack">Slack Workspace</a>!
+      查看 <a href="/docs/about/community/#weekly-community-call">每周社区电话</a>，直接参与 <a href="/docs/about/community/#mailing-list">mailing list</a>讨论或者在 <a href="/docs/about/community/#slack">Slack Workspace</a>与其他人沟通！
     </p>
 
     <a
       class="btn btn-lg btn-primary mr-3 mb-4"
       href="/docs/about/community/"
     >
-      Join the community <i class="fas fa-arrow-alt-circle-right ml-2"></i>
+      加入社区 <i class="fas fa-arrow-alt-circle-right ml-2"></i>
     </a>
   </div>
 </div>

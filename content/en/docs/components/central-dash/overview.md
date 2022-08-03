@@ -1,6 +1,6 @@
 +++
-title = "Central Dashboard"
-description = "Overview of the Kubeflow user interfaces (UIs)"
+title = "看板中心"
+description = "Kubeflow 用户界面 (UI) 简介"
 weight = 10
 
 +++

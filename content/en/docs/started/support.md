@@ -1,146 +1,140 @@
 +++
-title = "Get Support"
-description = "Where to get support for Kubeflow"
+title = "获取支持"
+description = "从哪里获取 Kubeflow 支持"
 weight = 80
 +++
 
-This page describes the Kubeflow resources and support options that you can
-explore when you encounter a problem, have a question, or want to make a
-suggestion about Kubeflow.
+本页面描述了当您遇到问题、有疑问或想
+对 Kubeflow 提出建议时可以
+探索的 Kubeflow 资源和支持选项。
 
 <a id="application-status"></a>
-## Application status
+## 应用状态
 
-Starting from the release of Kubeflow v1.0, the Kubeflow community
-attributes *stable status* to those applications and components that
-meet a defined level of stability, supportability, and upgradability.
+从 Kubeflow v1.0 发布开始，Kubeflow 社区
+将*稳定状态*归于那些满足定义的
+稳定性、可支持性和可升级性级别的应用程序和组件。
 
-When you deploy Kubeflow to a Kubernetes cluster, your deployment includes a
-number of applications. Application versioning is independent of Kubeflow
-versioning. An application moves to version 1.0 when the application meets
-certain [criteria](https://github.com/kubeflow/community/blob/master/guidelines/application_requirements.md)
-in terms of stability, upgradability, and the provision of services such as
-logging and monitoring.
+当您将 Kubeflow 部署到 Kubernetes 集群时，您的部署
+包括许多应用程序。应用程序版本控制
+独立于 Kubeflow 版本控制。
+当应用程序在稳定性、可升级性以及日志记录和监控等服务的提供方面
+满足某些[标准](https://github.com/kubeflow/community/blob/master/guidelines/application_requirements.md)时，
+应用程序将迁移到 1.0 版。
 
-When an application moves to version 1.0, the Kubeflow community will
-decide whether to mark that version of the application as *stable* in the next
-major or minor release of Kubeflow.
+当应用程序迁移到 1.0 版本时，Kubeflow 社区将决定
+是否在 Kubeflow 的下一个主要或次要版本中
+将该应用程序版本标记为*稳定*。
 
-Application status indicators for Kubeflow:
+Kubeflow 的应用状态指标：
 
-* **Stable** means that the application complies with the
-  [criteria](https://github.com/kubeflow/community/blob/master/guidelines/application_requirements.md)
-  to reach application version 1.0, and that the Kubeflow community has deemed
-  the application stable for this release of Kubeflow.
-* **Beta** means that the application is working towards a version 1.0 release
-  and its maintainers have communicated a timeline for satisfying the criteria
-  for the stable status.
-* **Alpha** means that the application is in the early phases of
-  development and/or integration into Kubeflow.
+* **稳定** 意味着应用程序符合 达到应用程序版本 1.0 的
+  [标准](https://github.com/kubeflow/community/blob/master/guidelines/application_requirements.md)，
+  并且 Kubeflow 社区已经认为该应用程序对于这个版本的 Kubeflow 是稳定的。 
+* **Beta** 意味着该应用程序正在向 1.0 版发布，
+  并且其维护者已经传达了满足稳定状态标准的时间表。
+* **Alpha** 意味着应用程序处于开发和/或集成
+  到 Kubeflow 的早期阶段。
 
 <a id="levels-of-support"></a>
-## Levels of support
+## 支持级别
 
-The following table describes the level of support that you can expect based on the status of an application:
+下表描述了您可以根据应用程序状态获得的支持级别：
 
 <div class="table-responsive">
   <table class="table table-bordered">
     <thead class="thead-light">
       <tr>
-        <th>Application status</th>
-        <th>Level of support</th>
+        <th>应用状态</th>
+        <th>支持等级</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>Stable</td>
-        <td>The Kubeflow community offers <i>best-effort support</i> for stable
-          applications. See the section on 
-          <a href="#community-support">community support</a> below for a
-          definition of best-effort support and the community channels where you 
-          can report and discuss the problem. You can also consider requesting 
-          support from a 
-          <a href="#provider-support">Kubeflow community provider</a> or from 
-          your <a href="#cloud-support">cloud provider</a>.
+        <td>稳定</td>
+        <td>Kubeflow 社区为稳定的应用程序提供 <i>最大努力</i>的支持。
+          查看下面的
+          <a href="#community-support">社区支持</a>部分，
+          了解尽力支持的定义以及您可以报告和讨论问题的社区渠道。
+          您还可以考虑向 
+          <a href="#provider-support">Kubeflow community 提供商</a>或您的
+          <a href="#cloud-support">云提供商</a>请求支持。
         </td>
       </tr>
       <tr>
         <td>Beta</td>
-        <td>The Kubeflow community offers <i>best-effort support</i> for beta
-          applications. See the section on 
-          <a href="#community-support">community support</a> below for a
-          definition of best-effort support and the community channels where you 
-          can report and discuss the problem. 
+        <td>Kubeflow 社区为 beta 的应用程序提供 <i>最大努力</i>的支持。
+          查看下面的
+          <a href="#community-support">社区支持</a>，
+          了解尽力支持的定义以及您可以报告和讨论问题的社区渠道。
         </td>
       </tr>
       <tr>
         <td>Alpha</td>
-        <td>The response differs per application in alpha status, depending on
-          the size of the community for that application and the current level
-          of active development of the application.</td>
+        <td>在 alpha 状态下，
+          每个应用程序的响应都不同，
+          具体取决于该应用程序的社区规模和该应用程序的当前积极开发水平。
+        </td>
       </tr>
     </tbody>
   </table>
 </div>
 
 <a id="community-support"></a>
-## Support from the Kubeflow community
+## 来自 Kubeflow 社区的支持
 
-Kubeflow has an active and helpful community of users and contributors. 
+Kubeflow 拥有一个活跃且乐于助人的用户和贡献者社区。
 
-The Kubeflow community offers support on a best-effort basis for stable and beta
-applications.
-**Best-effort support** means that there's no formal agreement or
-commitment to solve a problem but the community appreciates the
-importance of addressing the problem as soon as possible. The community commits
-to helping you diagnose and address the problem if all the following are true:
+Kubeflow 社区尽最大努力为稳定和 beta 应用程序提供支持。
+**尽力而为的支持** 意味着没有正式的协议或承诺来解决问题，
+但社区认识到尽快解决问题的重要性。
+如果满足以下所有条件，
+社区将致力于帮助您诊断和解决问题：
 
-* The cause falls within the technical framework that Kubeflow controls. For
-  example, the Kubeflow community may not be able to help if the problem is 
-  caused by a specific network configuration within your organization.
-* Community members can reproduce the problem.
-* The reporter of the problem can help with further diagnosis and 
-  troubleshooting.
+* 原因属于 Kubeflow 控制的技术框架。例如，
+  如果问题是由组织内的特定网络配置引起的，
+  Kubeflow 社区可能无法提供帮助。
+* 社区成员可以重现该问题。
+* 问题的报告者可以帮助进行进一步的诊断和故障排除。
 
-You can ask questions and make suggestions in the following places:
+您可以在以下地方提出问题和建议：
 
-* **Slack** for online chat and messaging. See details of Kubeflow's 
-  [Slack workspace and channels](/docs/about/community/#slack).
-* **Kubeflow discuss** for email-based group discussion. Join the
-  [kubeflow-discuss](/docs/about/community/#mailing-list)
-  group.
-* **Kubeflow documentation** for overviews and how-to guides. In particular,
-  refer to the following documents when troubleshooting a problem:
+* **Slack** 用于在线聊天和消息传递。查看 Kubeflow 的 
+  [Slack 工作空间和频道](/docs/about/community/#slack).
+* **Kubeflow 讨论** 用于基于电子邮件的小组讨论。加入
+  [kubeflow-discuss](/docs/about/community/#mailing-list) 组。
+* 用于概述和操作指南的 **Kubeflow 文档**。通常，
+  排除问题时，尤其要参考以下文档：
 
-  * [Kubeflow installation and setup](/docs/started/getting-started/)
-  * [Kubeflow components](/docs/components/)
-  * [Further setup and troubleshooting](/docs/other-guides/)
+  * [Kubeflow 安装及设置](/docs/started/getting-started/)
+  * [Kubeflow 组件](/docs/components/)
+  * [进一步设置和故障排除](/docs/other-guides/)
 
-* **Kubeflow issue trackers** for known issues, questions, and feature requests.
-  Search the open issues to see if someone else has already logged the problem 
-  that you're encountering and learn about any workarounds to date. If no one
-  has logged your problem, create a new issue to describe the problem.
+* 用于已知问题、问题和功能请求的 **Kubeflow 问题追踪**。
+  搜索未解决的问题以查看其他人是否已经记录了您遇到的问题
+  并了解迄今为止的任何解决方法。
+  如果没有人记录您的问题，请创建一个新问题来描述问题。
 
-    Each Kubeflow application has its own issue tracker within the [Kubeflow
-    organization on GitHub](https://github.com/kubeflow). To get you started,
-    here are the primary issue trackers:
+    每个 Kubeflow 应用程序在 [GitHub 上的 Kubeflow 组织](https://github.com/kubeflow)内
+    都有自己的问题跟踪器。
+    为了帮助您入门，以下是主要的问题跟踪器：
 
-  * [Kubeflow core](https://github.com/kubeflow/kubeflow/issues)
-  * [kfctl command-line tool](https://github.com/kubeflow/kfctl/issues)
-  * [Kustomize manifests](https://github.com/kubeflow/manifests/issues)
+  * [Kubeflow 核心](https://github.com/kubeflow/kubeflow/issues)
+  * [kfctl 命令行工具](https://github.com/kubeflow/kfctl/issues)
+  * [Kustomize 清单](https://github.com/kubeflow/manifests/issues)
   * [Kubeflow Pipelines](https://github.com/kubeflow/pipelines/issues)
   * [Katib AutoML](https://github.com/kubeflow/katib/issues)
   * [Metadata](https://github.com/kubeflow/metadata/issues)
   * [Fairing notebook SDK](https://github.com/kubeflow/fairing/issues)
   * [Kubeflow Training (TFJob, PyTorchJob, MXJob, XGBoostJob)](https://github.com/kubeflow/training-operator/issues)
   * [KFServing](https://github.com/kubeflow/kfserving/issues)
-  * [Examples](https://github.com/kubeflow/examples/issues)
-  * [Documentation](https://github.com/kubeflow/website/issues)
+  * [示例](https://github.com/kubeflow/examples/issues)
+  * [文档](https://github.com/kubeflow/website/issues)
 
 <a id="provider-support"></a>
-## Support from providers in the Kubeflow ecosystem
+## 来自 Kubeflow 生态系统中的供应商的支持
 
-The following organizations offer advice and support for Kubeflow deployments:
+以下组织为 Kubeflow 部署提供建议和支持：
 
 <div class="table-responsive">
   <table class="table table-bordered">
@@ -157,72 +151,70 @@ The following organizations offer advice and support for Kubeflow deployments:
       </tr>
       <tr>
         <td><a href="https://www.ubuntu.com">Canonical</a></td>
-        <td><a href="https://ubuntu.com/kubeflow#get-in-touch">Get in touch</a></td>
+        <td><a href="https://ubuntu.com/kubeflow#get-in-touch">保持联系</a></td>
       </tr>
       <tr>
         <td><a href="https://www.pattersonconsultingtn.com/">Patterson Consulting</a></td>
         <td> 
-        <a href="http://www.pattersonconsultingtn.com/offerings/managed_kubeflow.html">Managed Kubeflow</a></td>
+        <a href="http://www.pattersonconsultingtn.com/offerings/managed_kubeflow.html">托管 Kubeflow</a></td>
       </tr>
       <tr>
         <td><a href="https://www.seldon.io/">Seldon</a></td>
         <td> 
-        <a href="https://github.com/SeldonIO/seldon-core/issues">Issue 
-        tracker</a></td>
+        <a href="https://github.com/SeldonIO/seldon-core/issues">问题 
+        追踪</a></td>
       </tr>    
     </tbody>
   </table>
 </div>
 
 <a id="cloud-support"></a>
-## Support from a cloud or platform provider
+## 来自云平台提供商的支持
 
-If you're using the services of a cloud provider to host Kubeflow, the cloud
-provider may be able to help you diagnose and solve a problem.
+如果您使用云提供商的服务来托管 Kubeflow，云提供商
+可能能够帮助您诊断和解决问题。
 
-Consult the support page for the cloud service or platform that you're using:
+请参阅您正在使用的云服务或平台的支持页面：
 
-* [Amazon Web Services (AWS)](https://aws.amazon.com/contact-us/)
+* [亚马逊网络服务 (AWS)](https://aws.amazon.com/contact-us/)
 * [Canonical Ubuntu](https://ubuntu.com/kubeflow#get-in-touch)
-* [Google Cloud Platform (GCP)](https://cloud.google.com/support-hub/)
+* [谷歌云平台 (GCP)](https://cloud.google.com/support-hub/)
 * [IBM Cloud](https://www.ibm.com/cloud/support)
 * [Microsoft Azure](https://azure.microsoft.com/en-au/support/options/)
 * [Red Hat OpenShift](https://help.openshift.com/)
 
-## Other places to ask questions
+## 其他可以提问的地方
 
-You can also try searching for answers or asking a question on Stack Overflow. 
-See the [questions tagged with
-“kubeflow”](https://stackoverflow.com/questions/tagged/kubeflow).
+您也可以尝试在 Stack Overflow 上搜索答案或提问。
+请查看 [带有
+“kubeflow” 标签的问题](https://stackoverflow.com/questions/tagged/kubeflow)。
 
-## Getting involved in the Kubeflow community
+## 参与 Kubeflow 社区
 
-You can get involved with Kubeflow in many ways. For example, you can
-contribute to the Kubeflow code or documentation. You can join the community
-meetings to talk to maintainers about a specific topic. See the
-[Kubeflow community page](/docs/about/community/) for further information.
+您可以通过多种方式参与 Kubeflow。例如，
+您可以为 Kubeflow 代码或文档做出贡献。
+您可以加入社区会议，与维护者讨论特定主题。有关更多信息，请参阅
+[Kubeflow community page](/docs/about/community/) 获取更多信息。
 
-## Following the news
+## 关注新闻
 
-Keep up with Kubeflow news:
+跟踪 Kubeflow 新闻：
 
-* The [Kubeflow blog](https://blog.kubeflow.org/) is the primary channel for
-  announcement of new releases, events, and technical walkthroughs.
-* Follow [Kubeflow on Twitter](https://twitter.com/kubeflow) for shared
-  technical tips.
-* The release notes give details of the latest updates for each Kubeflow 
-  application.
+* [Kubeflow 博客](https://blog.kubeflow.org/) 是发布
+  新版本、活动和技术演练的主要渠道。
+* 关注 [Kubeflow Twitter](https://twitter.com/kubeflow) 以获取
+  共享的技术提示。
+* 发行说明详细介绍了每个 Kubeflow 应用程序的最新更新。
 
-    Each Kubeflow application has its own repository within the [Kubeflow
-    organization on GitHub](https://github.com/kubeflow). Some of the 
-    applications publish release notes. To get you started,
-    here are the release notes for the primary applications:
+    每个 Kubeflow 应用程序在 [GitHub 上的 Kubeflow 组织](https://github.com/kubeflow)内都有自己的存储库。
+    一些应用程序发布发行说明。
+    为了帮助您入门，以下是主要应用程序的发行说明：
 
-  * [Kubeflow core](https://github.com/kubeflow/kubeflow/releases)
+  * [Kubeflow 核心](https://github.com/kubeflow/kubeflow/releases)
   * [Kubeflow Pipelines](https://github.com/kubeflow/pipelines/releases)
   * [Katib AutoML](https://github.com/kubeflow/katib/releases)
   * [Metadata](https://github.com/kubeflow/metadata/releases)
   * [Fairing notebook SDK](https://github.com/kubeflow/fairing/releases)
-  * [Kubeflow Training Operator](https://github.com/kubeflow/training-operator/releases)
+  * [Kubeflow Training 控制器](https://github.com/kubeflow/training-operator/releases)
   * [KFServing](https://github.com/kubeflow/kfserving/releases)
   
