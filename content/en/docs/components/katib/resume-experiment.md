@@ -1,6 +1,6 @@
 +++
-title = "Resuming an Experiment"
-description = "How to restart and modify running experiments"
+title = "实验恢复"
+description = "如何重启和修改正在运行的实验"
 weight = 40
                     
 +++

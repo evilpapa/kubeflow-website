@@ -1,6 +1,6 @@
 +++
-title = "Introduction to Multi-user Isolation"
-description = "Why do Kubeflow administrators need multi-user isolation?"
+title = "多用户隔离介绍"
+description = "Kubeflow 管理员为什么需要多用户隔离？"
 weight = 10
                     
 +++

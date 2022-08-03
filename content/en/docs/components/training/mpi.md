@@ -1,6 +1,6 @@
 +++
-title = "MPI Training (MPIJob)"
-description = "Instructions for using MPI for training"
+title = "MPI 训练 (MPIJob)"
+description = "MPI 训练说明"
 weight = 35
                     
 +++

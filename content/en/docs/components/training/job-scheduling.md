@@ -1,6 +1,6 @@
 +++
-title = "Job Scheduling"
-description = "How to schedule a job with gang-scheduling"
+title = "调度作业"
+description = "如何使用 gang-scheduling 来调度作业"
 weight = 60
                     
 +++

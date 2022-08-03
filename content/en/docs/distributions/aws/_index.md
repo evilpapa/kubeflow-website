@@ -1,6 +1,6 @@
 +++
-title = "Kubeflow on AWS"
-description = "Running Kubeflow on Amazon EKS and Amazon Web Services"
+title = "AWS 上的 Kubeflow"
+description = "在 Amazon EKS 和 Amazon Web Services 运行 Kubeflow"
 weight = 20
 +++
 

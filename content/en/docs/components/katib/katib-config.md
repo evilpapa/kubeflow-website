@@ -1,5 +1,5 @@
 +++
-title = "Katib Configuration Overview"
+title = "Katib 配置概览"
 description = "How to make changes in Katib configuration"
 weight = 70
                     

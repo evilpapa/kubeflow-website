@@ -1,5 +1,5 @@
 +++
-title = "Introduction to Katib"
+title = "Katib 简介"
 description = "Overview of Katib for hyperparameter tuning and neural architecture search"
 weight = 10
                     

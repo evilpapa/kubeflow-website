@@ -1,5 +1,5 @@
 +++
 title = "Pipelines SDK"
-description = "Information about the Kubeflow Pipelines SDK"
+description = "Kubeflow Pipelines SDK 信息"
 weight = 40
 +++

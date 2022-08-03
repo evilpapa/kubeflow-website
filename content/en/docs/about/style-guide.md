@@ -1,6 +1,6 @@
 +++
 title =  "文档样式指引"
-description = "Style guide for writing Kubeflow documentation"
+description = "编写 Kubeflow 文档的风格指南"
 weight = 90
 +++
 

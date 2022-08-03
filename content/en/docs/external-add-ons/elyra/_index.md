@@ -1,6 +1,6 @@
 +++
 title = "Elyra"
-description = "Elyra enables data scientists to visually create end-to-end machine learning (ML) workflows."
+description = "Elyra 使数据科学家能够直观地创建端到端机器学习 (ML) 工作流。"
 weight = 30
 +++
 

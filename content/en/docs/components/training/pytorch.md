@@ -1,6 +1,6 @@
 +++
-title = "PyTorch Training (PyTorchJob)"
-description = "Using PyTorchJob to train a model with PyTorch"
+title = "PyTorch 训练 (PyTorchJob)"
+description = "使用 PyTorchJob 训练 PyTorch 模型"
 weight = 15
                     
 +++

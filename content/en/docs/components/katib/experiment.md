@@ -1,5 +1,5 @@
 +++
-title = "Running an Experiment"
+title = "运行实验"
 description = "How to configure and run a hyperparameter tuning or neural architecture search experiment in Katib"
 weight = 30
 

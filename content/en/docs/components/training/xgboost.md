@@ -1,6 +1,6 @@
 +++
-title = "XGBoost Training (XGBoostJob)"
-description = "Using XGBoostJob to train a model with XGBoost"
+title = "XGBoost 训练 (XGBoostJob)"
+description = "使用 XGBoostJob 训练 XGBoost 模型"
 weight = 30
                     
 +++

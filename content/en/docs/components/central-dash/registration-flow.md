@@ -4,7 +4,7 @@ description = "在 Kubeflow 设置命名空间"
 weight = 10
                     
 +++
-{{% alert title="过期" color="warning" %}}
+{{% alert title="已过时" color="warning" %}}
 本指南包含有关 Kubeflow 1.0 的过时信息。本指南需要
 针对 Kubeflow 1.1 进行更新。
 {{% /alert %}}

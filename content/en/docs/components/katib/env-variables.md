@@ -1,6 +1,6 @@
 +++
-title = "Environment Variables for Katib Components"
-description = "How to set up environment variables for each Katib component"
+title = "Katib 组件环境变量"
+description = "如何为每个 Katib 组件设置环境变量"
 weight = 80
                     
 +++

@@ -1,24 +1,21 @@
 +++
-title = "TensorFlow Training (TFJob)"
-description = "Using TFJob to train a model with TensorFlow"
+title = "TensorFlow 训练 (TFJob)"
+description = "使用 TFJob 训练 Tensorflow 模型"
 weight = 10
                     
 +++
 
 {{% stable-status %}}
 
-This page describes `TFJob` for training a machine learning model with [TensorFlow](https://www.tensorflow.org/).
+本页描述使用 `TFJob` 训练 [TensorFlow](https://www.tensorflow.org/) 机器学习模型。
 
-## What is TFJob?
+## 什么是 TFJob？
 
-`TFJob` is a Kubernetes
-[custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)
-to run TensorFlow training jobs on Kubernetes. The Kubeflow implementation of
-`TFJob` is in [`training-operator`](https://github.com/kubeflow/training-operator).
+`TFJob` 是一个 Kubernetes [自定义资源](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) 用于在 Kubernetes 运行 TensorFlow 训练任务。Kubeflow 关于 `TFJob` 的实现在 [`training-operator`](https://github.com/kubeflow/training-operator)。
 
-**Note**: `TFJob` doesn't work in a user namespace by default because of Istio [automatic sidecar injection](https://istio.io/v1.3/docs/setup/additional-setup/sidecar-injection/#automatic-sidecar-injection). In order to get `TFJob` running, it needs annotation `sidecar.istio.io/inject: "false"` to disable it for `TFJob` pods.
+**注意**: `TFJob` 由于 Istio 的 [自动边车注入](https://istio.io/v1.3/docs/setup/additional-setup/sidecar-injection/#automatic-sidecar-injection)原因而不能运行在默认的命名空间。为了让 `TFJob` 能跑起来，需要为 `TFJob` pod 添加 `sidecar.istio.io/inject: "false"` 禁用注解。
 
-A `TFJob` is a resource with a YAML representation like the one below (edit to use the container image and command for your own training code):
+`TFJob` 资源的 YAML 表示类似如下（编辑并使用你自己的镜像及命令来实现你的训练代码）：
 
 ```yaml
 apiVersion: kubeflow.org/v1
@@ -64,7 +61,7 @@ spec:
                 - --training_steps=1000
 ```
 
-If you want to give your `TFJob` pods access to credentials secrets, such as the GCP credentials automatically created when you do a GKE-based Kubeflow installation, you can mount and use a secret like this:
+若要给 `TFJob` 赋予接入密钥的能力，比如通过 GKE 安装的 Kubeflow 自动接入 GCP 证书，可以如以下示例挂在和使用密钥：
 
 ```yaml
 apiVersion: kubeflow.org/v1
@@ -132,171 +129,140 @@ spec:
                 secretName: user-gcp-sa
 ```
 
-If you are not familiar with Kubernetes resources please refer to the page [Understanding Kubernetes Objects](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/).
+如果你不熟悉 Kubernetes 资源，请移步 [Understanding Kubernetes Objects](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) 页面。
 
-What makes `TFJob` different from built in [controllers](https://kubernetes.io/docs/concepts/workloads/controllers/) is the `TFJob` spec is designed to manage
-[distributed TensorFlow training jobs](https://www.tensorflow.org/guide/distributed_training).
+`TFJob` 与内置[控制器](https://kubernetes.io/docs/concepts/workloads/controllers/)的不同之处在于 `TFJob` 规范旨在管理[分布式 TensorFlow 训练作业](https://www.tensorflow.org/guide/distributed_training)。
 
-A distributed TensorFlow job typically contains 0 or more of the following processes
+一个分发的 TensorFlow 任务通常包含 0 或者多个以下处理器
 
-- **Chief** The chief is responsible for orchestrating training and performing tasks
-  like checkpointing the model.
-- **Ps** The ps are parameter servers; these servers provide a distributed data store
-  for the model parameters.
-- **Worker** The workers do the actual work of training the model. In some cases,
-  worker 0 might also act as the chief.
-- **Evaluator** The evaluators can be used to compute evaluation metrics as the model
-  is trained.
+- **Chief** chief 负责编排训练和执行任务，例如为模型设置检查点。
+- **Ps** ps 是参数服务器； 这些服务器为模型参数提供分布式数据存储。
+- **Worker** worker 进行模型训练的实际工作。 在某些情况下，worker 0 也可能担任 chief。
+- **Evaluator** 评估器可用于在训练模型时计算评估指标。
 
-The field **tfReplicaSpecs** in `TFJob` spec contains a map from the type of
-replica (as listed above) to the **TFReplicaSpec** for that replica. **TFReplicaSpec**
-consists of 3 fields
+`TFJob` 规范中的字段 **tfReplicaSpecs** 包含从副本类型（如上所列）到该副本的 **TFReplicaSpec** 的映射。 **TFReplicaSpec** 由 3 个字段组成
 
-- **replicas** The number of replicas of this type to spawn for this `TFJob`.
-- **template** A [PodTemplateSpec](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.11/#podtemplatespec-v1-core) that describes the pod to create
-  for each replica.
+- **replicas** 为此 `TFJob` 生成的此类副本的数量。
 
-  - **The pod must include a container named `tensorflow`**.
+- **template** [PodTemplateSpec](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.11/#podtemplatespec-v1-core) 描述要为每个副本创建的 pod。
 
-- **restartPolicy** Determines whether pods will be restarted when they exit. The
-  allowed values are as follows
+  - **pod 必须包含名为 `tensorflow` 的容器**.
 
-  - **Always** means the pod will always be restarted. This policy is good
-    for parameter servers since they never exit and should always be restarted
-    in the event of failure.
-  - **OnFailure** means the pod will be restarted if the pod exits due to failure.
+- **restartPolicy** 确定 pod 在退出时是否会重新启动。 允许的值如下
 
-    - A non-zero exit code indicates a failure.
-    - An exit code of 0 indicates success and the pod will not be restarted.
-    - This policy is good for chief and workers.
+  - **Always** 意味着 pod 将始终重新启动。 此策略适用于参数服务器，因为它们永远不会退出，并且应始终在发生故障时重新启动。
 
-  - **ExitCode** means the restart behavior is dependent on the exit code of
-    the `tensorflow` container as follows:
+  - **OnFailure** 表示如果 Pod 因故障退出，Pod 将重新启动。
 
-    - Exit code `0` indicates the process completed successfully and will
-      not be restarted.
+    - 非零退出代码表示失败。
+    - 退出代码 0 表示成功，Pod 不会重新启动。
+    - 这个策略对 chief 和 worker 都有好处。
 
-    - The following exit codes indicate a permanent error and the container
-      will not be restarted:
+  - **ExitCode** 表示重启行为取决于`tensorflow`容器的退出代码，如下所示：
 
-      - `1`: general errors
-      - `2`: misuse of shell builtins
-      - `126`: command invoked cannot execute
-      - `127`: command not found
-      - `128`: invalid argument to exit
-      - `139`: container terminated by SIGSEGV (invalid memory reference)
+    - 退出代码 `0` 表示该过程已成功完成并且不会重新启动。
+    - 以下退出代码表示永久错误，容器不会重新启动：
+      - `1`: 一般错误
+      - `2`: 滥用 shell 内置函数
+      - `126`: 调用的命令无法执行
+      - `127`: 找不到相关命令
+      - `128`: 退出参数无效
+      - `139`:  由 SIGSEGV 终止的容器（无效的内存引用）
+    - 以下退出代码表示可重试错误，容器将重新启动：
+      - `130`: 由 SIGINT 终止的容器（键盘 Control-C）
+      - `137`: 容器收到 SIGKILL
+      - `143`: 容器收到一个 SIGTERM
+    - 退出代码`138`对应于 SIGUSR1，并为用户指定的可重试错误保留。
+    - 其他退出代码未定义，并且无法保证行为。
 
-    - The following exit codes indicate a retryable error and the container
-      will be restarted:
+    有关退出代码的背景信息，请参阅[终止信号的 GNU 指南](https://www.gnu.org/software/libc/manual/html_node/Termination-Signals.html) 和[Linux 文档项目](http://tldp.org/LDP/abs/html/exitcodes.html)。
 
-      - `130`: container terminated by SIGINT (keyboard Control-C)
-      - `137`: container received a SIGKILL
-      - `143`: container received a SIGTERM
+  - **Never** 意味着终止的 pod 永远不会重新启动。应该很少使用此策略，因为 Kubernetes 会因多种原因终止 Pod（例如节点变得不健康），这将阻止作业恢复。
 
-    - Exit code `138` corresponds to SIGUSR1 and is reserved for
-      user-specified retryable errors.
+## 安装 TensorFlow Operator
 
-    - Other exit codes are undefined and there is no guarantee about the
-      behavior.
+如果您还没有这样做，请按照[入门指南](https://www.kubeflow.org/docs/started/getting-started/)部署 Kubeflow。
 
-    For background information on exit codes, see the [GNU guide to
-    termination signals](https://www.gnu.org/software/libc/manual/html_node/Termination-Signals.html)
-    and the [Linux Documentation
-    Project](http://tldp.org/LDP/abs/html/exitcodes.html).
+> 默认情况下，`TFJob`Operator 将被部署为训练 Operator 中的控制器。
 
-  - **Never** means pods that terminate will never be restarted. This policy
-    should rarely be used because Kubernetes will terminate pods for any number
-    of reasons (e.g. node becomes unhealthy) and this will prevent the job from
-    recovering.
+如果您想在没有 Kubeflow 的情况下安装独立版本的训练 Operator，请参阅[kubeflow/training-operator 的自述文件](https://github.com/kubeflow/training-operator#installation)。
 
-## Installing TensorFlow Operator
+### 验证您的 Kubeflow 部署中是否包含 TFJob 支持
 
-If you haven't already done so please follow the [Getting Started Guide](/docs/started/getting-started/) to deploy Kubeflow.
+检查是否安装了 TensorFlow 自定义资源：
 
-> By default, `TFJob` Operator will be deployed as a controller in training operator.
-
-If you want to install a standalone version of the training operator without Kubeflow,
-see the [kubeflow/training-operator's README](https://github.com/kubeflow/training-operator#installation).
-
-### Verify that TFJob support is included in your Kubeflow deployment
-
-Check that the TensorFlow custom resource is installed:
-
-```
+```fallback
 kubectl get crd
 ```
 
-The output should include `tfjobs.kubeflow.org` like the following:
+输出应包括以下 `tfjobs.kubeflow.org` 内容：
 
-```
+```fallback
 NAME                                             CREATED AT
 ...
 tfjobs.kubeflow.org                         2021-09-06T18:33:58Z
 ...
 ```
 
-Check that the Training operator is running via:
+通过以下方式检查 Training Operator 是否正在运行：
 
-```
+```fallback
 kubectl get pods -n kubeflow
 ```
 
-The output should include `training-operaror-xxx` like the following:
+输出应包括以下 `training-operaror-xxx` ：
 
-```
+```fallback
 NAME                                READY   STATUS    RESTARTS   AGE
 training-operator-d466b46bc-xbqvs   1/1     Running   0          4m37s
 ```
 
-## Running the Mnist example
+## 运行 Mnist 示例
 
-See the manifests for the [distributed MNIST example](https://github.com/kubeflow/training-operator/blob/master/examples/tensorflow/simple.yaml). You may change the config file based on your requirements.
+请参阅[分布式 MNIST 示例](https://github.com/kubeflow/training-operator/blob/master/examples/tensorflow/simple.yaml)清单。您可以根据您的要求更改配置文件。
 
-Deploy the `TFJob` resource to start training:
+部署`TFJob`资源开始训练：
 
-```
+```fallback
 kubectl create -f https://raw.githubusercontent.com/kubeflow/training-operator/master/examples/tensorflow/simple.yaml
 ```
 
-Monitor the job (see the [detailed guide below](#monitoring-your-job)):
+监控作业（请参阅[下面的详细指南](https://www.kubeflow.org/docs/components/training/tftraining/#monitoring-your-job)）：
 
-```
+```fallback
 kubectl -n kubeflow get tfjob tfjob-simple -o yaml
 ```
 
-Delete it
+删除它
 
-```
+```fallback
 kubectl -n kubeflow delete tfjob tfjob-simple
 ```
 
-## Customizing the TFJob
+## 自定义 TFJob
 
-Typically you can change the following values in the `TFJob` yaml file:
+通常，您可以在`TFJob` yaml 文件中更改以下值：
 
-1. Change the image to point to the docker image containing your code
-1. Change the number and types of replicas
-1. Change the resources (requests and limits) assigned to each resource
-1. Set any environment variables
+1. 将镜像更改为指向包含您的代码的 docker 镜像
+2. 更改副本的数量和类型
+3. 更改分配给每个资源的资源（请求和限制值）
+4. 设置任何环境变量
+  - 例如，您可能需要配置各种环境变量来与 GCS 或 S3 等数据存储桶通信
+5. 如果要使用 PV 进行存储，请附加 PV。
 
-   - For example, you might need to configure various environment variables to talk to datastores like GCS or S3
+## 使用 GPUs
 
-1. Attach PVs if you want to use PVs for storage.
+要使用 GPU，您的集群必须配置为可以调度 GPU。
 
-## Using GPUs
+- 节点必须连接 GPU。
+- Kubernetes 集群必须识别 `nvidia.com/gpu` 资源类型。
+- 必须在集群上安装 GPU 驱动程序。
+- 了解更多信息：
+  - [用于调度 GPU 的 Kubernetes 说明](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/)
+  - [GKE 说明](https://cloud.google.com/kubernetes-engine/docs/concepts/gpus)
+  - [EKS 指令](https://docs.aws.amazon.com/eks/latest/userguide/gpu-ami.html)
 
-To use GPUs your cluster must be configured to use GPUs.
-
-- Nodes must have GPUs attached.
-- The Kubernetes cluster must recognize the `nvidia.com/gpu` resource type.
-- GPU drivers must be installed on the cluster.
-- For more information:
-  - [Kubernetes instructions for scheduling GPUs](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/)
-  - [GKE instructions](https://cloud.google.com/kubernetes-engine/docs/concepts/gpus)
-  - [EKS instructions](https://docs.aws.amazon.com/eks/latest/userguide/gpu-ami.html)
-
-To attach GPUs specify the GPU resource on the container in the replicas
-that should contain the GPUs; for example.
+要附加 GPU，请在应包含 GPU 的副本中指定容器上的 GPU 资源；例如。
 
 ```yaml
 apiVersion: "kubeflow.org/v1"
@@ -363,18 +329,17 @@ spec:
           restartPolicy: OnFailure
 ```
 
-Follow TensorFlow's [instructions](https://www.tensorflow.org/guide/gpu)
-for using GPUs.
+按照 TensorFlow 的[说明](https://www.tensorflow.org/guide/gpu) 使用 GPU。
 
-## Monitoring your job
+## 监控你的工作
 
-To get the status of your job
+获取您的任务状态
 
 ```bash
 kubectl -n kubeflow get -o yaml tfjobs tfjob-simple
 ```
 
-Here is sample output for an example job
+这是示例作业的示例输出
 
 ```yaml
 apiVersion: kubeflow.org/v1
@@ -427,63 +392,56 @@ status:
   startTime: "2021-09-06T11:48:10Z"
 ```
 
-### Conditions
+### 条件
 
-A `TFJob` has a `TFJobStatus`, which has an array of `TFJobConditions` through which the `TFJob` has or has not passed.
-Each element of the `TFJobCondition` array has six possible fields:
+A`TFJob`有一个`TFJobStatus`，它有一个数组，`TFJobConditions`其中`TFJob`有或没有通过。数组的每个元素`TFJobCondition`都有六个可能的字段：
 
-- The **lastUpdateTime** field provides the last time this condition was updated.
-- The **lastTransitionTime** field provides the last time the condition transitioned from one status to another.
-- The **message** field is a human readable message indicating details about the transition.
-- The **reason** field is a unique, one-word, CamelCase reason for the condition's
-  last transition.
-- The **status** field is a string with possible values "True", "False", and "Unknown".
-- The **type** field is a string with the following possible values:
-  - **TFJobCreated** means the `TFJob` has been accepted by the system,
-    but one or more of the pods/services has not been started.
-  - **TFJobRunning** means all sub-resources (e.g. services/pods) of this `TFJob`
-    have been successfully scheduled and launched and the job is running.
-  - **TFJobRestarting** means one or more sub-resources (e.g. services/pods)
-    of this `TFJob` had a problem and is being restarted.
-  - **TFJobSucceeded** means the job completed successfully.
-  - **TFJobFailed** means the job has failed.
+- **lastUpdateTime **字段提供上次更新此条件的时间。
+- **lastTransitionTime** 字段提供最后一次从一种状态转换到另一种状态的时间。
+- **message** 字段是人类可读的消息，指示有关转换的详细信息。
+- **reason** 字段是条件最后一次转换的唯一、单字、驼峰式格式原因。
+- **status** 字段是一个字符串，可能值为“True”、“False”和“Unknown”。
+- **type** 字段是具有以下可能值的字符串 ：
+  - **TFJobCreated** 表示`TFJob`已被系统接受，但其中一个或多个 pod/service 尚未启动。
+  - **TFJobRunning** 表示这个的所有子资源（例如services/pods）`TFJob` 已经被成功调度和启动，并且job正在运行。
+  - **TFJobRestarting** 表示其中的一个或多个子资源（例如服务/pod）`TFJob`出现问题并正在重新启动。
+  - **TFJobSucceeded** 表示作业成功完成。
+  - **TFJobFailed** 表示作业失败。
 
-Success or failure of a job is determined as follows
+一个任务的成败决定如下
 
-- If a job has a **chief**, success or failure is determined by the status
-  of the chief.
-- If a job has no chief, success or failure is determined by the workers.
-- In both cases, the `TFJob` succeeds if the process being monitored exits
-  with exit code 0.
-- In the case of non-zero exit code, the behavior is determined by the restartPolicy
-  for the replica.
-- If the restartPolicy allows for restarts then the process will just be restarted and the `TFJob` will continue to execute.
-  - For the restartPolicy ExitCode the behavior is exit code dependent.
-  - If the restartPolicy doesn't allow restarts a non-zero exit code is considered
-    a permanent failure and the job is marked failed.
+- 如果一个任务有 **chief**，成败取决于 chief 状态值。
+
+- 如果一个任务没有 chief，成败取决于 workers。
+
+- 如果都有，`TFJob` 如果被监视的进程以退出代码 0 退出，则成功。
+
+- 在非零退出代码的情况下，行为由副本的 restartPolicy 确定。
+
+- 如果 restartPolicy 允许重新启动，则该进程将重新启动并`TFJob`继续执行。
+
+  - 对于 restartPolicy ExitCode，行为取决于退出代码。
+- 如果 restartPolicy 不允许重新启动，则非零退出代码被视为永久失败，并且作业被标记为失败。
 
 ### tfReplicaStatuses
 
-tfReplicaStatuses provides a map indicating the number of pods for each
-replica in a given state. There are three possible states
+tfReplicaStatuses 提供了一个映射，指示每个副本在给定状态下的 pod 数量。有三种可能的状态
 
-- **Active** is the number of currently running pods.
-- **Succeeded** is the number of pods that completed successfully.
-- **Failed** is the number of pods that completed with an error.
+- **Active** 是当前正在运行的 pod 的数量。
+- **Succeeded **是成功完成的 pod 数。
+- **Failed** 是完成但出现错误的 pod 数量。
 
-### Events
+### 活动事件
 
-During execution, `TFJob` will emit events to indicate whats happening such
-as the creation/deletion of pods and services. Kubernetes doesn't retain
-events older than 1 hour by default. To see recent events for a job run
+在执行期间，`TFJob`将发出事件以指示正在发生的事情，例如创建/删除 pod 和服务。默认情况下，Kubernetes 不会保留超过 1 小时的事件。查看作业运行的最近事件
 
-```
+```fallback
 kubectl -n kubeflow describe tfjobs tfjob-simple
 ```
 
-which will produce output like
+这将产生类似的输出
 
-```
+```fallback
 Name:         tfjob-simple
 Namespace:    kubeflow
 Labels:       <none>
@@ -591,55 +549,45 @@ Events:
   Normal  TFJobSucceeded           5m48s                  tfjob-controller  TFJob kubeflow/tfjob-simple successfully completed.
 ```
 
-Here the events indicate that the pods and services were successfully created.
+这里的事件表明 pod 和服务已成功创建。
 
-## TensorFlow Logs
+## TensorFlow 日志[ ](https://www.kubeflow.org/docs/components/training/tftraining/#tensorflow-logs)
 
-Logging follows standard K8s logging practices.
+日志记录遵循标准的 K8s 日志记录实践。
 
-You can use kubectl to get standard output/error for any pods
-that haven't been **deleted**.
+您可以使用 kubectl 为尚未**删除**的任何 pod 获取标准输出/错误。
 
-First find the pod created by the job controller for the replica of
-interest. Pods will be named
+首先找到作业控制器为感兴趣的副本创建的 pod。Pod 将被命名
 
-```
+```fallback
 ${JOBNAME}-${REPLICA-TYPE}-${INDEX}
 ```
 
-Once you've identified your pod you can get the logs using kubectl.
+确定 pod 后，您可以使用 kubectl 获取日志。
 
-```
+```fallback
 kubectl logs ${PODNAME}
 ```
 
-The **CleanPodPolicy** in the `TFJob` spec controls deletion of pods when a job terminates.
-The policy can be one of the following values
+The **CleanPodPolicy** in the `TFJob` spec controls deletion of pods when a job terminates. The policy can be one of the following values
 
-- The **Running** policy means that only pods still running when a job completes
-  (e.g. parameter servers) will be deleted immediately; completed pods will
-  not be deleted so that the logs will be preserved. This is the default value.
-- The **All** policy means all pods even completed pods will be deleted immediately
-  when the job finishes.
-- The **None** policy means that no pods will be deleted when the job completes.
+`TFJob` 规范中的**CleanPodPolicy控制在作业终止时删除 pod。该策略可以是以下值之一
 
-If your cluster takes advantage of Kubernetes
-[cluster logging](https://kubernetes.io/docs/concepts/cluster-administration/logging/)
-then your logs may also be shipped to an appropriate data store for
-further analysis.
+- **Running **策略意味着只有在作业完成时仍在运行的 Pod（例如参数服务器）才会被立即删除；已完成的 pod 不会被删除，以便保留日志。这是默认值。
+- **All** 策略意味着当作业完成时，所有 pod 甚至已完成的 pod 都将被立即删除。
+- **None** 策略意味着作业完成时不会删除任何 pod 。
 
-### Stackdriver on GKE
+如果您的集群利用了 Kubernetes [集群日志记录](https://kubernetes.io/docs/concepts/cluster-administration/logging/) ，那么您的日志也可能会被发送到适当的数据存储以进行进一步分析。
 
-See the guide to [logging and monitoring](/docs/gke/monitoring/) for
-instructions on getting logs using Stackdriver.
+### GKE 上的 Stackdriver
 
-As described in the guide to
-[logging and monitoring](https://www.kubeflow.org/docs/gke/monitoring/#filter-with-labels),
-it's possible to fetch the logs for a particular replica based on pod labels.
+有关使用 Stackdriver 获取日志的说明，请参阅[日志记录和监控](https://www.kubeflow.org/docs/gke/monitoring/)指南。
 
-Using the Stackdriver UI you can use a query like
+如 [日志和监控](https://www.kubeflow.org/docs/gke/monitoring/#filter-with-labels)指南中所述，可以根据 pod 标签获取特定副本的日志。
 
-```
+使用 Stackdriver UI，您可以使用类似的查询
+
+```fallback
 resource.type="k8s_container"
 resource.labels.cluster_name="${CLUSTER}"
 metadata.userLabels.job-name="${JOB_NAME}"
@@ -647,9 +595,9 @@ metadata.userLabels.replica-type="${TYPE}"
 metadata.userLabels.replica-index="${INDEX}"
 ```
 
-Alternatively using gcloud
+或者使用 gcloud
 
-```
+```fallback
 QUERY="resource.type=\"k8s_container\" "
 QUERY="${QUERY} resource.labels.cluster_name=\"${CLUSTER}\" "
 QUERY="${QUERY} metadata.userLabels.job-name=\"${JOB_NAME}\" "
@@ -660,91 +608,89 @@ gcloud --project=${PROJECT} logging read  \
      --order asc  ${QUERY}
 ```
 
-## Troubleshooting
+## 故障排除
 
-Here are some steps to follow to troubleshoot your job
+以下是解决您的工作问题的一些步骤
 
-1. Is a status present for your job? Run the command
+1. 您的工作是否存在状态？运行命令
 
-   ```
+   ```fallback
    kubectl -n ${USER_NAMESPACE} get tfjobs -o yaml ${JOB_NAME}
    ```
 
-   - **USER_NAMESPACE** is the namespace created for your user profile.
+  - **USER_NAMESPACE** 是为您的用户配置文件创建的命名空间。
 
-   - If the resulting output doesn't include a status for your job then this typically
-     indicates the job spec is invalid.
+  - 如果结果输出不包含您的作业的状态，则这通常表明作业规范无效。
 
-   - If the `TFJob` spec is invalid there should be a log message in the tf operator logs
+  - 如果`TFJob`规范无效，则 tf 操作员日志中应该有一条日志消息
 
-     ```
-     kubectl -n ${KUBEFLOW_NAMESPACE} logs `kubectl get pods --selector=name=tf-job-operator -o jsonpath='{.items[0].metadata.name}'`
-     ```
+    ```fallback
+    kubectl -n ${KUBEFLOW_NAMESPACE} logs `kubectl get pods --selector=name=tf-job-operator -o jsonpath='{.items[0].metadata.name}'`
+    ```
 
-     - **KUBEFLOW_NAMESPACE** Is the namespace you deployed the `TFJob` operator in.
+    - **KUBEFLOW_NAMESPACE**是您在其中部署`TFJob`操作员的命名空间。
 
-1. Check the events for your job to see if the pods were created
+2. 检查您的作业的事件以查看是否创建了 pod
 
-   - There are a number of ways to get the events; if your job is less than **1 hour old**
-     then you can do
+  - 有多种获取事件的方法；如果您的任务不到**1 小时** ，那么您可以
 
-     ```
-     kubectl -n ${USER_NAMESPACE} describe tfjobs ${JOB_NAME}
-     ```
+    ```fallback
+    kubectl -n ${USER_NAMESPACE} describe tfjobs ${JOB_NAME}
+    ```
 
-   - The bottom of the output should include a list of events emitted by the job; e.g.
+  - 输出的底部应包含作业发出的事件列表；例如
 
-     ```yaml
-     Events:
-      Type    Reason                   Age   From              Message
-      ----    ------                   ----  ----              -------
-      Normal  SuccessfulCreatePod      90s   tfjob-controller  Created pod: tfjob2-worker-0
-      Normal  SuccessfulCreatePod      90s   tfjob-controller  Created pod: tfjob2-ps-0
-      Normal  SuccessfulCreateService  90s   tfjob-controller  Created service: tfjob2-worker-0
-      Normal  SuccessfulCreateService  90s   tfjob-controller  Created service: tfjob2-ps-0
-     ```
+    ```yaml
+    Events:
+     Type    Reason                   Age   From              Message
+     ----    ------                   ----  ----              -------
+     Normal  SuccessfulCreatePod      90s   tfjob-controller  Created pod: tfjob2-worker-0
+     Normal  SuccessfulCreatePod      90s   tfjob-controller  Created pod: tfjob2-ps-0
+     Normal  SuccessfulCreateService  90s   tfjob-controller  Created service: tfjob2-worker-0
+     Normal  SuccessfulCreateService  90s   tfjob-controller  Created service: tfjob2-ps-0
+    ```
 
-   - Kubernetes only preserves events for **1 hour** (see [kubernetes/kubernetes#52521](https://github.com/kubernetes/kubernetes/issues/52521))
+  - Kubernetes 仅将事件保留**1 小时**（参见[kubernetes/kubernetes#52521](https://github.com/kubernetes/kubernetes/issues/52521)）
 
-     - Depending on your cluster setup events might be persisted to external storage and accessible for longer periods
-     - On GKE events are persisted in stackdriver and can be accessed using the instructions in the previous section.
+    - 根据您的集群设置，事件可能会持久保存到外部存储并且可以访问更长时间
+    - 在 GKE 上，事件保存在 stackdriver 中，可以使用上一节中的说明进行访问。
 
-   - If the pods and services aren't being created then this suggests the `TFJob` isn't being processed; common causes are
+  - 如果 pod 和服务没有被创建，那么这表明它们`TFJob`没有被处理；常见的原因是
 
-     - The `TFJob` spec is invalid (see above)
-     - The `TFJob` operator isn't running
+    - `TFJob`规格无效（见上文）
+    - `TFJob` operator 未运行
 
-1. Check the events for the pods to ensure they are scheduled.
+3. 检查 pod 的事件以确保它们已调度好。
 
-   - There are a number of ways to get the events; if your pod is less than **1 hour old**
-     then you can do
+  - 有多种获取事件的方法；如果您的 pod 不到**1 小时** ，那么您可以这样做
 
-     ```
-      kubectl -n ${USER_NAMESPACE} describe pods ${POD_NAME}
-     ```
+    ```fallback
+     kubectl -n ${USER_NAMESPACE} describe pods ${POD_NAME}
+    ```
 
-   - The bottom of the output should contain events like the following
+  - 输出的底部应包含如下事件
 
-     ```
-     Events:
-     Type    Reason                 Age   From                                                  Message
-     ----    ------                 ----  ----                                                  -------
-     Normal  Scheduled              18s   default-scheduler                                     Successfully assigned tfjob2-ps-0 to gke-jl-kf-v0-2-2-default-pool-347936c1-1qkt
-     Normal  SuccessfulMountVolume  17s   kubelet, gke-jl-kf-v0-2-2-default-pool-347936c1-1qkt  MountVolume.SetUp succeeded for volume "default-token-h8rnv"
-     Normal  Pulled                 17s   kubelet, gke-jl-kf-v0-2-2-default-pool-347936c1-1qkt  Container image "gcr.io/kubeflow/tf-benchmarks-cpu:v20171202-bdab599-dirty-284af3" already present on machine
-     Normal  Created                17s   kubelet, gke-jl-kf-v0-2-2-default-pool-347936c1-1qkt  Created container
-     Normal  Started                16s   kubelet, gke-jl-kf-v0-2-2-default-pool-347936c1-1qkt  Started container
-     ```
+    ```fallback
+    Events:
+    Type    Reason                 Age   From                                                  Message
+    ----    ------                 ----  ----                                                  -------
+    Normal  Scheduled              18s   default-scheduler                                     Successfully assigned tfjob2-ps-0 to gke-jl-kf-v0-2-2-default-pool-347936c1-1qkt
+    Normal  SuccessfulMountVolume  17s   kubelet, gke-jl-kf-v0-2-2-default-pool-347936c1-1qkt  MountVolume.SetUp succeeded for volume "default-token-h8rnv"
+    Normal  Pulled                 17s   kubelet, gke-jl-kf-v0-2-2-default-pool-347936c1-1qkt  Container image "gcr.io/kubeflow/tf-benchmarks-cpu:v20171202-bdab599-dirty-284af3" already present on machine
+    Normal  Created                17s   kubelet, gke-jl-kf-v0-2-2-default-pool-347936c1-1qkt  Created container
+    Normal  Started                16s   kubelet, gke-jl-kf-v0-2-2-default-pool-347936c1-1qkt  Started container
+    ```
 
-   - Some common problems that can prevent a container from starting are
-     - Insufficient resources to schedule the pod
-     - The pod tries to mount a volume (or secret) that doesn't exist or is unavailable
-     - The docker image doesn't exist or can't be accessed (e.g due to permission issues)
+  - 一些可以阻止容器启动的常见问题是
 
-1. If the containers start; check the logs of the containers following the instructions
-   in the previous section.
+    - 资源不足，无法调度 pod
+    - pod 尝试挂载不存在或不可用的卷（或密钥）
+    - docker 镜像不存在或无法访问（例如由于权限问题）
 
-## More information
+4. 如果容器启动；按照上一节中的说明检查容器的日志。
 
-- Explore the [`TFJob` reference documentation](/docs/reference/tfjob).
-- See how to [run a job with gang-scheduling](/docs/use-cases/job-scheduling#running-jobs-with-gang-scheduling).
+
+## 更多信息
+
+- 浏览[`TFJob`参考文档](https://www.kubeflow.org/docs/reference/tfjob)。
+- 了解如何[使用 gang-scheduling 运行作业](https://www.kubeflow.org/docs/use-cases/job-scheduling#running-jobs-with-gang-scheduling)。

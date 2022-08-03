@@ -1,6 +1,6 @@
 +++
-title = "MXNet Training (MXJob)"
-description = "Using MXJob to train a model with Apache MXNet"
+title = "MXNet 训练 (MXJob)"
+description = "使用 MXJob 训练 Apache MXNet 模型"
 weight = 25
                     
 +++

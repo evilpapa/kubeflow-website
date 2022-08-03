@@ -1,5 +1,5 @@
 +++
-title = "Samples and Tutorials"
-description = "Samples and tutorials for Kubeflow Pipelines"
+title = "教程示例"
+description = "Kubeflow Pipelines 教程示例"
 weight = 90
 +++

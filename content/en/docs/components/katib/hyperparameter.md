@@ -1,5 +1,5 @@
 +++
-title = "Getting Started with Katib"
+title = "Katib 入门"
 description = "How to set up Katib and perform hyperparameter tuning"
 weight = 20
 

@@ -1,6 +1,6 @@
 +++
-title = "Getting Started with Multi-user Isolation"
-description = "How to use multi-user isolation with profiles"
+title = "多用户隔离入门"
+description = "如何使用多用户隔离属性配置"
 weight = 30
 
 +++

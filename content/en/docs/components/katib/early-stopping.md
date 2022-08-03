@@ -1,6 +1,6 @@
 +++
-title = "Using Early Stopping"
-description = "How to use early stopping in Katib experiments"
+title = "早期实验停止"
+description = "如何使用Katib 早期实验停止"
 weight = 60
                     
 +++
