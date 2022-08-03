@@ -1,21 +1,21 @@
 +++
-title = "ML Metadata"
-description = "Conceptual overview about Metadata in Kubeflow Pipelines"
+title = "ML 元数据"
+description = "关于 Kubeflow Pipelines 中元数据的概念"
 weight = 90
                     
 +++
 
-**Note:** Kubeflow Pipelines has moved from using [kubeflow/metadata](https://github.com/kubeflow/metadata)
-to using [google/ml-metadata](https://github.com/google/ml-metadata) for Metadata dependency.
+**注意:** Kubeflow Pipelines 元数据依赖已从使用 [kubeflow/metadata](https://github.com/kubeflow/metadata)
+转变为使用 [google/ml-metadata](https://github.com/google/ml-metadata)。
 
-Kubeflow Pipelines backend stores runtime information of a pipeline run in Metadata store.
-Runtime information includes the status of a task, availability of artifacts, custom properties associated
-with Execution or Artifact, etc. Learn more at [ML Metadata Get Started](https://github.com/google/ml-metadata/blob/master/g3doc/get_started.md).
+Kubeflow Pipelines 后端存储在元数据存储中运行的管道的运行时信息。
+运行时信息包括任务的状态、工件的可用性、与执行或工件相关的自定义属性等。
+了解更多 [ML Metadata 入门](https://github.com/google/ml-metadata/blob/master/g3doc/get_started.md)信息。
 
-You can view the connection between Artifacts and Executions across Pipeline Runs, if 
-one Artifact is being used by multiple Executions in different Runs. This connection visualization
-is called a *Lineage Graph*.
+如果一个工件被不同运行中的多个执行使用，
+您可以跨管道运行查看工件和 run 之间的连接。
+这种连接可视化称为 *Lineage Graph*。
 
 ## 下一步
 
-* Learn about [output Aritfact](/docs/components/pipelines/concepts/output-artifact).
+* 了解 [output Aritfact](/docs/components/pipelines/concepts/output-artifact)。

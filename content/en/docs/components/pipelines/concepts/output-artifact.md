@@ -1,25 +1,20 @@
 +++
-title = "Output Artifact"
-description = "Conceptual overview of output artifacts in Kubeflow Pipelines"
+title = "输出工件"
+description = "Kubeflow Pipelines 中输出工件的概念"
 weight = 80
                     
 +++
 
-An *output artifact* is an output emitted by a pipeline component, which the
-Kubeflow Pipelines UI understands and can render as rich visualizations. It’s
-useful for pipeline components to include artifacts so that you can provide for
-performance evaluation, quick decision making for the run, or comparison across
-different runs. Artifacts also make it possible to understand how the pipeline’s
-various components work. An artifact can range from a plain textual view of the
-data to rich interactive visualizations.
+*output artifact* 是由管道组件发出的输出，Kubeflow Pipelines UI 可以理解并可以可视化呈现。
+管道组件包含工件很有用，这样您就可以提供性能评估、运行的快速决策或不同运行之间的比较。
+工件还可以让我们了解管道的各种组件是如何工作的。
+工件的范围可以从数据的纯文本视图到丰富的交互式可视化。
 
 ## 下一步
 
-* Read an [overview of Kubeflow Pipelines](/docs/components/pipelines/introduction/).
-* Follow the [pipelines quickstart guide](/docs/components/pipelines/overview/quickstart/) 
-  to deploy Kubeflow and run a sample pipeline directly from the Kubeflow 
-  Pipelines UI.
-* Read more about the available 
-  [output viewers](/docs/components/pipelines/sdk/output-viewer/) 
-  and how to provide the metadata to make use of the visualizations
-  that the output viewers provide.
+* 阅读 [Kubeflow Pipelines 概述](/docs/components/pipelines/introduction/).
+* 参考 [pipelines 快速指引](/docs/components/pipelines/overview/quickstart/)
+  发布 Kubeflow 并直接通过 UI 运行简单的 管道 示例。
+* 阅读
+  [output viewers](/docs/components/pipelines/sdk/output-viewer/)
+  以及如何提供元数据以利用输出查看器提供的可视化的更多信息。

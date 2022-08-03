@@ -1,30 +1,28 @@
 +++
-title = "Graph"
-description = "Conceptual overview of graphs in Kubeflow Pipelines"
+title = "图"
+description = "Kubeflow Pipelines 中图的概念"
 weight = 30
                     
 +++
 
-A *graph* is a pictorial representation in the Kubeflow Pipelines UI of the
-runtime execution of a pipeline. The graph shows the steps that a pipeline run
-has executed or is executing, with arrows indicating the parent/child
-relationships between the pipeline components represented by each step. The
-graph is viewable as soon as the run begins. Each node within the graph
-corresponds to a step within the pipeline and is labeled accordingly.
+*graph*  Kubeflow Pipelines UI 中管道运行时执行的
+图形表示。该图显示了管道运行已执行或正在执行的步骤，
+箭头指示每个步骤表示的管道组件之间的父/子关系。
+运行开始后即可查看图表。
+图中的每个节点对应于管道中的一个步骤，并相应地进行标记。
 
-The screenshot below shows an example of a pipeline graph:
+下面的屏幕截图显示了管道图的示例：
 
 <img src="/docs/images/pipelines-xgboost-graph.png" 
   alt="XGBoost results on the pipelines UI"
   class="mt-3 mb-3 border border-info rounded">
 
-At the top right of each node is an icon indicating its status: running,
-succeeded, failed, or skipped. (A node can be skipped when its 
-parent contains a conditional clause.)
+每个节点的右上角都有一个图标，
+指示其状态：正在运行、成功、失败或已跳过。
+（当其父节点包含条件子句时，可以跳过节点。）
 
 ## 下一步
 
-* Read an [overview of Kubeflow Pipelines](/docs/components/pipelines/introduction/).
-* Follow the [pipelines quickstart guide](/docs/components/pipelines/overview/quickstart/) 
-  to deploy Kubeflow and run a sample pipeline directly from the Kubeflow 
-  Pipelines UI.
+* 阅读 [Kubeflow Pipelines 概述](/docs/components/pipelines/introduction/).
+* 参考 [pipelines 快速指引](/docs/components/pipelines/overview/quickstart/) 
+  发布 Kubeflow 并直接通过 UI 运行简单的 管道 示例。

@@ -1,19 +1,15 @@
 +++
-title = "Step"
-description = "Conceptual overview of steps in Kubeflow Pipelines"
+title = "步骤"
+description = "Kubeflow Pipelines 中步骤的概念"
 weight = 70
                     
 +++
 
-A *step* is an execution of one of the components in the pipeline. The
-relationship between a step and its component is one of instantiation, much like
-the relationship between a run and its pipeline. In a complex pipeline,
-components can execute multiple times in loops, or conditionally after resolving
-an if/else like clause in the pipeline code.
+*step* 是管道中组件之一的执行。 一个步骤和它的组件之间的关系是一种实例化的关系，很像一个 run 和它的管道之间的关系。
+在复杂的管道中，组件可以在循环中执行多次，或者在解析管道代码中的 if/else like 子句后有条件地执行。
 
 ## 下一步
 
-* Read an [overview of Kubeflow Pipelines](/docs/components/pipelines/introduction/).
-* Follow the [pipelines quickstart guide](/docs/components/pipelines/overview/quickstart/) 
-  to deploy Kubeflow and run a sample pipeline directly from the Kubeflow 
-  Pipelines UI.
+* 阅读 [Kubeflow Pipelines 概述](/docs/components/pipelines/introduction/).
+* 参考 [pipelines 快速指引](/docs/components/pipelines/overview/quickstart/)
+  部署 Kubeflow 并直接从 Kubeflow Pipelines UI 运行示例管道。

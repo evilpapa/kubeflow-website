@@ -1,64 +1,63 @@
 +++
-title = "Multi-user Isolation for Pipelines"
-description = "Getting started with Kubeflow Pipelines multi-user isolation"
+title = "Pipelines 多用户隔离"
+description = "Kubeflow Pipelines 多用户隔离入门"
 weight = 30
 +++
 
-Multi-user isolation for Kubeflow Pipelines is an integration to [Kubeflow multi-user isolation](/docs/components/multi-tenancy/).
+Kubeflow Pipelines 多用户隔离由 [Kubeflow multi-user isolation](/docs/components/multi-tenancy/) 集成。
 
-Refer to [Getting Started with Multi-user isolation](/docs/components/multi-tenancy/getting-started/)
-for the common Kubeflow multi-user operations including the following:
+常见的 Kubeflow 多用户操作请参考 [Multi-user 隔离入门](/docs/components/multi-tenancy/getting-started/)，
+包括以下内容：
 
-* [Grant user minimal Kubernetes cluster access](/docs/components/multi-tenancy/getting-started/#pre-requisites-grant-user-minimal-kubernetes-cluster-access)
-* [Managing contributors through the Kubeflow UI](/docs/components/multi-tenancy/getting-started/#managing-contributors-through-the-kubeflow-ui)
-* For Google Cloud: [In-cluster authentication to Google Cloud from Kubeflow](/docs/gke/authentication/#in-cluster-authentication)
+* [授予用户最小 Kubernetes 集群访问权限](/docs/components/multi-tenancy/getting-started/#pre-requisites-grant-user-minimal-kubernetes-cluster-access)
+* [通过 Kubeflow UI 管理贡献者](/docs/components/multi-tenancy/getting-started/#managing-contributors-through-the-kubeflow-ui)
+* 对于 Google Cloud：[从 Kubeflow 到 Google Cloud 的集群内身份验证](/docs/gke/authentication/#in-cluster-authentication)
 
-Note, Kubeflow Pipelines multi-user isolation is only supported in
-[the full Kubeflow deployment](/docs/components/pipelines/installation/overview/#full-kubeflow-deployment)
-starting from Kubeflow v1.1 and **currently** on all platforms except OpenShift. For the latest status about platform support, refer to [kubeflow/manifests#1364](https://github.com/kubeflow/manifests/issues/1364#issuecomment-668415871).
+注意，**当前**仅在从 Kubeflow v1.1 开始除 OpenShift 之外所有平台的
+[Kubeflow 完整部署](/docs/components/pipelines/installation/overview/#full-kubeflow-deployment)中
+支持 Kubeflow Pipelines 多用户隔离，针对最新的平台支持，请参考 [kubeflow/manifests#1364](https://github.com/kubeflow/manifests/issues/1364#issuecomment-668415871)。
 
-Also be aware that the isolation support in Kubeflow doesn’t provide any hard
-security guarantees against malicious attempts by users to infiltrate other
-user’s profiles.
+另请注意，Kubeflow 中的隔离支持
+不提供任何硬性安全保证，以防止用户
+恶意尝试渗透其他用户的配置文件。
  
-## How are resources separated?
+## 资源如何分离？
 
-Kubeflow Pipelines separates its resources by Kubernetes namespaces (Kubeflow profiles).
+Kubeflow Pipelines 通过 Kubernetes 命名空间（Kubeflow 配置文件）分离其资源。
 
-Experiments belong to namespaces directly and there's no longer a default
-experiment. Runs and recurring runs belong to their parent experiment's namespace.
+实验直接属于命名空间，不再有默认
+实验。运行和重复运行属于其父实验的命名空间。
 
-Pipeline runs are executed in user namespaces, so that users can leverage Kubernetes
-namespace isolation. For example, they can configure different secrets for other
-services in different namespaces.
+管道运行在用户命名空间中执行，
+因此用户可以利用 Kubernetes 命名空间隔离。
+例如，他们可以为不同命名空间中的其他服务配置不同的密钥。
 
-Other users cannot see resources in your namespace without permission, because
-the Kubeflow Pipelines API server rejects requests for namespaces that the
-current user is not authorized to access.
+其他用户未经许可无法查看您命名空间中的资源，因为
+Kubeflow Pipelines API 服务器拒绝对当前用户
+无权访问的命名空间的请求。
 
-Note, there's no multi-user isolation for pipeline definitions right now.
-Refer to [Current Limitations](#current-limitations) section for more details.
+请注意，目前管道定义没有多用户隔离。有关详细信息，
+请参阅 [Current Limitations](#current-limitations) 获取更多信息。
 
-### When using the UI
+### 何时使用 UI
 
-When you visit the Kubeflow Pipelines UI from the Kubeflow dashboard, it only shows
-experiments, runs, and recurring runs in your chosen namespace. Similarly, when
-you create resources from the UI, they also belong to the namespace you have
-chosen.
+当您从 Kubeflow 仪表板访问 Kubeflow Pipelines UI 时，它仅显示
+您选择的命名空间中的实验、运行和重复运行。同样，
+当您从 UI 创建资源时，它们也属于您选择的命名空间。
 
-You can select a different namespace to view resources in other namespaces.
+您可以选择不同的命名空间来查看其他命名空间中的资源。
 
-### When using the SDK
+### 何时使用 SDK
 
-First, you need to connect to the Kubeflow Pipelines public endpoint using the
-SDK. For Google Cloud, follow [these instructions](/docs/gke/pipelines/authentication-sdk/#connecting-to-kubeflow-pipelines-in-a-full-kubeflow-deployment).
+首先，您需要使用 SDK 连接到 Kubeflow Pipelines 公共端点。
+对于 Google Cloud，请按照 [说明](/docs/gke/pipelines/authentication-sdk/#connecting-to-kubeflow-pipelines-in-a-full-kubeflow-deployment) 操作。
 
-When calling SDK methods for experiments, you need to provide the additional
-namespace argument. Runs, recurring runs are owned by an experiment. They are
-in the same namespace as the parent experiment, so you can just call their SDK
-methods in the same way as before.
+调用 SDK 方法进行实验时，需要提供额外的
+命名空间参数。运行，重复运行归实验所有。它们
+与父实验位于相同的命名空间中，因此您可以像以前一样调用
+它们的 SDK 方法。
 
-For example:
+例如：
 
 ```python
 import kfp
@@ -74,11 +73,11 @@ print(client.list_runs(experiment_id='<Your experiment ID>'))
 print(client.list_runs(namespace='<Your namespace>'))
 ```
 
-To store your user namespace as the default context, use the
+要将您的用户命名空间存储为默认上下文，请使用
 [`set_user_namespace`](https://kubeflow-pipelines.readthedocs.io/en/stable/source/kfp.client.html#kfp.Client.set_user_namespace)
-method. This method stores your user namespace in a configuration file at
-`$HOME/.config/kfp/context.json`. After setting a default namespace, the SDK
-methods default to use this namespace if no namespace argument is provided.
+方法。此方法将您的用户命名空间存储在配置文件
+`$HOME/.config/kfp/context.json`。设置默认命名空间后，
+如果未提供命名空间参数，SDK 方法默认使用此命名空间。
 
 ```python
 # Note, this saves the namespace in `$HOME/.config/kfp/context.json`. Therefore,
@@ -99,22 +98,22 @@ print(client.list_runs())
 print(client.list_runs(namespace='<Your other namespace>'))
 ```
 
-Note, it is no longer possible to access the Kubeflow Pipelines API service from
-in-cluster workload directly, read [Current Limitations section](#current-limitations)
-for more details.
+请注意，不再可以直接从集群内工作负载
+访问 Kubeflow Pipelines API 服务，请阅读 [当前限制部分](#current-limitations)
+获取更多信息。
 
-Detailed documentation for the Kubeflow Pipelines SDK can be found in the
-[Kubeflow Pipelines SDK Reference](https://kubeflow-pipelines.readthedocs.io/en/stable/source/kfp.client.html).
+Kubeflow Pipelines SDK 的详细文档可以在
+[Kubeflow Pipelines SDK Reference](https://kubeflow-pipelines.readthedocs.io/en/stable/source/kfp.client.html) 找到。
 
-### When using REST API or generated Python API client
+### 何时使用 REST API 或生成的 Python API 客户端
 
-Similarly, when calling [REST API endpoints](/docs/components/pipelines/reference/api/kubeflow-pipeline-api-spec/)
-or using [the generated Python API client](https://kubeflow-pipelines.readthedocs.io/en/stable/source/kfp.server_api.html),
-namespace argument is required for experiment APIs. Note that namespace is
-referred to using a resource reference. The resource reference **type** is
-`NAMESPACE` and resource reference **key id** is the namespace name.
+同样，在调用 [REST API endpoints](/docs/components/pipelines/reference/api/kubeflow-pipeline-api-spec/)
+或使用 [生成的 Python API client](https://kubeflow-pipelines.readthedocs.io/en/stable/source/kfp.server_api.html)，
+实验 API 需要命名空间参数。请注意，命名空间是
+使用资源引用来引用的。
+资源引用 **类型** 是 `NAMESPACE`，资源引用 **key id** 是命名空间名称。
 
-The following example demonstrates how to use [the generated Python API client (kf-server-api)](https://kubeflow-pipelines.readthedocs.io/en/stable/source/kfp.server_api.html) in a multi-user environment.
+以下示例演示了如何在多用户环境中使用 [生成的 Python API 客户端 (kf-server-api)](https://kubeflow-pipelines.readthedocs.io/en/stable/source/kfp.server_api.html)。
 
 ```python
 from kfp_server_api import ApiRun, ApiPipelineSpec, \
@@ -156,20 +155,20 @@ runs=client.runs.list_runs(
 print(runs)
 ```
 
-## Current limitations
+## 当前限制
 
-### Resources without isolation
+### 未隔离的资源
 
-The following resources do not currently support isolation and are shared
-without access control:
+以下资源目前不支持隔离，并且在
+没有访问控制的情况下共享：
 
-* Pipelines (Pipeline definitions).
-* Artifacts, Executions, and other metadata entities in [Machine Learning Metadata (MLMD)](https://www.tensorflow.org/tfx/guide/mlmd).
-* [Minio artifact storage](https://min.io/) which contains pipeline runs' input/output artifacts.
+* Pipelines (Pipeline 定义).
+* [机器学习元数据 (MLMD)](https://www.tensorflow.org/tfx/guide/mlmd)中的工件、执行和其他元数据实体。
+* [Minio artifact 存储](https://min.io/)，其中包含管道运行的输入/输出工件。
 
-## In-cluster API request authentication
+## 集群内 API 请求认证
 
-Refer to [Connect to Kubeflow Pipelines from the same cluster](/docs/components/pipelines/sdk/connect-api/#connect-to-kubeflow-pipelines-from-the-same-cluster) for details.
+有关详细信息，请参阅 [从同一集群连接到 Kubeflow 管道](/docs/components/pipelines/sdk/connect-api/#connect-to-kubeflow-pipelines-from-the-same-cluster)。
 
-Alternatively, in-cluster workloads like Jupyter notebooks or cron tasks can also access Kubeflow Pipelines API through the public endpoint. This option is platform specific and explained in 
-[Connect to Kubeflow Pipelines from outside your cluster](/docs/components/pipelines/sdk/connect-api/#connect-to-kubeflow-pipelines-from-outside-your-cluster).
+或者，Jupyter notebooks 或 cron 任务等集群内工作负载也可以通过公共端点访问 Kubeflow Pipelines API。此选项是特定于平台的，并在 
+[从集群外部连接到 Kubeflow 管道](/docs/components/pipelines/sdk/connect-api/#connect-to-kubeflow-pipelines-from-outside-your-cluster)进行了说明。
