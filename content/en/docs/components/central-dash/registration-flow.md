@@ -1,65 +1,65 @@
 +++
 title = "注册流程"
-description = "Setting up your namespace in Kubeflow"
+description = "在 Kubeflow 设置命名空间"
 weight = 10
                     
 +++
-{{% alert title="Out of date" color="warning" %}}
-This guide contains outdated information pertaining to Kubeflow 1.0. This guide
-needs to be updated for Kubeflow 1.1.
+{{% alert title="过期" color="warning" %}}
+本指南包含有关 Kubeflow 1.0 的过时信息。本指南需要
+针对 Kubeflow 1.1 进行更新。
 {{% /alert %}}
 
-This guide is for Kubeflow users who are logging in to Kubeflow for the first
-time. The user may be the person who deployed Kubeflow, or another person who
-has permission to access the Kubeflow cluster and use Kubeflow.
+本指南适用于首次登录 Kubeflow 的 Kubeflow 用户。
+用户可能是部署 Kubeflow 的人，
+也可能是其他有权访问 Kubeflow 集群并使用 Kubeflow 的人。
 
-## Introduction to namespaces
+## 命名空间简介
 
-Depending on the setup of your Kubeflow cluster, you may need to create a
-*namespace* when you first log in to Kubeflow. Namespaces are sometimes called
-*profiles* or *workgroups*.
+根据您的 Kubeflow 集群的设置，您可能需要
+在首次登录 Kubeflow 时创建 **命名空间**。
+命名空间有时称为 **配置文件**或**工作组**。
 
-Kubeflow prompts you to create a namespace under the following circumstances:
+Kubeflow 在以下情况下会提示您创建命名空间：
 
-* For Kubeflow deployments that support multi-user isolation: Your username
-  does not yet have an associated namespace with role bindings that give you
-  administrative (owner) access to the namespace.
-* For Kubeflow deployments that support single-user isolation: The Kubeflow
-  cluster has no namespace role bindings.
+* 对于支持多用户隔离的 Kubeflow 部署：
+  您的用户名还没有与角色绑定相关的命名空间，
+  这些角色绑定可以让您对命名空间进行管理（所有者）访问。
+* 对于支持单用户隔离的 Kubeflow 部署：
+  Kubeflow 集群没有命名空间角色绑定。
 
-If Kubeflow doesn't prompt you to create a namespace, then your Kubeflow
-administrator may have created a namespace for you. You should be able to see
-the Kubeflow central dashboard and start using Kubeflow.
+如果 Kubeflow 没有提示您创建命名空间，那么
+您的 Kubeflow 管理员可能已经为您创建了命名空间。
+您应该能够看到 Kubeflow 中央仪表板并开始使用 Kubeflow。
 
-## Prerequisites
+## 要求
 
-Your Kubeflow administrator must perform the following steps:
+您的 Kubeflow 管理员必须执行以下步骤：
 
-* Deploy Kubeflow to a Kubernetes cluster, by following the [Kubeflow
-  getting-started guide](/docs/started/getting-started/).
-* Give you access to the Kubernetes cluster. See the [guide to
-  multi-tenancy](/docs/components/multi-tenancy/getting-started/#onboarding-a-new-user).
+* 按照 [Kubeflow 入门指南 ](/docs/started/getting-started/)
+  将 Kubeflow部署到 Kubernetes 集群。
+* 授予您对 Kubernetes 集群的访问权限。参阅 [多租户
+  指南](/docs/components/multi-tenancy/getting-started/#onboarding-a-new-user).
 
-## Creating your namespace
+## 创建空间
 
-If you don't yet have a suitable namespace associated with your username,
-Kubeflow shows the following screen when you first log in:
+如果您还没有与您的用户名关联的合适命名空间，
+那么在您首次登录 Kubeflow 时会显示以下屏幕：
 
 <img src="/docs/images/auto-profile1.png" 
   alt="Profile creation step 1"
   class="mt-3 mb-3 border border-info rounded">
 
-Click **Start Setup** and follow the instructions on the screen to set up your
-namespace. The default name for your namespace is your username.
+单击 **Start Setup** 并按照屏幕上的说明设置命名空间。
+您命名空间的默认名称是您的用户名。
 
-After creating the namespace, you should see the Kubeflow central dashboard,
-with your namespace available in the dropdown list at the top of the screen:
+创建命名空间后，您应该会看到 Kubeflow 看板中心，
+您的命名空间在屏幕顶部的下拉列表中可用：
 
 <img src="/docs/images/central-ui.png"
   alt="Kubeflow central UI"
   class="mt-3 mb-3 border border-info rounded">
 
-## Next steps
+## 下一步
 
-* [Set up a Jupyter notebook](/docs/components/notebooks/setup/) in Kubeflow.
-* Read more about [multi-tenancy in Kubeflow](/docs/components/multi-tenancy/).
+* 在 Kubeflow [设置 Jupyter notebook](/docs/components/notebooks/setup/)。
+* 阅读跟多 [Kubeflow 多卒读](/docs/components/multi-tenancy/)。

@@ -7,122 +7,117 @@ weight = 10
 
 {{% stable-status %}}
 
-Your Kubeflow deployment includes a central dashboard that provides quick access
-to the Kubeflow components deployed in your cluster. The dashboard includes the
-following features:
+您的 Kubeflow 部署包括一个看板中心，
+可让您快速访问集群中部署的 Kubeflow 组件。
+仪表板包括以下功能：
 
-- Shortcuts to specific actions, a list of recent pipelines and notebooks, and
-  metrics, giving you an overview of your jobs and cluster in one view.
-- A housing for the UIs of the components running in the cluster, including
-  **Pipelines**, **Katib**, **Notebooks**, and more.
-- A [registration flow](/docs/components/central-dash/registration-flow/) that
-  prompts new users to set up their namespace if necessary.
+- 特定操作的快捷方式、最近的管道和笔记本列表以及指标，
+  让您在一个视图中概览您的作业和集群。
+- 集群中运行的组件的 UI 的外壳，包括 
+  **Pipelines**、**Katib**、**Notebooks** 等。
+- 必要时提示新用户设置其命名空间的 [registration 流程](/docs/components/central-dash/registration-flow/)。
 
-## Overview of Kubeflow UIs
+## Kubeflow UI 概览
 
-The Kubeflow UIs include the following:
+Kubeflow UI 包括以下内容：
 
-* **Home**: Home, the central hub to access recent resources, active
-  experiments, and useful documentation.
-* **Notebook Servers**: To manage [Notebook servers](/docs/components/notebooks/).
-* **TensorBoards**: To manage TensorBoard servers.
-* **Models**: To manage deployed [KFServing models](/docs/components/kfserving/kfserving/).
-* **Volumes**: To manage the cluster's Volumes.
-* **Experiments (AutoML)**: To manage [Katib](/docs/components/katib/) experiments.
-* **Experiments (KFP)**: To manage [Kubeflow Pipelines (KFP)](/docs/components/pipelines/) experiments.
-* **Pipelines**: To manage KFP pipelines.
-* **Runs**: To manage KFP runs.
-* **Recurring Runs**: To manage KFP recurring runs.
-* **Artifacts**: To track ML Metadata (MLMD) artifacts.
-* **Executions**: To track various component executions in MLMD.
-* **Manage Contributors**: To configure user access sharing across namespaces in
-  the Kubeflow deployment.
+* **主页**: 主页，是访问最新资源、活跃实验和
+  有用文档的中心枢纽。
+* **Notebook Servers**: 用来管理 [Notebook servers](/docs/components/notebooks/)。
+* **TensorBoards**: 用来管理 TensorBoard servers。
+* **Models**: 管理部署的 [KFServing models](/docs/components/kfserving/kfserving/)。
+* **Volumes**: 管理集群数据卷。
+* **Experiments (AutoML)**: 管理 [Katib](/docs/components/katib/) 实验。
+* **Experiments (KFP)**: 管理 [Kubeflow Pipelines (KFP)](/docs/components/pipelines/) 实验。
+* **Pipelines**: 管理 KFP pipelines。
+* **Runs**: 管理 KFP runs。
+* **Recurring Runs**: 管理 KFP recurring runs。
+* **Artifacts**: 跟踪 ML Metadata (MLMD) 工件。
+* **Executions**: 跟踪 MLMD 中各种组件的运行。
+* **管理贡献者**: 在 Kubeflow 部署中配置跨命名空间的用户访问共享。
 
-The central dashboard looks like this:
+看板中心如下所示：
 
 <img src="/docs/images/central-ui.png"
   alt="Kubeflow central UI"
   class="mt-3 mb-3 border border-info rounded">
 
-## Accessing the central dashboard
+## 访问看板中心
 
-To access the central dashboard, you need to connect to the
-[Istio gateway](https://istio.io/docs/concepts/traffic-management/#gateways) that
-provides access to the Kubeflow
-[service mesh](https://istio.io/docs/concepts/what-is-istio/#what-is-a-service-mesh).
+要访问看板中心，您需要连接到提供给 Kubeflow 的
+[Istio 网关](https://istio.io/docs/concepts/traffic-management/#gateways)，它提供了接入
+Kubeflow 的[服务网格](https://istio.io/docs/concepts/what-is-istio/#what-is-a-service-mesh)。
 
-How you access the Istio gateway varies depending on how you've configured it.
+访问 Istio 网关的方式取决于您的配置方式。
 
-## URL pattern with Google Cloud Platform (GCP)
+## 使用 Google Cloud Platform (GCP) 的 URL 模式
 
-If you followed the guide to [deploying Kubeflow on GCP](/docs/gke/deploy/),
-the Kubeflow central UI is accessible at a URL of the following pattern:
+果您按照指南 [在 GCP 上配置 Kubeflow](/docs/gke/deploy/)，
+则可以通过以下模式的 URL 访问 Kubeflow 看板中心 UI：
 
 ```
 https://<application-name>.endpoints.<project-id>.cloud.goog/
 ```
 
-The URL brings up the dashboard illustrated above.
+该 URL 会显示上图所示的仪表板。
 
-If you deploy Kubeflow with Cloud Identity-Aware Proxy (IAP), Kubeflow uses the
-[Let's Encrypt](https://letsencrypt.org/) service to provide an SSL certificate
-for the Kubeflow UI. For troubleshooting issues with your certificate, see the
-guide to
-[monitoring your Cloud IAP setup](/docs/gke/deploy/monitor-iap-setup/).
+如果您使用 Cloud Identity-Aware Proxy (IAP) 部署 Kubeflow，Kubeflow 使用 
+[Let's Encrypt](https://letsencrypt.org/) 服务为 Kubeflow UI 提供 SSL 证书。
+如需对证书问题进行故障排除，请参阅[监控 Cloud IAP 设置](/docs/gke/deploy/monitor-iap-setup/)的指南。
 
-## Using kubectl and port-forwarding
+## 使用 kubectl 和端口转发
 
-If you didn't configure Kubeflow to integrate with an identity provider
-then you can port-forward directly to the Istio gateway.
+如果您没有将 Kubeflow 配置为与身份提供者集成，
+那么您可以直接端口转发到 Istio 网关。
 
-Port-forwarding typically does not work if any of the following are true:
+如果以下任何一项为真，端口转发通常不起作用：
 
-  * You've deployed Kubeflow on GCP using the default settings
-    with the [CLI deployment](/docs/gke/deploy/deploy-cli/).
+  * 您已经使用 [CLI 部署](/docs/gke/deploy/deploy-cli/)的默认设置
+  * 在 GCP 上部署了 Kubeflow。
 
-  * You've configured the Istio ingress to only accept
-    HTTPS traffic on a specific domain or IP address.
+  * 您已将 Istio 入口配置为仅
+    接受特定域或 IP 地址上的 HTTPS 流量。
 
-  * You've configured the Istio ingress to perform an authorization check
-    (for example, using Cloud IAP or [Dex](https://github.com/dexidp/dex)).
+  * 您已将 Istio 入口配置为执行授权检查
+    （例如，使用 Cloud IAP 或 [Dex](https://github.com/dexidp/dex)）。
 
 
-You can access Kubeflow via `kubectl` and port-forwarding as follows:
+您可以通过 `kubectl` 端口转发访问 Kubeflow，如下所示：
 
-1. Install `kubectl` if you haven't already done so:
+1. 如果您还没有这样做，请安装 `kubectl`：
 
-    * If you're using Kubeflow on GCP, run the following command on the command
-    line: `gcloud components install kubectl`.
-    * Alternatively, follow the [`kubectl`
-    installation guide](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
+    * 如果您在 GCP 上使用 Kubeflow，请在命令行上运行以下命令：
+    `gcloud components install kubectl`。
+    * 或者，按照 [`kubectl`
+    安装指南](https://kubernetes.io/docs/tasks/tools/install-kubectl/)进行操作。
 
-1. Use the following command to set up port forwarding to the
-  [Istio gateway](https://istio.io/docs/tasks/traffic-management/ingress/ingress-control/).
+1. 使用以下命令设置到
+  [Istio 网关](https://istio.io/docs/tasks/traffic-management/ingress/ingress-control/)的端口转发。
 
     {{% code-webui-port-forward %}}
 
-1. Access the central navigation dashboard at:
+1. 访问看板中心：
 
     ```
     http://localhost:8080/
     ```
 
-    Depending on how you've configured Kubeflow, not all UIs work behind
-    port-forwarding to the reverse proxy.
+    根据您配置 Kubeflow 的方式，并非所有 UI 都在端口转发
+    到反向代理之后工作。
 
-    For some web applications, you need to configure the base URL on which
-    the app is serving.
+    对于某些 Web 应用程序，您需要配置应用程序
+    所服务的基本 URL。
 
-    For example, if you deployed Kubeflow with an ingress serving at
-    `https://example.mydomain.com` and configured an application
-    to be served at the URL `https://example.mydomain.com/myapp`, then the
-    app may not work when served on
-    `https://localhost:8080/myapp` because the paths do not match.
+    例如，如果您将 Kubeflow 部署并使用入口服务
+    `https://example.mydomain.com` 并将应用程序
+    配置服务在 URL `https://example.mydomain.com/myapp` ，则
+    应用程序在服务时可能无法运行，
+    因为路径`https://localhost:8080/myapp` 不匹配。
 
-## Next steps
+## 下一步
 
-* Explore the [contributor management
-  option](/docs/components/multi-tenancy/) where you
-  can set up a single namespace for a shared deployment or configure
-  multi-tenancy for your Kubeflow deployment.
-* [Set up your Jupyter notebooks](/docs/components/notebooks/setup/) in Kubeflow.
+* 探索 [贡献管理
+  选项](/docs/components/multi-tenancy/)，可以在其中为
+  共享部署设置单个命名空间或
+  为 Kubeflow 部署配置多租户。
+* 为 Kubeflow [设置 Jupyter notebooks](/docs/components/notebooks/setup/)。

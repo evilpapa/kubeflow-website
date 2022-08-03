@@ -1,67 +1,67 @@
 +++
 title = "快速指引"
-description = "Getting started with Kubeflow Notebooks"
+description = "Kubeflow 笔记本入门"
 weight = 10
                     
 +++
 
-## Summary
+## 概括
 
-1. Install Kubeflow by following [Getting Started - Installing Kubeflow](/docs/started/installing-kubeflow/).
-2. Open the Kubeflow [Central Dashboard](/docs/components/central-dash/) in your browser.
-3. Click __"Notebooks"__ in the left-hand panel.
-4. Click __"New Server"__ to create a new notebook server.
-5. Specify the configs for your notebook server.
-6. Click  __"CONNECT"__ once the notebook has been provisioned
+1. 按照 [入门 - 安装 Kubeflow](/docs/started/installing-kubeflow/) 进行安装。
+2. 在浏览器打开 Kubeflow [看板中心](/docs/components/central-dash/)。
+3. 在左侧面板点击 __"Notebooks"__ 
+4. 点击 __"New Server"__ 创建一个新的笔记本服务器。
+5. 指定笔记本服务器的配置。
+6. 配置笔记本后点击 __"CONNECT"__
 
-## Detailed Steps
+## 详细步骤
 
-1. Open the Kubeflow [Central Dashboard](/docs/components/central-dash/) in your browser.
+1. 在浏览器打开 Kubeflow [看板中心](/docs/components/central-dash/)。
 
-2. Select a Namespace:
-    - Click the namespace dropdown to see the list of available namespaces.
-    - Choose the namespace that corresponds to your Kubeflow Profile.
-      (See the page on [multi-user isolation](/docs/components/multi-tenancy/) for more information about Profiles.)
+2. 选择一个空间：
+    - 单击命名空间下拉菜单以查看可用命名空间的列表。
+    - 选择与您的 Kubeflow 配置文件对应的命名空间。
+      （有关配置文件的更多信息，请参阅[多用户隔离](/docs/components/multi-tenancy/)页面。）
 
    <img src="/docs/images/notebooks-namespace.png"
    alt="Selecting a Kubeflow namespace"
    class="mt-3 mb-3 border border-info rounded">
 
-3. Click __"Notebook Servers"__ in the left-hand panel:
+3. 在左侧面板点击 __"Notebooks"__
 
    <img src="/docs/images/jupyterlink.png"
    alt="Opening notebooks from the Kubeflow UI"
    class="mt-3 mb-3 border border-info rounded">
 
-4. Click __"New Server"__ on the __"Notebook Servers"__ page:
+4. 点击 __"Notebook Servers"__ 页面的 __"New Server"__：
 
    <img src="/docs/images/add-notebook-server.png"
    alt="The Kubeflow notebook servers page"
    class="mt-3 mb-3 border border-info rounded">
 
-5. Enter a __"Name"__ for your notebook server.
-    - The name can include letters and numbers, but no spaces.
-    - For example, `my-first-notebook`.
+5. 为笔记本服务输入 __"Name"__。
+    - 名称可以包含字母和数字，但不能包含空格。
+    - 比如，`my-first-notebook`。
 
    <img src="/docs/images/new-notebook-server.png"
    alt="Form for adding a Kubeflow notebook server"
    class="mt-3 mb-3 border border-info rounded">
 
-6. Select a Docker __"Image"__ for your notebook server
-    - __Custom image__: If you select the custom option, you must specify a Docker image in  the form `registry/image:tag`.
-      (See the guide on [container images](/docs/components/notebooks/container-images/).)
-    - __Standard image__: Click the __"Image"__ dropdown menu to see the list of available images.
-      (You can choose from the list configured by your Kubeflow administrator)
+6. 为您的笔记本服务器选择一个 Docker __"镜像"__ 
+    - __自定义镜像__: 如果您选择自定义选项，则必须以 `registry/image:tag` 格式指定 Docker 镜像。
+      (请参阅 [容器镜像](/docs/components/notebooks/container-images/)。)
+    - __标准镜像__: 点击 __"Image"__ 下拉菜单以查看可用图像列表。
+     （您可以从 Kubeflow 管理员配置的列表中选择）
 
-7. Specify the amount of __"CPU"__ that your notebook server will request.
+7. S指定笔记本服务器将请求的 __“CPU”__ 数量。
 
-8. Specify the amount of __"RAM"__ that your notebook server will request.
+8. 指定笔记本服务器将请求的 __“RAM”__ 数量。
 
-9. Specify a __"workspace volume"__ to be mounted as a PVC Volume on your home folder.
+9. 指定一个 __“工作空间卷”__ 作为 PVC 卷安装在您的主文件夹上。
 
-10. *(Optional)* Specify one or more __"data volumes"__ to be mounted as a PVC Volumes.
+10. *(可选)* 指定一个或多个 __"data volumes"__ 作为 PVC 卷挂载。
 
-11. *(Optional)* Specify one or more additional __"configurations"__
+11. *(可选)* 指定一个或多个附加 __"configurations"__
     - These correspond to [PodDefault resources](https://github.com/kubeflow/kubeflow/blob/master/components/admission-webhook/README.md) which exit in your profile namespace.
     - Kubeflow matches the labels in the __"configurations"__ field against the properties specified in the PodDefault manifest.
     - For example, select the label `add-gcp-secret` in the __"configurations"__ field to match to a PodDefault manifest containing the following configuration:

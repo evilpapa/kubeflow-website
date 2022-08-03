@@ -1,5 +1,5 @@
 +++
-title = "External Add-Ons"
-description = "Additional tools that may be integrated with a Kubeflow deployment or distribution."
+title = "外部组件"
+description = "可与Kubeflow部署或分发集成的其他工具。"
 weight = 30
 +++ 
