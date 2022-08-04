@@ -1,5 +1,5 @@
 +++
-title = "Kubeflow Pipelines SDK for Tekton"
+title = "Tekton Kubeflow Pipelines SDK"
 description = "How to run Kubeflow Pipelines with Tekton"
 weight = 140
                     

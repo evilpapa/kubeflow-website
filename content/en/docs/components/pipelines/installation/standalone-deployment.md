@@ -1,5 +1,5 @@
 +++
-title = "Standalone Deployment"
+title = "独立部署"
 description = "Information about Standalone Deployment of Kubeflow Pipelines"
 weight = 30
 +++

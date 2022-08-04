@@ -1,5 +1,5 @@
 +++
-title = "Choosing an Argo Workflows Executor"
+title = "选择 Argo Workflows Executor"
 description = "How to choose an Argo Workflows Executor"
 weight = 80
 +++

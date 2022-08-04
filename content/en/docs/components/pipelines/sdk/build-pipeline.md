@@ -1,5 +1,5 @@
 +++
-title = "Build a Pipeline"
+title = "构建 Pipeline"
 description = "A tutorial on building pipelines to orchestrate your ML workflow"
 weight = 30
 +++

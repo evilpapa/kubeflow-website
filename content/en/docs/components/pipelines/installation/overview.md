@@ -1,45 +1,41 @@
 +++
-title = "Installation Options"
-description = "Overview of the ways to deploy Kubeflow Pipelines"
+title = "安装选项"
+description = "Kubeflow Pipelines 部署方式概览"
 weight = 10
                     
 +++
 
-Kubeflow Pipelines offers a few installation options.
-This page describes the options and the features available
-with each option:
+Kubeflow Pipelines 提供了一些安装选项。本页介绍了每个选项可用的选项和功能：
 
-* [Kubeflow Pipelines Standalone](#kubeflow-pipelines-standalone) is the minimal
-portable installation that only includes Kubeflow Pipelines.
-* Kubeflow Pipelines as [part of a full Kubeflow deployment](#full-kubeflow-deployment) provides
-all Kubeflow components and more integration with each platform.
-* **Beta**: [Google Cloud AI Platform Pipelines](#google-cloud-ai-platform-pipelines) makes it easier to install and use Kubeflow Pipelines on Google Cloud by providing a management UI on [Google Cloud Console](https://console.cloud.google.com/ai-platform/pipelines/clusters).
-* A [local](/docs/components/pipelines/installation/localcluster-deployment) Kubeflow Pipelines deployment for testing purposes.
+* [Kubeflow Pipelines 独立安装](#kubeflow-pipelines-standalone) 是最小的便携式安装，仅包含 Kubeflow Pipelines。
+* Kubeflow Pipelines 作为 [完整 Kubeflow 部署的一部分](#full-kubeflow-deployment)，
+  Kubeflow Pipelines提供了所有 Kubeflow 组件以及与每个平台的更多集成。
+* **Beta**: [Google Cloud AI Platform Pipelines](#google-cloud-ai-platform-pipelines) 通过 Google Cloud [Google Cloud Console](https://console.cloud.google.com/ai-platform/pipelines/clusters) 的管理界面可以更容器的安装和使用 Kubeflow Pipelines。
+* [本地](/docs/components/pipelines/installation/localcluster-deployment) Kubeflow Pipelines 部署用于测试目的。
 
-## Choosing an installation option
+## 选择安装选项
 
-1. Do you want to use other Kubeflow components in addition to Pipelines?
+1. 除了 Pipelines 之外，您还想使用其他 Kubeflow 组件吗？
 
-    If yes, choose the [full Kubeflow deployment](#full-kubeflow-deployment).
-1. Can you use a cloud/on-prem Kubernetes cluster?
+   如果是，请选择 [完整的 Kubeflow 部署](#full-kubeflow-deployment)。
+1. 您可以使用云/本地 Kubernetes 集群吗？
 
-    If you can't, you should try using Kubeflow Pipelines on a local Kubernetes cluster for learning and testing purposes by following the steps in [Deploying Kubeflow Pipelines on a local cluster](/docs/components/pipelines/installation/localcluster-deployment).
-1. Do you want to use Kubeflow Pipelines with [multi-user support](https://github.com/kubeflow/pipelines/issues/1223)?
+   如果不能，您应该按照在 [本地集群上部署 Kubeflow Pipelines 中](/docs/components/pipelines/installation/localcluster-deployment)的步骤尝试在本地 Kubernetes 集群上使用 Kubeflow Pipelines 进行学习和测试。
+1. 你想使用 [multi-user 支持](https://github.com/kubeflow/pipelines/issues/1223) 的 Kubeflow Pipelines 吗？
 
-    If yes, choose the [full Kubeflow deployment](#full-kubeflow-deployment) with version >= v1.1.
-1. Do you deploy on Google Cloud?
+   如果是，请选择版本 >= v1.1的 [完整 Kubeflow 部署](#full-kubeflow-deployment)。
+1. 您是否在 Google Cloud 上部署？
 
-    If yes, deploy [Kubeflow Pipelines Standalone](#kubeflow-pipelines-standalone). You can also
-    use [Google Cloud AI Platform Pipelines](#google-cloud-ai-platform-pipelines) to deploy Kubeflow Pipelines
-    using a user interface, but there are limitations in
-    customizability and upgradability. For details, please read corresponding
-    sections.
-1. You deploy on other platforms.
+   如果是，请部署 [Kubeflow Pipelines Standalone](#kubeflow-pipelines-standalone)。您还可以使用
+   [Google Cloud AI Platform Pipelines](#google-cloud-ai-platform-pipelines) 通过用户界面部署 Kubeflow Pipelines，
+   但在可定制性和可升级性方面存在限制。
+   详情请阅读相应章节。
+1. 您部署在其他平台上。
 
-    Please compare your platform specific [full Kubeflow](#full-kubeflow-deployment) with the
-    [Kubeflow Pipelines Standalone](#kubeflow-pipelines-standalone) before making your decision.
+   请在做出决定之前将您的平台特定的 [full Kubeflow](#full-kubeflow-deployment) 与
+    [Kubeflow Pipelines Standalone](#kubeflow-pipelines-standalone) 进行对比。
 
-**Warning:** Choose your installation option with caution, there's no current
+**警告:** Choose your installation option with caution, there's no current
 supported path to migrate data between different installation options. Please
 create [a GitHub issue](https://github.com/kubeflow/pipelines/issues/new/choose)
 if that's important for you.

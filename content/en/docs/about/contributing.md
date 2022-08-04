@@ -11,7 +11,7 @@ aliases = ["/docs/contributing/"]
 
 ## 开始
 
-### Sign the CLA
+### 签署 CLA
 
 对该项目的贡献必须附有贡献者许可协议 (CLA)。 
 您（或您的雇主）保留您贡献的版权。
@@ -85,73 +85,73 @@ aliases = ["/docs/contributing/"]
 
 找到具有良好切入点的 Kubeflow 问题：
 
-- 从标记的 **good first issue** 开始。
-  For example, see the good first issues in the [kubeflow/website repository](https://github.com/kubeflow/website/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
-  for doc updates, and in the [kubeflow/kubeflow repository](https://github.com/kubeflow/kubeflow/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
-  for updates to the core Kubeflow code.
-- For issues that require deeper knowledge of one or more technical aspects, look at issues labeled **help wanted**.
-  For example, see these issues in the [kubeflow/kubeflow repository](https://github.com/kubeflow/kubeflow/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
+- 从 **good first issue** 标记开始。
+  比如，在 [kubeflow/website 仓库](https://github.com/kubeflow/website/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)查看第一个 good first issues
+  以获取文档更新，在 [kubeflow/kubeflow 仓库](https://github.com/kubeflow/kubeflow/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
+  查看核心代码更新。
+- 对于需要更深入讨论有一到多个技术方面的问题，请查看标记为 **help wanted** 的问题。
+  比如，在 [kubeflow/kubeflow 参考](https://github.com/kubeflow/kubeflow/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)查看此问题。
 - Examine the issues in any of the [Kubeflow repositories](https://github.com/kubeflow).
 
-## Owners files and PR workflow
+## Owners 文件及 PR 工作流
 
-Our PR workflow is nearly identical to Kubernetes'.
-Most of these instructions are a modified version of Kubernetes' [contributors](https://github.com/kubernetes/community/blob/master/contributors/guide/README.md)
-and [owners](https://github.com/kubernetes/community/blob/master/contributors/guide/owners.md#code-review-using-owners-files) guides.
+我们的 PR 工作流程与 Kubernetes 几乎相同。
+这些说明大部分是 Kubernetes 的 [贡献者](https://github.com/kubernetes/community/blob/master/contributors/guide/README.md)
+及 [owners](https://github.com/kubernetes/community/blob/master/contributors/guide/owners.md#code-review-using-owners-files) 指南修改的版本。
 
-### Overview of OWNERS files
+### OWNERS 文件概述
 
-OWNERS files are used to designate responsibility over different parts of the Kubeflow codebase.
-Today, we use them to assign the **reviewer** and **approver** roles used in our two-phase code review process.
-Our OWNERS files were inspired by [Chromium OWNERS files](https://chromium.googlesource.com/chromium/src/+/master/docs/code_reviews.md),
-which in turn inspired [GitHub's CODEOWNERS files](https://help.github.com/articles/about-codeowners/).
+OWNERS 文件用于指定对 Kubeflow 代码库不同部分的责任。
+今天，我们使用它们来分配在我们的两阶段代码审查过程中使用的 **审查者** 和 **批准者** 角色。
+OWNERS 文件受 [Chromium OWNERS 文件](https://chromium.googlesource.com/chromium/src/+/master/docs/code_reviews.md)启发，
+而后者又启发自 [GitHub's CODEOWNERS 文件](https://help.github.com/articles/about-codeowners/)。
 
-The velocity of a project that uses code review is limited by the number of people capable of reviewing code.
-The quality of a person's code review is limited by their familiarity with the code under review.
-Our goal is to address both of these concerns through the prudent use and maintenance of OWNERS files
+使用代码审查的项目的速度受到能够审查代码的人数的限制。
+一个人的代码审查质量受到他们对被审查代码的熟悉程度的限制。
+我们的目标是通过谨慎使用和维护 OWNERS 文件来解决这两个问题
 
 <a name="owners-1"></a>
 ### OWNERS
 
-Each directory that contains a unit of independent code or content may also contain an OWNERS file.
-This file applies to everything within the directory, including the OWNERS file itself, sibling files, and child directories.
+每个包含独立代码或内容单元的目录也可能包含一个 OWNERS 文件。
+此文件适用于目录中的所有内容，包括 OWNERS 文件本身、同级文件和子目录。
 
-OWNERS files are in YAML format and support the following keys:
+OWNERS 文件为 YAML 格式并支持以下键：
 
-- `approvers`: a list of GitHub usernames or aliases that can `/approve` a PR
-- `labels`: a list of GitHub labels to automatically apply to a PR
-- `options`: a map of options for how to interpret this OWNERS file, currently only one:
-  - `no_parent_owners`: defaults to `false` if not present; if `true`, exclude parent OWNERS files.
-    Allows the use case where `a/deep/nested/OWNERS` file prevents `a/OWNERS` file from having any
-    effect on `a/deep/nested/bit/of/code`
-- `reviewers`: a list of GitHub usernames or aliases that are good candidates to `/lgtm` a PR
+- `approvers`: 可以 `/approve` PR 的 Github 用户名或者别名列表
+- `labels`: 自动应用到 PR 的 Github 标签列表
+- `options`: 解释 OWNERS 文件的 map 选项，现阶段只有一个：
+  - `no_parent_owners`: 不存在时默认为 `false`；如果为 `true`，排除父级 OWNERS 文件。
+    允许 `a/deep/nested/OWNERS` 组织 `a/OWNERS` 文件对
+    `a/deep/nested/bit/of/code` 产生影响
+- `reviewers`: 适合 `/lgtm` PR 的Github 用户名或者别名列表
 
-All users are expected to be assignable.
-In GitHub terms, this means they are either collaborators of the repo, or members of the organization to which the repo belongs.
+所有用户都应该是可分配的。
+在 GitHub 中，这意味着他们要么是 repo 的合作者，要么是 repo 所属组织的成员。
 
-A typical OWNERS file looks like:
+典型的 OWNERS 文件如下所示：
 
 ```
 approvers:
   - alice
-  - bob     # this is a comment
+  - bob     # 这里是注释
 reviewers:
   - alice
-  - carol   # this is another comment
-  - sig-foo # this is an alias
+  - carol   # 这里也是注释
+  - sig-foo # 这里是个别名
 ```
 
 #### OWNERS_ALIASES
 
-Each repo may contain at its root an OWNERS_ALIAS file.
+每个 repo 的根目录可能包含一个 OWNERS_ALIAS 文件。
 
-OWNERS_ALIAS files are in YAML format and support the following keys:
+OWNERS_ALIAS 文件为 YAML 格式并支持以下键：
 
-- `aliases`: a mapping of alias name to a list of GitHub usernames
+- `aliases`: 别名到 GitHub 用户名列表的映射
 
-We use aliases for groups instead of GitHub Teams, because changes to GitHub Teams are not publicly auditable.
+我们为组使用别名而不是 GitHub Teams，因为对 GitHub Teams 的更改不可公开审核。
 
-A sample OWNERS_ALIASES file looks like:
+示例 OWNERS_ALIASES 文件如下所示：
 
 ```
 aliases:
@@ -163,159 +163,149 @@ aliases:
     - frank
 ```
 
-GitHub usernames and aliases listed in OWNERS files are case-insensitive.
+OWNERS 文件中列出的 GitHub 用户名和别名不区分大小写。
 
-### The code review process
+### 代码审查过程
 
-- The **author** submits a PR
-- Phase 0: Automation suggests **reviewers** and **approvers** for the PR
-  - Determine the set of OWNERS files nearest to the code being changed
-  - Choose at least two suggested **reviewers**, trying to find a unique reviewer for every leaf
-    OWNERS file, and request their reviews on the PR
-  - Choose suggested **approvers**, one from each OWNERS file, and list them in a comment on the PR
-- Phase 1: Humans review the PR
-  - **Reviewers** look for general code quality, correctness, sane software engineering, style, etc.
-  - Anyone in the organization can act as a **reviewer** with the exception of the individual who
-    opened the PR
-  - If the code changes look good to them, a **reviewer** types `/lgtm` in a PR comment or review;
-    if they change their mind, they `/lgtm cancel`
-  - Once a **reviewer** has `/lgtm`'ed, [prow](https://prow.k8s.io)
-    ([@k8s-ci-robot](https://github.com/k8s-ci-robot/)) applies an `lgtm` label to the PR
-- Phase 2: Humans approve the PR
-  - The PR **author** `/assign`'s all suggested **approvers** to the PR, and optionally notifies
-    them (eg: "pinging @foo for approval")
-  - Only people listed in the relevant OWNERS files, either directly or through an alias, can act
-    as **approvers**, including the individual who opened the PR
-  - **Approvers** look for holistic acceptance criteria, including dependencies with other features,
-    forwards/backwards compatibility, API and flag definitions, etc
-  - If the code changes look good to them, an **approver** types `/approve` in a PR comment or
-    review; if they change their mind, they `/approve cancel`
-  - [prow](https://prow.k8s.io) ([@k8s-ci-robot](https://github.com/k8s-ci-robot/)) updates its
-    comment in the PR to indicate which **approvers** still need to approve
-  - Once all **approvers** (one from each of the previously identified OWNERS files) have approved,
-    [prow](https://prow.k8s.io) ([@k8s-ci-robot](https://github.com/k8s-ci-robot/)) applies an
-    `approved` label
-- Phase 3: Automation merges the PR:
+- **author** 提交 PR
+- 阶段 0: 自动化建议 PR 的 **reviewers** 和 **approvers**
+  - 确定最接近被更改代码的 OWNERS 文件集
+  - 选择至少两个 **reviewers**，尝试为每个叶子 OWNERS 文件找到一个唯一的审稿人，
+    为 PR 请求他们进行审稿
+  - 择建议的 **approvers**，从每个 OWNERS 文件中选择一个，并在 PR 的评论中列出它们
+- 阶段 1: 人工审查 PR
+  - **Reviewers** 查看代码质量、正确性、健全的软件工程、风格等。
+  - 织中的任何人都可以担任 **reviewer** 但开启 PR 的个人除外
+  - 如果代码更改看起来何时，**reviewer** 在 PR 评论输入 `/lgtm` 或审查；
+    如果他们改变主意 `/lgtm cancel`
+  - 一旦 **reviewer** 被 `/lgtm`，[prow](https://prow.k8s.io)
+    ([@k8s-ci-robot](https://github.com/k8s-ci-robot/)) 接受 `lgtm` 标签到 PR
+- 阶段 2: 人工批准 PR
+  - PR **author** `/assign` 所有建议的 **approvers** 到 PR，并可选的通知到
+    他们 (比如："pinging @foo 来批准")
+  - 只有相关 OWNERS 文件中列出的人员，直接或者间接的别名，才能充当
+    **approvers**，包括打开 PR 的个人
+  - **Approvers** 找整体验收标准，包括与其他功能的依赖关系、前向/后向兼容性、API 和标志定义等
+  - 如果代码更改在他们看来不错， **approver** 在 PR 评论中输入 `/approve` 或 审查；
+    如果他们改变主意 `/approve cancel`
+  - [prow](https://prow.k8s.io) ([@k8s-ci-robot](https://github.com/k8s-ci-robot/)) 更新
+    PR 评论，指出仍需要 **approvers** 进行批准
+  - 一旦所有 **approvers** (来自先前确定的每个 OWNERS 文件中的一个) 批准，
+    [prow](https://prow.k8s.io) ([@k8s-ci-robot](https://github.com/k8s-ci-robot/)) 将应用 `approved` 标签
+- 阶段 3: 自动合并 PR：
 
-  - If all of the following are true:
+  - 如果以下所有条件都为真：
 
-    - All required labels are present (eg: `lgtm`, `approved`)
-    - Any blocking labels are missing (eg: there is no `do-not-merge/hold`, `needs-rebase`)
+    - 存在所有必需的标签（例如：`lgtm`，`approved`）
+    - 缺少任何阻止标签（例如：没有 `do-not-merge/hold`, `needs-rebase`）
 
-  - And if any of the following are true:
+  - 如果以下任何一项为真：
 
-    - there are no presubmit prow jobs configured for this repo
-    - there are presubmit prow jobs configured for this repo, and they all pass after automatically
-      being re-run one last time
+    - 没有为此 repo 配置 presubmit prow 作业
+    - 有为此 repo 配置的 presubmit prow 作业，并且它们在最后一次自动重新运行后都通过
 
-  - Then the PR will automatically be merged
+  - 然后PR会自动合并
 
-### Quirks of the process
+### 过程的怪癖
 
-There are a number of behaviors we've observed that while _possible_ are discouraged, as they go
-against the intent of this review process. Some of these could be prevented in the future, but this
-is the state of today.
+我们观察到的许多行为 _可能_ 会受到阻止，
+因为它们违背了审核的流程。
+其中一些可能在未来被阻止，但这是今天的状态。
 
-- An **approver**'s `/lgtm` is simultaneously interpreted as an `/approve`
-  - While a convenient shortcut for some, it can be surprising that the same command is interpreted
-    in one of two ways depending on who the commenter is
-  - Instead, explicitly write out `/lgtm` and `/approve` to help observers, or save the `/lgtm` for
-    a **reviewer**
-  - This goes against the idea of having at least two sets of eyes on a PR, and may be a sign that
-    there are too few **reviewers** (who aren't also **approver**)
-- Technically, anyone who is a member of the Kubeflow GitHub organization can drive-by `/lgtm` a
-  PR
-  - Drive-by reviews from non-members are encouraged as a way of demonstrating experience and
-    intent to become a collaborator or reviewer
-  - Drive-by `/lgtm`'s from members may be a sign that our OWNERS files are too small, or that the
-    existing **reviewers** are too unresponsive
-  - This goes against the idea of specifying **reviewers** in the first place, to ensure that
-    **author** is getting actionable feedback from people knowledgeable with the code
-- **Reviewers**, and **approvers** are unresponsive
-  - This causes a lot of frustration for **authors** who often have little visibility into why their
-    PR is being ignored
-  - Many **reviewers** and **approvers** are so overloaded by GitHub notifications that @mention'ing
-    is unlikely to get a quick response
-  - If an **author** `/assign`'s a PR, **reviewers** and **approvers** will be made aware of it on
-    their [PR dashboard](https://k8s-gubernator.appspot.com/pr)
-  - An **author** can work around this by manually reading the relevant OWNERS files,
-    `/unassign`'ing unresponsive individuals, and `/assign`'ing others
-  - This is a sign that our OWNERS files are stale; pruning the **reviewers** and **approvers** lists
-    would help with this
-  - It is the PR **authors** responsibility to drive a PR to resolution. This means if the PR **reviewers** are unresponsive they should escalate as noted below
-    - e.g ping **reviewers** in a timely manner to get it reviewed
-    - If the **reviewers** don't respond look at the OWNERs file in root and ping **approvers** listed there
-- **Authors** are unresponsive
-  - This costs a tremendous amount of attention as context for an individual PR is lost over time
-  - This hurts the project in general as its general noise level increases over time
-  - Instead, close PR's that are untouched after too long (we currently have a bot do this after 90 days)
+- **approver** 的 `/lgtm` 同时被解释为 `/approve`
+  - 虽然对某些人来说是一种方便的快捷方式，但令人惊讶的是，
+    根据评论者的身份，以两种方式之一解释相同的命令
+  - 相反，明确帮写明 `/lgtm` 和 `/approve` 来帮助观察者， 
+    或为 **reviewer** 保存 `/lgtm`
+  - 这违背了对 PR 至少有两对眼睛盯着它的的原则，并表明
+    又太少的 **reviewers** (它不能同时是 **approver**)
+- 从技术上讲，任何 Kubeflow GitHub 组织的成员都可以 `/lgtm` 一个 PR
+  - 鼓励来自非成员的评论作为实验证明，以及意图成为一名协作或评论者
+  - 来自成员中的 `/lgtm` 可能表明我们的 OWNERS 文件过小，
+    或已存在的 **reviewers** 反应太过迟钝
+  - 这违背了在最初指定 **reviewers** 的原则，以确保
+    **author** 从熟悉代码的人那里获得可操作的反馈
+- **Reviewers** 和 **approvers** 无反应
+  - 这让那些通常不知道他们的 PR 为何被忽略的 **authors** 感到沮丧
+  - 许多 **reviewers** 及 **approvers** 都被 GitHub 通知打扰，而不对其他人 @提及 的问题进行快速相应
+  - 如果一个 **author** `/assign` 一个 PR，**reviewers** 和 **approvers** 将能在
+    他们的 [PR dashboard](https://k8s-gubernator.appspot.com/pr) 知道。
+  - **author** 可以手动读取相关 OWNERS 文件，
+    `/unassign` 无响应的人，并 `/assign` 给其他人
+  - 这是我们的所有者文件过时的迹象；修剪 **审阅人** 和 **批准人** 列表将对此有所帮助
+  - PR **authors** 有责任推动 PR 问题的解决。这意味着如果 PR **reviewers** 未响应，则应该进行升级
+    - 例如，即使 ping **reviewers** 去审阅
+    - 如果 **reviewers** 未响应，查看 root 下的 OWNER 文件，来 ping 列表中的 **approvers**
+- **Authors** 未响应
+  - 这会花费大量的注意力，因为随着时间的推移，个人 PR 的上下文会丢失
+  - 这通常会损害项目，因为其总体噪音水平会随着时间的推移而增加
+  - 相反，关闭太长时间后未触及的 PR（我们目前有一个机器人在 90 天后执行此操作）
 
-## Automation using OWNERS files
+## 使用 OWNERS 文件的自动化
 
 ### [`prow`](https://git.k8s.io/test-infra/prow)
 
-Prow receives events from GitHub, and reacts to them. It is effectively stateless. The following
-pieces of prow are used to implement the code review process above.
+Prow 从 GitHub 接收事件，并对它们做出反应。它实际上是无状态的。
+以下部分用于实现上面的代码审查过程。
 
 - [cmd: tide](https://git.k8s.io/test-infra/prow/cmd/tide)
-  - per-repo configuration:
-    - `labels`: list of labels required to be present for merge (eg: `lgtm`)
-    - `missingLabels`: list of labels required to be missing for merge (eg: `do-not-merge/hold`)
-    - `reviewApprovedRequired`: defaults to `false`; when true, require that there must be at least
-      one [approved pull request review](https://help.github.com/articles/about-pull-request-reviews/)
-      present for merge
-    - `merge_method`: defaults to `merge`; when `squash` or `rebase`, use that merge method instead
-      when clicking a PR's merge button
+  - per-repo 配置:
+    - `labels`: 合并所需的标签列表（例如：`lgtm`）
+    - `missingLabels`: 合并所需的标签列表（例如：`do-not-merge/hold`）
+    - `reviewApprovedRequired`: 默认 `false`；为 true 时，需要至少一个
+      [approved pull request review](https://help.github.com/articles/about-pull-request-reviews/)
+      以进行合并
+    - `merge_method`: 默认 `merge`；当为 `squash` 或 `rebase`，, 在单击 PR 的合并按钮时使用该合并方法
   - merges PR's once they meet the appropriate criteria as configured above
   - if there are any presubmit prow jobs for the repo the PR is against, they will be re-run one
     final time just prior to merge
 - [plugin: assign](https://git.k8s.io/test-infra/prow/plugins/assign)
-  - assigns GitHub users in response to `/assign` comments on a PR
-  - unassigns GitHub users in response to `/unassign` comments on a PR
+  - 在 PR 上为 GitHub users 响应 `/assign` 回复
+  - 在 PR 上为 GitHub users 响应 `/unassign` 回复
 - [plugin: approve](https://git.k8s.io/test-infra/prow/plugins/approve)
-  - per-repo configuration:
-    - `issue_required`: defaults to `false`; when `true`, require that the PR description link to
-      an issue, or that at least one **approver** issues a `/approve no-issue`
-    - `implicit_self_approve`: defaults to `false`; when `true`, if the PR author is in relevant
-      OWNERS files, act as if they have implicitly `/approve`'d
+  - per-repo 配置：
+    - `issue_required`: 默认为 `false`；如果为 `true`，需要 PR 描述链接到
+      一个 issue，或者至少一个 **approver** 发布 `/approve no-issue`
+    - `implicit_self_approve`: 默认为 `false`; ；如果为 `true`，如果 PR 作者在相关的
+      OWNERS 文件，隐式地进行 `/approve`
   - adds the `approved` label once an **approver** for each of the required
     OWNERS files has `/approve`'d
   - comments as required OWNERS files are satisfied
-  - removes outdated approval status comments
+  - 删除过时的审批状态注释
 - [plugin: blunderbuss](https://git.k8s.io/test-infra/prow/plugins/blunderbuss)
-  - determines **reviewers** and requests their reviews on PR's
+  - 确定 **reviewers** 并要求他们对 PR 进行审阅
 - [plugin: lgtm](https://git.k8s.io/test-infra/prow/plugins/lgtm)
-  - adds the `lgtm` label when a **reviewer** comments `/lgtm` on a PR
-  - the **PR author** may not `/lgtm` their own PR
+  - 当 **reviewer** 为 PR 添加 `/lgtm` 时增加 `lgtm` 标签
+  - **PR author** 可能不会为他们的 PR 添加 `/lgtm`
 - [pkg: k8s.io/test-infra/prow/repoowners](https://git.k8s.io/test-infra/prow/repoowners/repoowners.go)
-  - parses OWNERS and OWNERS_ALIAS files
-  - if the `no_parent_owners` option is encountered, parent owners are excluded from having
-    any influence over files adjacent to or underneath of the current OWNERS file
+  - 解析 OWNERS 和 OWNERS_ALIAS 文件
+  - 如果遇到 `no_parent_owners` 选项，则父所有者将不会对
+    当前 OWNERS 文件附近或下方的文件产生任何影响
 
-## Maintaining OWNERS files
+## 维护 OWNERS 文件
 
-OWNERS files should be regularly maintained.
+OWNERS 文件应定期维护。
 
-We encourage people to self-nominate or self-remove from OWNERS files via PR's. Ideally in the future
-we could use metrics-driven automation to assist in this process.
+我们鼓励人们通过 PR 自行提名或自行从 OWNERS 文件中删除。理想情况下，
+我们可以在未来使用指标驱动的自动化来协助这个过程。
 
-We should strive to:
+我们应该努力：
 
-- grow the number of OWNERS files
-- add new people to OWNERS files
-- ensure OWNERS files only contain org members and repo collaborators
-- ensure OWNERS files only contain people are actively contributing to or reviewing the code they own
-- remove inactive people from OWNERS files
+- 增加 OWNERS 文件的数量
+- 将新人添加到 OWNERS 文件
+- 确保 OWNERS 文件仅包含组织成员和 repo 协作者
+- 确保 OWNERS 文件只包含积极贡献或审查他们拥有的代码的人
+- 从 OWNERS 文件中删除不活跃的人
 
 OWNERS 使用的坏用例：
 
-- directories that lack OWNERS files, resulting in too many hitting root OWNERS
-- OWNERS files that have a single person as both approver and reviewer
-- OWNERS files that haven't been touched in over 6 months
-- OWNERS files that have non-collaborators present
+- 缺少 OWNERS 文件的目录，导致访问 root OWNERS 过多
+- 拥有一个人同时作为审批和审阅作者的 OWNERS 文件
+- 超过 6 个月未触及的 OWNERS 文件
+- 存在非协作者的 OWNERS 文件
 
 OWNERS 良好用例：
 
-- there are more `reviewers` than `approvers`
-- the `approvers` are not in the `reviewers` section
-- OWNERS files that are regularly updated (at least once per release)
+- `reviewers` 超过 `approvers`
+- `approvers` 不在该 `reviewers` 部分
+- 定期更新的 OWNERS 文件（每个版本至少一次）

@@ -1,5 +1,5 @@
 +++
-title = "Local Deployment"
+title = "本地部署"
 description = "Information about local Deployment of Kubeflow Pipelines (kind, K3s, K3ai)"
 weight = 20
 +++

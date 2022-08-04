@@ -1,6 +1,6 @@
 +++
-title = "Fairing on Azure"
-description = "Documentation for Kubeflow Fairing on Microsoft Azure Kubernetes Service"
+title = "Azure 上的 Fairing"
+description = "有关 Microsoft Azure Kubernetes 服务的 Kubeflow Fairing 文档"
 weight = 45
 +++
 

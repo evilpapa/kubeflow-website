@@ -1,5 +1,5 @@
 +++
-title = "Using environment variables in pipelines"
+title = "在管道中使用环境变量"
 description = "How to set and use environment variables in Kubeflow pipelines"
 weight = 115
                     

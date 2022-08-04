@@ -1,5 +1,5 @@
 +++
-title = "Introduction to the Pipelines SDK"
+title = "Pipelines SDK 简介"
 description = "Overview of using the SDK to build components and pipelines"
 weight = 10
                     

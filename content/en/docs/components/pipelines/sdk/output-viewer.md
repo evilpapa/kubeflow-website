@@ -1,5 +1,5 @@
 +++
-title = "Visualize Results in the Pipelines UI"
+title = "Pipelines UI 的可视化结果"
 description = "Visualizing the results of your pipelines component"
 weight = 80
                     

@@ -1,6 +1,6 @@
 +++
-title = "Best Practices for Designing Components"
-description = "Designing and writing components for Kubeflow Pipelines"
+title = "组件设计最佳实践"
+description = "为 Kubeflow Pipelines 设计和编写组件"
 weight = 60
                     
 +++

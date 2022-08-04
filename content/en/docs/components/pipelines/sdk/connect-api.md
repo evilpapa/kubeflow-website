@@ -1,5 +1,5 @@
 +++
-title = "Connecting to Kubeflow Pipelines using the SDK client"
+title = "使用 SDK 客户端连接到 Kubeflow Pipelines"
 description = "How to connect to Kubeflow Pipelines using the SDK client and configure the SDK client using environment variables"
 weight = 25
 +++

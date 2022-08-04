@@ -1,5 +1,5 @@
 +++
-title = "Pipeline Parameters"
+title = "Pipeline 参数"
 description = "Passing data between pipeline components"
 weight = 70
                     

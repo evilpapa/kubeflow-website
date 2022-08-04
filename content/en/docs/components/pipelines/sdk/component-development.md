@@ -1,5 +1,5 @@
 +++
-title = "Building Components"
+title = "组件开发"
 description = "A tutorial on how to create components and use them in a pipeline"
 weight = 40
 +++

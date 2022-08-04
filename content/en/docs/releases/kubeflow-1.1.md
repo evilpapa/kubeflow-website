@@ -1,6 +1,6 @@
 +++
 title = "Kubeflow 1.1"
-description = "Information about the Kubeflow 1.1 release"
+description = "Kubeflow 1.1 发布信息"
 weight = 103
 +++
 

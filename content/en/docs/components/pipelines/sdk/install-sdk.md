@@ -1,5 +1,5 @@
 +++
-title = "Install the Kubeflow Pipelines SDK"
+title = "安装 Kubeflow Pipelines SDK"
 description = "Setting up your Kubeflow Pipelines development environment"
 weight = 20
                     

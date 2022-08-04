@@ -1,5 +1,5 @@
 +++
-title = "DSL Static Type Checking"
+title = "DSL 静态类型检测"
 description = "Statically check the component I/O types"
 weight = 100
                     

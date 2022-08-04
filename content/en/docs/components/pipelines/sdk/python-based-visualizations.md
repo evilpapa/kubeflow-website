@@ -1,5 +1,5 @@
 +++
-title = "Python Based Visualizations (Deprecated)"
+title = "基于 Python 的可视化 (废弃)"
 description = "Predefined and custom visualizations of pipeline outputs"
 weight = 1400
 +++
