@@ -7,35 +7,35 @@ weight = 10
 
 {{% stable-status %}}
 
-In Kubeflow clusters, users often need to be isolated into a group, where a group includes one or more users.   Additionally, a user may need to belong to multiple groups.  Kubeflow’s multi-user isolation simplifies user operations because each user only views and edited\s the Kubeflow components and model artifacts defined in their configuration.  A user’s view is not cluttered by components or model artifacts that are not in their configuration. This isolation also provides for efficient infrastructure and operations i.e. a single cluster supports multiple isolated users, and does not require the administrator to operate different clusters to isolate users.  
+在 Kubeflow 集群中，通常需要将用户隔离到一个组中，其中一个组包含一个或多个用户。此外，用户可能需要属于多个组。Kubeflow 的多用户隔离简化了用户操作，因为每个用户只查看和编辑其配置中定义的 Kubeflow 组件和模型工件。用户的视图不会被不在其配置中的组件或模型工件弄乱。这种隔离还提供了高效的基础设施和操作，即单个集群支持多个隔离用户，并且不需要管理员操作不同的集群来隔离用户。
 
-## Key concepts
+## 关键概念
 
-**Administrator**: An Administrator is someone who creates and maintains the Kubeflow cluster. This person configures permissions (i.e. view, edit) for other users.
+**Administrator**: 管理员是创建和维护 Kubeflow 集群的人。此人为其他用户配置权限（即查看、编辑）。
 
-**User**: A User is someone who has access to some set of resources in the cluster. A user needs to be granted access permissions by the administrator.
+**User**: 用户是有权访问集群中某些资源集的人。用户需要被管理员授予访问权限。
 
-**Profile**: A Profile is a unique configuration for a user, which determines their access privileges and is defined by the Administrator.   
+**Profile**: 配置文件是用户的唯一配置，它决定了他们的访问权限并由管理员定义。
 
-**Isolation**: Isolation uses Kubernetes Namespaces.  Namespaces isolate users or a group of users i.e. Bob’s namespace or ML Eng namespace that is shared by Bob and Sara.
+**Isolation**: 隔离使用 Kubernetes 命名空间。命名空间隔离用户或一组用户，即 Bob 的命名空间或 Bob 和 Sara 共享的 ML Eng 命名空间。
 
-**Authentication**: Authentication is provided by an integration of Istio and OIDC and is secured by mTLS.  More details can be found [here](https://journal.arrikto.com/kubeflow-authentication-with-istio-dex-5eafdfac4782) 
+**Authentication**: 身份验证由 Istio 和 OIDC 的集成提供，并由 mTLS 保护。更多细节可以在 [这里找到](https://journal.arrikto.com/kubeflow-authentication-with-istio-dex-5eafdfac4782) 
 
-**Authorization**: Authorization is provided by an integration with Kubernetes RBAC. 
+**Authorization**: 授权由与 Kubernetes RBAC 的集成提供。
 
-Kubeflow multi-user isolation is configured by Kubeflow administrators.   Administrators configure Kubeflow User Profiles for each user.  After the configuration is created and applied, a User can only access the Kubeflow components that the Administrator has configured for them.  The configuration limits non-authorized UI users from viewing or accidentally deleting model artifacts.   
+Kubeflow 多用户隔离由 Kubeflow 管理员配置。管理员为每个用户配置 Kubeflow 用户配置文件。创建并应用配置后，用户只能访问管理员为其配置的 Kubeflow 组件。该配置限制未经授权的 UI 用户查看或意外删除模型工件。
 
-With multi-user isolation, Users are authenticated and authorized, and then provided with a time-based token i.e. a json web token (JWT).   The access token is carried as a web header in user requests, and authorizes the user to access the resources configured in their Profile.  The Profile configures several items including the User’s namespace(s), RBAC RoleBinding, Istio ServiceRole and ServiceRoleBindings along with Resource Quotas and Custom Plug-ins.   More information on the Profile definition and related CRD can be found [here](https://github.com/kubeflow/kubeflow/blob/master/components/profile-controller/README.md)
+通过多用户隔离，对用户进行身份验证和授权，然后提供基于时间的令牌，即 json Web 令牌 (JWT)。访问令牌作为用户请求中的 Web 标头携带，并授权用户访问其配置文件中配置的资源。Profile 配置了几个项目，包括用户的命名空间、RBAC RoleBinding、Istio ServiceRole 和 ServiceRoleBindings 以及资源配额和自定义插件。可以在 [此处](https://github.com/kubeflow/kubeflow/blob/master/components/profile-controller/README.md)找到有关配置文件定义和相关 CRD 的更多信息。
 
 
-## Current integration 
+## 现有集成
 
-These Kubeflow Components can support multi-user isolation: Central Dashboard, Notebooks, Pipelines, AutoML (Katib), KFServing.  Furthermore, resources created by the notebooks (for example, training jobs and deployments) also inherit the same access.
+这些 Kubeflow 组件可以支持多用户隔离：Central Dashboard、Notebooks、Pipelines、AutoML (Katib)、KFServing。此外，笔记本创建的资源（例如，培训作业和部署）也继承相同的访问权限。
 
-Important notes: Multi-user isolation has several configurable dependencies, especially those related to how Kubeflow is configured with the underlying Kubernetes cluster’s identity management system.   Additionally, Kubeflow multi-user isolation doesn’t provide hard security guarantees against malicious attempts to infiltrate another user’s profile.
+重要说明：多用户隔离有几个可配置的依赖关系，尤其是与 Kubeflow 如何与底层 Kubernetes 集群的身份管理系统配置相关的依赖关系。此外，Kubeflow 多用户隔离不提供硬性安全保证，防止恶意企图渗透其他用户的配置文件。
 
-When configuring multi-user isolation along with your security and identity management requirements, it is recommended that you consult with your [distribution provider](https://www.kubeflow.org/docs/distributions/).   This KubeCon [presentation](https://www.youtube.com/watch?v=U8yWOKOhzes) provides a detailed review of the architecture and implementation.   For on-premise deployments, Kubeflow uses Dex as a federated OpenID connection provider and can be integrated with LDAP or Active Directory to provide authentication and identity services.   This can be an advanced configuration and it is recommended that you consult with a distribution provider, or a team that provides advanced technical support for on-premise Kubeflow.   
+在配置多用户隔离以及您的安全和身份管理要求时，建议您咨询您的 [分发提供商](https://www.kubeflow.org/docs/distributions/)。 KubeCon [演示文稿](https://www.youtube.com/watch?v=U8yWOKOhzes) 提供了对架构和实现的详细回顾。对于本地部署，Kubeflow 使用 Dex 作为联合 OpenID 连接提供程序，并且可以与 LDAP 或 Active Directory 集成以提供身份验证和身份服务。这可以是高级配置，建议您咨询分发提供商或为本地 Kubeflow 提供高级技术支持的团队。
 
 ## 下一步
 
-* Learn more about [multi-user isolation design](/docs/components/multi-tenancy/design/).
+* 了解有关多[用户隔离设计](/docs/components/multi-tenancy/design/)的更多信息。

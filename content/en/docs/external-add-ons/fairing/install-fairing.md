@@ -1,8 +1,9 @@
 +++
-title = "Install Kubeflow Fairing"
-description = "Setting up your Kubeflow Fairing development environment"
+title = "安装 Kubeflow Fairing"
+description = "设置你的 Kubeflow Fairing 开发环境"
 weight = 10
                     
+
 +++
 {{% alert title="Out of date" color="warning" %}}
 This guide contains outdated information pertaining to Kubeflow 1.0. This guide
@@ -15,7 +16,7 @@ notebook. This guide describes how to install Kubeflow Fairing in your
 development environment for [local development][local], or [development in a
 hosted notebook][hosted].
 
-## Using Kubeflow Fairing with Kubeflow notebooks
+## 在 Kubeflow notebooks 中使用 Kubeflow Fairing
 
 Kubeflow notebook servers that are built from one of the standard Jupyter
 Docker images include Kubeflow Fairing and come preconfigured for using
@@ -25,13 +26,13 @@ If you use a Kubeflow notebook server that was built from a custom Jupyter
 Docker image as your development environment, follow the instruction on
 [setting up Kubeflow Fairing in a hosted notebook environment][hosted].  
 
-## Set up Kubeflow Fairing for local development 
+## 本地开发环境设置 Kubeflow Fairing 
 
 Follow these instructions to set up Kubeflow Fairing for local development.
 This guide has been tested on Linux and Mac OS X. Currently, this guide has
 not been tested on Windows.
 
-### Set up Python
+### 设置 Python
 
 1.  You need **Python 3.6** or later to use Kubeflow Fairing. To check if
     you have Python 3.6 or later installed, run the following command:
@@ -77,7 +78,7 @@ not been tested on Windows.
     source venv/bin/activate
     ```
 
-### Install Kubeflow Fairing
+### 安装 Kubeflow Fairing
 
 Run the following command to install Kubeflow Fairing in your virtual
 environment.
@@ -108,7 +109,7 @@ Location: <path-to-kubeflow-fairing>
 Requires: notebook, future, docker, tornado, cloudpickle, oauth2client, numpy, requests, setuptools, httplib2, google-auth, google-api-python-client, urllib3, boto3, azure, six, kubernetes, google-cloud-storage
 ```
 
-### Docker setup
+### Docker 设置
 
 Kubeflow Fairing uses Docker to package your code. Run the following command
 to verify if Docker is installed and running:
@@ -127,7 +128,7 @@ docker ps
    about how this affects security in your system, see the guide to the
    [Docker daemon attack surface][docker-attack].
 
-### Configure Kubeflow Fairing
+### 配置 Kubeflow Fairing
 
 To configure Kubeflow Fairing with access to an environment that you would like to
 use for training and deployment, follow the instructions in the [guide to
@@ -143,7 +144,7 @@ standard Jupyter Docker images, your notebooks environment has been
 preconfigured for training and deploying ML models with Kubeflow Fairing and
 no additional installation steps are required.  
 
-### Prerequisites
+### 要求
 
 Check the following prerequisites to verify that Kubeflow Fairing is compatible
 with your hosted notebook environment.
@@ -183,7 +184,7 @@ with your hosted notebook environment.
        more about how this affects security in your system, see the guide to
        the [Docker daemon attack surface][docker-attack].
 
-### Install Kubeflow Fairing
+### 安装 Kubeflow Fairing
 
 1.  In the Jupyter notebooks user interface, click **File** > **New** >
     **Terminal** in the menu to start a new terminal session in your notebook
@@ -216,7 +217,7 @@ with your hosted notebook environment.
     Requires: notebook, future, docker, tornado, cloudpickle, oauth2client, numpy, requests, setuptools, httplib2, google-auth, google-api-python-client, urllib3, boto3, azure, six, kubernetes, google-cloud-storage
     ```
 
-### Configure Kubeflow Fairing
+### 配置 Kubeflow Fairing
 
 To configure Kubeflow Fairing with access to the environment you would like to
 use for training and deployment, follow the instructions in the guide to

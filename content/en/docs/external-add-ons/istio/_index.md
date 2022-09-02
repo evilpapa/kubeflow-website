@@ -1,5 +1,5 @@
 +++
 title = "Istio"
-description = "Documentation on Istio component in Kubeflow"
+description = "Kubeflow Istio 组件文档"
 weight = 30
 +++

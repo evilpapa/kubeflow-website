@@ -5,9 +5,9 @@ weight = 60
                     
 +++
 
-This guide shows how you can use
-[early stopping](https://en.wikipedia.org/wiki/Early_stopping) to improve your
-Katib experiments. Early stopping allows you to avoid overfitting when you
+本指引展示
+[early stopping](https://en.wikipedia.org/wiki/Early_stopping) 来优化你的
+Katib 实验。早期实验停止允许你 Early stopping allows you to avoid overfitting when you
 train your model during Katib experiments. It also helps by saving computing
 resources and reducing experiment execution time by stopping the experiment's
 trials when the target metric(s) no longer improves before the training process

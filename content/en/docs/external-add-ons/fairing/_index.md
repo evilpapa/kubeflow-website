@@ -1,5 +1,5 @@
 +++
 title = "Fairing"
-description = "Documentation for Kubeflow Fairing."
+description = "Kubeflow Fairing 文档。"
 weight = 45
 +++

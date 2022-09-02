@@ -1,13 +1,12 @@
 +++
 title = "独立部署"
-description = "Information about Standalone Deployment of Kubeflow Pipelines"
+description = "Kubeflow Pipelines 独立部署信息"
 weight = 30
 +++
 
-As an alternative to deploying Kubeflow Pipelines (KFP) as part of the
-[Kubeflow deployment](/docs/started/getting-started/#installing-kubeflow), you also have a choice
-to deploy only Kubeflow Pipelines. Follow the instructions below to deploy
-Kubeflow Pipelines standalone using the supplied kustomize manifests.
+作为将 Kubeflow Pipelines (KFP) 部署为
+[Kubeflow](/docs/started/getting-started/#installing-kubeflow) 的一部分，你还可以选择
+只部署 Pipelines。按照以下提供的 kustomize manifests 来独立部署 Kubeflow Pipelines。
 
 You should be familiar with [Kubernetes](https://kubernetes.io/docs/home/),
 [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), and [kustomize](https://kustomize.io/).
@@ -18,17 +17,17 @@ on Google Cloud Platform (GCP). You can also install Kubeflow Pipelines standalo
 platforms. This guide needs updating. See [Issue 1253](https://github.com/kubeflow/website/issues/1253).
 {{% /alert %}}
 
-## Before you get started
+## 开始之前
 
 Working with Kubeflow Pipelines Standalone requires a Kubernetes cluster as well as an installation of kubectl.
 
-### Download and install kubectl
+### 下载及安装 kubectl
 
 Download and install kubectl by following the [kubectl installation guide](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 
 You need kubectl version 1.14 or higher for native support of kustomize.
 
-### Set up your cluster
+### 集群设置
 
 If you have an existing Kubernetes cluster, continue with the instructions for [configuring kubectl to talk to your cluster](#configure-kubectl).
 
@@ -63,12 +62,12 @@ Note, some legacy pipeline examples may need minor code change to run on cluster
 
   * [gcloud command reference](https://cloud.google.com/sdk/gcloud/reference/container/clusters/create)
 
-### Configure kubectl to talk to your cluster {#configure-kubectl}
+### 配置 kubectl 和集群通信 {#configure-kubectl}
 
 See the Google Kubernetes Engine (GKE) guide to
 [configuring cluster access for kubectl](https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl).
 
-## Deploying Kubeflow Pipelines
+## 部署 Kubeflow Pipelines
 
 1. Deploy the Kubeflow Pipelines:
 
@@ -113,7 +112,7 @@ referring to [Argo Workflow Executors](/docs/components/pipelines/installation/c
      kubectl describe configmap inverse-proxy-config -n kubeflow | grep googleusercontent.com
      ```
 
-## Upgrading Kubeflow Pipelines
+## 升级 Kubeflow Pipelines
 
 1. For release notices and breaking changes, refer to [Upgrading Kubeflow Pipelines](/docs/components/pipelines/upgrade).
 
@@ -152,7 +151,7 @@ referring to [Argo Workflow Executors](/docs/components/pipelines/installation/c
 
      For other versions, you don't need to do anything.
 
-## Customizing Kubeflow Pipelines
+## 自定义 Kubeflow Pipelines
 
 Kubeflow Pipelines can be configured through kustomize [overlays](https://github.com/kubernetes-sigs/kustomize/blob/master/docs/glossary.md#overlay).
 
@@ -214,7 +213,7 @@ By default, the KFP standalone deployment installs an [inverting proxy agent](ht
 
 1. Open the Kubeflow Pipelines UI at `http://localhost:8080/`.
 
-## Uninstalling Kubeflow Pipelines
+## 卸载 Kubeflow Pipelines
 
 To uninstall Kubeflow Pipelines, run `kubectl delete -k <manifest-file>`.
 

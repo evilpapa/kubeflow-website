@@ -7,125 +7,121 @@ weight = 30
 
 {{% stable-status %}}
 
-## Usage overview
+## 使用概览
 
-After Kubeflow is installed and configured, you will by default
-be accessing your *primary profile*. A *profile* owns a Kubernetes namespace of
-the same name along with a collection of Kubernetes resources. Users have view
-and modify access to their primary profiles. You can share
-access to your profile with another user in the system. When sharing the access
-to a profile with another user, you can choose to whether to provide only read access or read/modify
-access. For all practical purposes when working
-through the Kubeflow central dashboard, the active namespace is directly tied
-with the active profile.
+安装和配置 Kubeflow 后，您将默认
+访问您的 *主配置文件（primary profile）*。 *profile* 配置文件拥有同名的 Kubernetes 命名空间
+以及 Kubernetes 资源的集合。 用户可以查看
+和修改他们的主要配置文件。您可以与系统中的其他用户
+共享对您的个人资料的访问权限。 与其他用户共享对配置文件
+的访问权限时，您可以选择是仅提供读取访问权限还是提供读取/修改访问
+权限。 在通过 Kubeflow 看板中心工作时，
+出于所有实际目的，活动命名空间直接与
+活动配置文件相关联。 
 
-## Example of usage
+## 使用示例
 
-You can select your active profile from the top bar on the Kubeflow central
-dashboard.  Note that you can only see the profiles
-to which you have view or modify access.
+您可以从 Kubeflow 看板中心的顶部栏中选择您的活动
+配置文件。请注意，您只能查看
+您拥有查看或修改权限的配置文件。
 
 <img src="/docs/images/select-profile.png"
   alt="Select active profile "
   class="mt-3 mb-3 border border-info rounded">
 
-This guide illustrates the user isolation functionality using the Jupyter
-notebooks service which is the first service in the system to have full
-integration with the multi-user isolation functionality.
+本指南说明了使用 Jupyter 笔记本服务的
+用户隔离功能，这是系统中
+第一个与多用户隔离功能完全集成的服务。
 
-After you select an active profile, the Notebooks Servers UI
-displays only the active notebook servers in the currently selected
-profile. All other notebook servers remain hidden from you. If you switch
-the active profile, the view switches the list of active notebooks
-appropriately. You can connect to any of the listed notebook servers and
-view and modify the existing Jupyter notebooks available in the server.
+选择活动配置文件后，笔记本服务器 UI 仅显示
+当前所选配置文件中的活动笔记本服务器。
+所有其他笔记本服务器仍然对您隐藏。如果您切换活动配置文件，
+视图会适当地切换活动笔记本列表。
+您可以连接到任何列出的笔记本服务器，
+并查看和修改服务器中可用的现有 Jupyter 笔记本。
 
-For example, the following image shows the list of notebook servers available
-in a user's primary profile:
+例如，下图显示了用户主要配置文件中
+可用的笔记本服务器列表：
 
 <img src="/docs/images/notebooks-in-profile.png"
   alt="List of notebooks in active profile "
   class="mt-3 mb-3 border border-info rounded">
 
-When an unauthorized user accesses the notebooks in this profile, they see an
-error:
+当未经授权的用户访问此配置文件中的笔记本时，他们会看到
+一个错误：
 
 <img src="/docs/images/notebook-access-error.png"
   alt="Error listing notebooks in inacessible profile"
   class="mt-3 mb-3 border border-info rounded">
 
-When you create Jupyter notebook servers from the Notebooks Servers UI,
-the notebook pods are created in your active profile. If you don't have
-modify access to the active profile, you can only browse currently active
-notebook servers and access the existing notebooks but cannot create
-new notebook servers in that profile. You can create notebook
-servers in your primary profile which you have view and modify access to.
+当您从笔记本服务器 UI 创建 Jupyter 笔记本服务器时，
+会在您的活动配置文件中创建笔记本 pod。
+如果您没有对活动配置文件的修改访问权限，
+则只能浏览当前活动的笔记本服务器并访问现有的笔记本，
+但不能在该配置文件中创建新的笔记本服务器。
+您可以在您具有查看和修改访问权限的主要配置文件中创建笔记本服务器。
 
-## Onboarding a new user
+## 新用户入职
 
-An **administrator** can manually create a profile for any user in the Kubeflow cluster.
-Here an administrator is a person who has [*cluster-admin*](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles)
-role binding in the Kubernetes cluster. This person has permissions to create
-and modify Kubernetes resources in the cluster. For example, the person who
-deployed Kubeflow will have administration privileges in the cluster.
+**administrator** 可以为Kubeflow集群中的任何用户手动创建配置文件。
+这里的管理员是 在 Kubernetes 集群中具有 [*cluster-admin*](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) 角色。
+此人有权在集群中创建和修改 Kubernetes 资源。
+例如，部署 Kubeflow 的人将在集群中拥有管理权限。
 
-We recommend this approach, since it encourages the adoption of GitOps processes for handling the Profile creation.
+我们推荐这种方法，因为它鼓励采用 GitOps 流程来处理配置文件的创建。
 
-Kubeflow {{% kf-latest-version %}} optionally provides automatic Profile creation workflow for authenticated users on first login.
+Kubeflow {{% kf-latest-version %}} 可选择在首次登录时为经过身份验证的用户提供自动配置文件创建工作流程。
 
-### Pre-requisites: grant user minimal Kubernetes cluster access
+### 先决条件：授予用户最小 Kubernetes 集群访问权限
 
-You must grant each user the minimal permission scope that allows them to
-connect to the Kubernetes cluster.
+您必须为每个用户授予允许他们连接到 Kubernetes 集群的最小权限范围。
 
-For example, for Google Cloud users, you should grant the
-following Cloud Identity and Access Management (IAM) roles. In the following
-commands, replace `[PROJECT]` with your Google Cloud project and replace `[EMAIL]` with
-the user's email address:
+例如，对于 Google Cloud 用户，您应该授予以下 Cloud Identity and Access Management (IAM) 角色。
+在以下命令中，替换 `[PROJECT]` 为您的 Google Cloud 项目并替换 `[EMAIL]` 为用户的电子邮件地址：
 
-* To access the Kubernetes cluster, the user needs the [Kubernetes Engine
+* 要访问 Kubernetes 集群，用户需要 [Kubernetes Engine
   Cluster Viewer](https://cloud.google.com/kubernetes-engine/docs/how-to/iam)
-  role:
+  角色：
 
     ```
     gcloud projects add-iam-policy-binding [PROJECT] --member=user:[EMAIL] --role=roles/container.clusterViewer
     ```
 
-* To access the Kubeflow UI through IAP, the user needs the
+* 要通过 IAP 访问 Kubeflow UI，用户需要
   [IAP-secured Web App User](https://cloud.google.com/iap/docs/managing-access)
-  role:
+  角色:
 
     ```
     gcloud projects add-iam-policy-binding [PROJECT] --member=user:[EMAIL] --role=roles/iap.httpsResourceAccessor
     ```
 
-    **Note:** you need to grant the user `IAP-secured Web App User` role even if the user is already an owner or editor of the project. `IAP-secured Web App User` role is not implied by just `Project Owner` or `Project Editor` roles.
+    **注意：** 你需要分配 `IAP-secured Web App User` 角色
+    给到用户，即使该用户已经是项目的拥有者或者编辑人员。 `IAP-secured Web App User` 角色不只是 `Project Owner` 或 `Project Editor` 角色。
 
-* To be able to run `gcloud get credentials` and see logs in Cloud Logging
-  (formerly Stackdriver), the user needs viewer access on the project:
+* 为了能够运行 `gcloud get credentials` 并在 Cloud Logging
+  (formerly Stackdriver) 查看日志，用户需要项目的 viewer access 权限：
 
     ```
     gcloud projects add-iam-policy-binding [PROJECT] --member=user:[EMAIL] --role=roles/viewer
     ```
 
-### Manual profile creation
+### 手动创建配置文件
 
-An administrator can manually create profiles for users as described below.
+管理员可以手动为用户创建配置文件，如下所述。
 
-Create a
-`profile.yaml` file with the following content on your local machine:
+在本地机器上创建一个包含以下内容的 `profile.yaml` 文件：
 
 ```
 apiVersion: kubeflow.org/v1beta1
 kind: Profile
 metadata:
-  name: profileName   # replace with the name of profile you want, this will be user's namespace name
+  name: profileName   # 替换为所需配置文件的名称，这将是用户的命名空间名称
 spec:
   owner:
     kind: User
-    name: userid@email.com   # replace with the email of the user
+    name: userid@email.com   # 替换为用户的电子邮件
 
-  resourceQuotaSpec:    # resource quota can be set optionally
+  resourceQuotaSpec:    # 可以选择设置资源配额
    hard:
      cpu: "2"
      memory: 2Gi
@@ -133,7 +129,7 @@ spec:
      persistentvolumeclaims: "1"
      requests.storage: "5Gi"
 ```
-Run the following command to create the corresponding profile resource:
+运行以下命令创建相应的配置文件资源：
 
 ```
 kubectl create -f profile.yaml
@@ -141,68 +137,63 @@ kubectl create -f profile.yaml
 kubectl apply -f profile.yaml  #if you are modifying the profile
 ```
 
-The above command creates a profile named *profileName*. The profile owner is
-*userid@email.com* and has view and modify access to that profile.
-The following resources are created as part of the profile creation:
+上面的命令创建了一个名为 *profileName* 的属性文件。配置文件所有者是
+*userid@email.com* 并且具有查看和修改该配置文件的访问权限。
+以下资源是作为配置文件创建的一部分创建的：
 
-  - A Kubernetes namespace that shares the same name with the corresponding
-    profile.
+  - 与相应配置文件同名的 Kubernetes 命名空间。
   - Kubernetes RBAC ([Role-based access control](https://kubernetes.io/docs/reference/access-authn-authz/rbac/))
-    role binding role binding for the namespace: *Admin*. This makes the
-    profile owner the namespace administrator, thus giving them access to the
-    namespace using kubectl (via the Kubernetes API).
-  - Istio namespace-scoped AuthorizationPolicy: *user-userid-email-com-clusterrole-edit*.
-    This allows the `user` to access data belonging to the namespace the AuthorizationPolicy was created in 
-  - Namespace-scoped service-accounts *default-editor* and *default-viewer* to be used by
-    user-created pods in the namespace.
-  - Namespace scoped resource quota limits will be placed.
+    角色绑定角色绑定命名空间： *Admin*。这使配置文件所有者成为命名空间管理员，
+    从而使他们能够使用 kubectl（通过 Kubernetes API）访问命名空间。
+  - Istio 命名空间范围内的  AuthorizationPolicy: *user-userid-email-com-clusterrole-edit*.
+    这允许 `user` 访问属于创建 AuthorizationPolicy 的命名空间的数据
+  - 命名空间范围内的服务帐户 *default-editor* 和 *default-viewer* 
+    供命名空间中用户创建的 pod 使用。
+  - 将设置命名空间范围内的资源配额限制。
 
-**Note**: Due to a one-to-one correspondence of profiles with Kubernetes
-namespaces, the terms *profile* and *namespace* are sometimes used interchangeably in the
-documentation.
+**注意：**: 由于配置文件与 Kubernetes 命名空间是一一对应的，术语 *profile* 和 *namespace* 有时在文档中可以互换使用。
 
-### Batch creation of user profiles
+### 批量创建用户配置文件
 
-Administrators might want to create profiles for multiple users as a batch. You can
-do this by creating a `profile.yaml` on the local machine with multiple sections of
-profile descriptions as shown below:
+管理员可能希望为多个用户批量创建配置文件。您可以通过本地计算机上创建一个包含多个配置文件描述部分的 `profile.yaml` 来执行此操作
+如下所示：
 
 ```
 apiVersion: kubeflow.org/v1beta1
 kind: Profile
 metadata:
-  name: profileName1   # replace with the name of profile you want
+  name: profileName1   # 替换为所需配置文件的名称
 spec:
   owner:
     kind: User
-    name: userid1@email.com   # replace with the email of the user
+    name: userid1@email.com   # 替换为用户的电子邮件
 ---
 apiVersion: kubeflow.org/v1beta1
 kind: Profile
 metadata:
-  name: profileName2   # replace with the name of profile you want
+  name: profileName2   # 替换为所需配置文件的名称
 spec:
   owner:
     kind: User
-    name: userid2@email.com   # replace with the email of the user
+    name: userid2@email.com   # 替换为用户的电子邮件
 ```
 
-Run the following command to apply the namespaces to the Kubernetes cluster:
+运行以下命令将命名空间应用到 Kubernetes 集群：
 ```
 kubectl create -f profile.yaml
 
 kubectl apply -f profile.yaml  #if you are modifying the profiles
 ```
 
-This will create multiple profiles, one for each individual listed in the sections
-in `profile.yaml`.
+这将创建多个配置文件，每个配置文件列于
+ `profile.yaml` 文件。
 
-### Automatic profile creation
+### 自动配置文件创建
 
-Kubeflow {{% kf-latest-version %}} provides automatic profile creation:
+Kubeflow {{% kf-latest-version %}} 提供自动配置文件创建：
 
-  - Automatic profile creation is not activated by default, and needs to be explicitly included as part of deployment. After turning on automatic user profile creation during deployment, a new user profile is created for authenticated users on their first login. Users will be able to see their new profile in the dropdown list of the Kubeflow central dashboard.
-  - The automatic profile creation can be enabled as part of the deployment by setting the `CD_REGISTRATION_FLOW` env variable to `true`. Modify the `<manifests-path>/apps/centraldashboard/upstream/base/params.env` to set the registration variable to `true`
+  - 默认情况下，自动配置文件创建未激活，需要明确包含在部署中。在部署期间打开自动用户配置文件创建后，会在首次登录时为经过身份验证的用户创建一个新的用户配置文件。用户将能够在 Kubeflow 看板中心的下拉列表中看到他们的新配置文件。
+  - 在部署过程中启用自动配置文件通过设置 `CD_REGISTRATION_FLOW` 环境变量为 `true`。修改 `<manifests-path>/apps/centraldashboard/upstream/base/params.env` 注册变量为 `true`
 
    ```
    CD_CLUSTER_DOMAIN=cluster.local
@@ -211,88 +202,78 @@ Kubeflow {{% kf-latest-version %}} provides automatic profile creation:
    CD_REGISTRATION_FLOW=true
    ```
 
-  - When an authenticated user logs into the system and visits the central
-    dashboard for the first time, they trigger a profile creation automatically.
-      - A brief message introduces profiles: <img
+  - 当经过身份验证的用户首次登录系统并访问中央仪表板时，他们会自动触发配置文件创建。
+      - 一条简短的消息介绍了配置文件：<img
         src="/docs/images/auto-profile1.png" alt="Automatic profile creation
         step 1" class="mt-3 mb-3 border border-info rounded">
-      - The user can name their profile and click *Finish*:  <img
+      - 用户可以命名他们的个人资料并单击 *Finish*:  <img
         src="/docs/images/auto-profile2.png" alt="Automatic profile creation
         step 2" class="mt-3 mb-3 border border-info rounded">
-      - This redirects the user to the dashboard where they can view and select
-        their profile in the dropdown list.
+      - 这会将用户重定向到仪表板，他们可以在其中查看并在下拉列表中选择他们的个人资料。
 
-## Listing and describing profiles
+## 列出和描述配置文件
 
-An administrator can list the existing profiles in the system:
+管理员可以列出系统中的现有配置文件：
 ```
 $ kubectl get profiles
 ```
-and describe a specific profile using:
+并使用以下方式描述特定配置文件：
 ```
 $ kubectl describe profile profileName
 ```
 
-## Deleting an existing profile
+## 删除现有配置文件
 
-An administrator can delete an existing profile using:
+管理员可以使用以下方法删除现有配置文件：
 ```
 $ kubectl delete profile profileName
 ```
 
-This will delete the profile, the corresponding namespace and any Kubernetes
-resources associated with the profile. The profile's owner or other users with
-access to the profile will no longer have access to the profile and will not see
-it in the dropdown list on the central dashboard.
+这将删除配置文件、相应的命名空间以及与配置文件关联的任何 Kubernetes 资源。
+配置文件的所有者或有权访问配置文件的其他用户将不再有权访问配置文件，
+并且不会在中央仪表板的下拉列表中看到它。
 
 
-## Managing contributors through the Kubeflow UI
+## 通过 Kubeflow UI 管理贡献者
 
-Kubeflow {{% kf-latest-version %}} allows sharing of profiles with other users in the
-system.  An owner of a profile can share access to their profile using the
-**Manage Contributors** tab available through the dashboard.
+Kubeflow {{% kf-latest-version %}} 允许与系统中的其他用户共享配置文件。配置文件的拥有者可以使用通过看板使用
+**Manage Contributors** tab 页来共享他人对其个人属性文件的访问权限。
 
 <img src="/docs/images/multi-user-contributors.png"
   alt="Manage Contributors in Profiles"
   class="mt-3 mb-3 border border-info rounded">
 
-Here is an example of the Manage Contributors tab view:
+以下是管理贡献者选项卡视图的示例：
 
 <img src="/docs/images/manage-contributors.png"
   alt="Manage Contributors in Profiles"
   class="mt-3 mb-3 border border-info rounded">
 
-Notice that in the above view the account associated with the profile is a
-cluster administrator (*Cluster Admin*)
-as this account was used to deploy Kubeflow. The view lists the
-profiles accessible to the user along with the role associated with that
-profile.
+请注意，在上面的视图中，与配置文件关联的帐户是集群管理员（*Cluster Admin*），
+该帐户用于部署 Kubeflow。该视图列出了用户可访问的配置文件以及与该配置文件关联的角色。
 
-To add or remove a contributor, add/remove the
-email address or the user identifier in the **Contributors to your namespace** field.
+要添加或删除贡献者，请将用户的电子邮件地址或用户标识符
+填入 **Contributors to your namespace** 选项。
 
 <img src="/docs/images/add-contributors.png"
   alt="Add Contributors"
   class="mt-3 mb-3 border border-info rounded">
 
-The Manage Contributors tab shows the contributors that the namespace owner has
-added. Note that the cluster administrator can view all the
-profiles in the system along with their contributors.
+管理贡献者选项卡显示名称空间所有者添加的贡献者。
+请注意，集群管理员可以查看系统中的所有配置文件及其贡献者。
 
 <img src="/docs/images/view-contributors.png"
   alt="View Contributors"
   class="mt-3 mb-3 border border-info rounded">
 
 
-The contributors have access to all the Kubernetes resources in the
-namespace and can create notebook servers as well as access
-existing notebooks.
+贡献者可以访问命名空间中的所有 Kubernetes 资源，并且可以创建笔记本服务器以及访问现有的笔记本。
 
-## Managing contributors manually
+## 手动管理贡献者
 
-An administrator can manually add contributors to an existing profile as described below.
+管理员可以手动将参与者添加到现有配置文件，如下所述。
 
-Create a rolebinding.yaml file with the following content on your local machine:
+在本地机器上创建一个包含以下内容的 `rolebinding.yaml` 文件：
 
 ```
 apiVersion: rbac.authorization.k8s.io/v1
@@ -315,7 +296,7 @@ subjects:
   name: userid@email.com   # replace with the email of the user from your Active Directory case sensitive
 ```
 
-Create an authorizationpolicy.yaml file with the following content on your local machine:
+在本地机器上创建一个包含以下内容的 authorizationpolicy.yaml 文件：
 
 ```
 apiVersion: security.istio.io/v1beta1
@@ -335,12 +316,12 @@ spec:
       - accounts.google.com:userid@email.com   # replace with the email of the user from your Active Directory case sensitive
 ```
 
-Run the following command to create the corresponding contributor resources:
+运行以下命令创建对应的贡献者资源：
 
 ```
 kubectl create -f rolebinding.yaml
 kubectl create -f authorizationpolicy.yaml
 ```
 
-The above command adds a contributor *userid@email.com* to the profile named *profileName*. The contributor
-*userid@email.com* has view and modify access to that profile.
+上面的命令将贡献者 *userid@email.com* 添加到名为 *profileName* 的配置文件中。贡献者
+*userid@email.com* 具有查看和修改该个人资料的权限。

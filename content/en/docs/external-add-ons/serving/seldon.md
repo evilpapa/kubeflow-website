@@ -1,5 +1,5 @@
 +++
-title = "Seldon Core Serving"
+title = "Seldon Core 服务"
 description = "Model serving using Seldon"
 weight = 40
                     

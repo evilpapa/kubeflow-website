@@ -7,31 +7,31 @@ weight = 30
 
 {{% stable-status %}}
 
-This page describes `XGBoostJob` for training a machine learning model with [XGBoost](https://github.com/dmlc/xgboost).
+本页描述 `XGBoostJob` 来训练 [XGBoost](https://github.com/dmlc/xgboost) 机器学习模型。
 
-`XGBoostJob` is a Kubernetes
-[custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)
-to run XGBoost training jobs on Kubernetes. The Kubeflow implementation of
-`XGBoostJob` is in [`training-operator`](https://github.com/kubeflow/training-operator).
+`XGBoostJob` 是一个 Kubernetes
+[自定义资源](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)
+用于在 Kubernetes 上运行 XGBoost 训练工作。 Kubeflow 的
+`XGBoostJob` 实现是在 [`training-operator`](https://github.com/kubeflow/training-operator)。
 
-## Installing XGBoost Operator
+## 安装 XGBoost Operator
 
-If you haven't already done so please follow the [Getting Started Guide](/docs/started/getting-started/) to deploy Kubeflow.
+如果已经完成，请跟随 [开始指引](/docs/started/getting-started/) 来部署 Kubeflow。
 
-> By default, XGBoost Operator will be deployed as a controller in training operator.
+> 默认的，XGBoost Operator 会作为训练 operator 的控制器部署。
 
-If you want to install a standalone version of the training operator without Kubeflow,
-see the [kubeflow/training-operator's README](https://github.com/kubeflow/training-operator#installation).
+如果想要安装 Kubeflow 之外独立版本的训练 operator，
+查看 [kubeflow/training-operator's README](https://github.com/kubeflow/training-operator#installation).
 
-## Verify that XGBoost support is included in your Kubeflow deployment
+## 验证 Kubeflow 部署包含 XGBoost 支持
 
-Check that the XGboost custom resource is installed
+检查 XGboost 自定义资源已经安装
 
 ```
 kubectl get crd
 ```
 
-The output should include `xgboostjobs.kubeflow.org`
+输出应包含 `xgboostjobs.kubeflow.org`
 
 ```
 NAME                                           AGE
@@ -40,56 +40,56 @@ xgboostjobs.kubeflow.org                       4d
 ...
 ```
 
-Check that the Training operator is running via:
+检测训练 operator 通过如下运行：
 
 ```
 kubectl get pods -n kubeflow
 ```
 
-The output should include `training-operator-xxx` like the following:
+输出结果应包含 `training-operator-xxx` 如下：
 
 ```
 NAME                                READY   STATUS    RESTARTS   AGE
 training-operator-d466b46bc-xbqvs   1/1     Running   0          4m37s
 ```
 
-## Creating a XGBoost training job
+## 创建一个 XGBoost 训练工作
 
-You can create a training job by defining a `XGboostJob` config file. See the
-manifests for the [IRIS example](https://github.com/kubeflow/training-operator/blob/master/examples/xgboost/xgboostjob.yaml).
-You may change the config file based on your requirements. E.g.: add `CleanPodPolicy`
-in Spec to `None` to retain pods after job termination.
+你可以通过定义一个 `XGboostJob` 配置文件创建一个训练任务。参考
+[IRIS 示例](https://github.com/kubeflow/training-operator/blob/master/examples/xgboost/xgboostjob.yaml)清单。
+你可以在此基础上按照你的需求修改配置文件。比如：添加 `CleanPodPolicy`
+节点 `None` 来为在 job 终止时保持 pod。
 
 ```
 cat xgboostjob.yaml
 ```
 
-Deploy the `XGBoostJob` resource to start training:
+部署 `XGBoostJob` 资源开启训练：
 
 ```
 kubectl create -f xgboostjob.yaml
 ```
 
-You should now be able to see the created pods matching the specified number of replicas.
+现在你可以看到已创建的指定副本数量的 pod。
 
 ```
 kubectl get pods -l job-name=xgboost-dist-iris-test-train
 ```
 
-Training takes 5-10 minutes on a cpu cluster. Logs can be inspected to see its training progress.
+训练在 cpu 集群上花费 5-10 分钟。可以检查日志以查看其训练进度。
 
 ```
 PODNAME=$(kubectl get pods -l job-name=xgboost-dist-iris-test-train,replica-type=master,replica-index=0 -o name)
 kubectl logs -f ${PODNAME}
 ```
 
-## Monitoring a XGBoostJob
+## 监控 XGBoostJob
 
 ```
 kubectl get -o yaml xgboostjobs xgboost-dist-iris-test-train
 ```
 
-See the status section to monitor the job status. Here is sample output when the job is successfully completed.
+查看 status 节点来监控 job 状态。 以下时一个成功完成 job 的输出示例。
 
 ```yaml
 apiVersion: kubeflow.org/v1

@@ -1,5 +1,5 @@
 +++
-title = "Configure Kubeflow Fairing"
+title = "Kubeflow Fairing 配置"
 description = "Configuring your Kubeflow Fairing development environment with access to Kubeflow"
 weight = 20
                     
@@ -22,7 +22,7 @@ to your hosted Kubeflow environment.
    Engine, follow the guide to [configuring Kubeflow Fairing with access to
    Google Cloud Platform][conf-gcp].  
 
-## Prerequisites
+## 要求
 
 Before you configure Kubeflow Fairing, you must have a Kubeflow environment
 and Kubeflow Fairing installed in your development environment.
@@ -32,7 +32,7 @@ and Kubeflow Fairing installed in your development environment.
 *  If you have not installed Kubeflow Fairing, follow the [installing
    Kubeflow Fairing][fairing-install] guide.
 
-## Using Kubeflow Fairing with Kubeflow notebooks
+## 让 Kubeflow notebooks 使用 Kubeflow Fairing
 
 The standard Kubeflow notebook images include Kubeflow Fairing and come
 preconfigured to run training jobs on your Kubeflow cluster. No additional
@@ -42,12 +42,12 @@ If you built your Kubeflow notebook server from a custom Jupyter Docker image,
 follow the instruction in this guide to configure your notebooks environment
 with access to your Kubeflow environment.
 
-## Configure Docker with access to your container image registry
+## 配置 Docker 访问容器镜像仓库
 
 Authorize Docker to access your container image registry by following the
 instructions in the [`docker login` reference guide][docker-login].
 
-## Configure access to your Kubeflow cluster
+## 配置接入 Kubeflow 集群
 
 Use the following instructions to configure `kubeconfig` with access to your
 Kubeflow cluster. 

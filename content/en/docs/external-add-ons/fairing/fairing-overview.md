@@ -1,8 +1,9 @@
 +++
-title = "Overview of Kubeflow Fairing"
-description = "Build, train, and deploy your ML training jobs remotely"
+title = "Kubeflow Fairing 简介"
+description = "远程构建、训练、部署你的机器学习训练任务"
 weight = 5
                     
+
 +++
 {{% alert title="Out of date" color="warning" %}}
 This guide contains outdated information pertaining to Kubeflow 1.0. This guide
@@ -19,7 +20,7 @@ job locally or in the cloud, directly from Python code or a Jupyter
 notebook. After your training job is complete, you can use Kubeflow Fairing to
 deploy your trained model as a prediction endpoint.
 
-## Getting started
+## 开始
 
 Use the following guides to get started with Kubeflow Fairing:
 
@@ -31,7 +32,7 @@ Use the following guides to get started with Kubeflow Fairing:
 1.  To learn more about how to use Kubeflow Fairing in your environment,
     [follow the Kubeflow Fairing tutorials][tutorials].
 
-## What is Kubeflow Fairing?
+## 什么是 Kubeflow Fairing？
 
 Kubeflow Fairing is a Python package that makes it easy to train and deploy ML
 models on [Kubeflow][kubeflow]. Kubeflow Fairing can also been extended to

@@ -1,6 +1,6 @@
 +++
 title = "Katib 简介"
-description = "Overview of Katib for hyperparameter tuning and neural architecture search"
+description = "用于超参数调整和神经架构搜索的 Katib 概述"
 weight = 10
                     
 +++
@@ -8,44 +8,45 @@ weight = 10
 {{% beta-status
   feedbacklink="https://github.com/kubeflow/katib/issues" %}}
 
-This guide introduces the concepts of hyperparameter tuning, neural
-architecture search, and the Katib system as a component of Kubeflow.
+本指南介绍了超参数调优、神经
+架构搜索以及作为 Kubeflow 组件的 Katib 系统的概念。
 
-Katib is a Kubernetes-native project for automated machine learning (AutoML).
-Katib supports hyperparameter tuning, early stopping and
-neural architecture search (NAS).
-Learn more about AutoML at [fast.ai](https://www.fast.ai/2018/07/16/auto-ml2/),
-[Google Cloud](https://cloud.google.com/automl),
-[Microsoft Azure](https://docs.microsoft.com/en-us/azure/machine-learning/concept-automated-ml#automl-in-azure-machine-learning) or
-[Amazon SageMaker](https://aws.amazon.com/blogs/aws/amazon-sagemaker-autopilot-fully-managed-automatic-machine-learning/).
+Katib 是一个用于自动化机器学习 (AutoML) 的 Kubernetes 原生项目。
+Katib 支持超参数调整、提前停止和
+神经架构搜索 (NAS)。
+在 [fast.ai](https://www.fast.ai/2018/07/16/auto-ml2/)、
+[Google Cloud](https://cloud.google.com/automl)、
+[Microsoft Azure](https://docs.microsoft.com/en-us/azure/machine-learning/concept-automated-ml#automl-in-azure-machine-learning) 或
+[Amazon SageMaker](https://aws.amazon.com/blogs/aws/amazon-sagemaker-autopilot-fully-managed-automatic-machine-learning/) 上
+了解更多有关 AutoML 的内容。
 
-Katib is the project which is agnostic to machine learning (ML) frameworks.
-It can tune hyperparameters of applications written in any language
-of the users' choice and natively supports many ML frameworks,
-such as TensorFlow, MXNet, PyTorch, XGBoost, and others.
+Katib 是一个与机器学习 (ML) 框架无关的项目。
+它可以调整以用户选择的任何语言编写的应用程序的超参数，
+并原生支持许多 ML 框架，
+例如 TensorFlow、MXNet、PyTorch、XGBoost 等。
 
-Katib supports a lot of various AutoML algorithms, such as
-[Bayesian optimization](https://arxiv.org/pdf/1012.2599.pdf),
-[Tree of Parzen Estimators](https://papers.nips.cc/paper/2011/file/86e8f7ab32cfd12577bc2619bc635690-Paper.pdf),
-[Random Search](https://en.wikipedia.org/wiki/Hyperparameter_optimization#Random_search),
-[Covariance Matrix Adaptation Evolution Strategy](https://en.wikipedia.org/wiki/CMA-ES),
-[Hyperband](https://arxiv.org/pdf/1603.06560.pdf),
-[Efficient Neural Architecture Search](https://arxiv.org/abs/1802.03268),
-[Differentiable Architecture Search](https://arxiv.org/abs/1806.09055)
-and many more. Additional algorithm support is coming soon.
+Katib 支持多种 AutoML 算法，例如
+[贝叶斯优化](https://arxiv.org/pdf/1012.2599.pdf)、
+[Tree of Parzen Estimators](https://papers.nips.cc/paper/2011/file/86e8f7ab32cfd12577bc2619bc635690-Paper.pdf)、
+[Random Search](https://en.wikipedia.org/wiki/Hyperparameter_optimization#Random_search)、
+[Covariance Matrix Adaptation Evolution Strategy](https://en.wikipedia.org/wiki/CMA-ES)、
+[Hyperband](https://arxiv.org/pdf/1603.06560.pdf)、
+[Efficient Neural Architecture Search](https://arxiv.org/abs/1802.03268)、
+[Differentiable Architecture Search](https://arxiv.org/abs/1806.09055) 等。
+其他算法支持即将推出。
 
-The [Katib project](https://github.com/kubeflow/katib) is open source.
-The [developer guide](https://github.com/kubeflow/katib/blob/master/docs/developer-guide.md)
-is a good starting point for developers who want to contribute to the project.
+[Katib 项目](https://github.com/kubeflow/katib) 是开源的。
+[开发者指引](https://github.com/kubeflow/katib/blob/master/docs/developer-guide.md)
+对于想要为项目做出贡献的 开发人员来说是一个很好的起点。
 
-## Hyperparameters and hyperparameter tuning
+## 超参数和超参数调优
 
-_Hyperparameters_ are the variables that control the model training process.
-They include:
+_Hyperparameters_ 控制模型训练过程的变量。
+他们包括：
 
-- The learning rate.
-- The number of layers in a neural network.
-- The number of nodes in each layer.
+- 学习率。
+- 神经网络中的层数。
+- 每层的节点数。
 
 Hyperparameter values are not _learned_. In other words, in contrast to the
 node weights and other training _parameters_, the model training process does
@@ -84,7 +85,7 @@ You can improve your hyperparameter tunning experiments by using
 Follow the [early stopping guide](/docs/components/katib/early-stopping/)
 for the details.
 
-## Neural architecture search
+## 神经网络搜索
 
 {{% alert title="Alpha version" color="warning" %}}
 NAS is currently in <b>alpha</b> with limited support. The Kubeflow team is
@@ -113,7 +114,7 @@ part of the form for submitting a NAS job from the Katib UI:
   alt="Submitting a neural architecture search from the Katib UI"
   class="mt-3 mb-3 border border-info rounded">
 
-## Katib interfaces
+## Katib 接口
 
 You can use the following interfaces to interact with Katib:
 
@@ -192,10 +193,10 @@ reaches either the objective or the configured maximum number of trials.
 Katib trial is defined as a
 [Kubernetes CRD](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) .
 
-### Worker job
+### Worker 工作
 
-The _worker job_ is the process that runs to evaluate a trial and calculate
-its objective value.
+_worker job_ 是运行以评估试验并计算其
+目标值的过程。
 
 The worker job can be any type of Kubernetes resource or
 [Kubernetes CRD](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/).
@@ -203,7 +204,7 @@ Follow the
 [trial template guide](/docs/components/katib/trial-template/#custom-resource)
 to check how to support your own Kubernetes resource in Katib.
 
-Katib has these CRD examples in upstream:
+Katib 在上游有这些 CRD 示例：
 
 - [Kubernetes `Job`](https://kubernetes.io/docs/concepts/workloads/controllers/job/)
 
@@ -221,9 +222,9 @@ Katib has these CRD examples in upstream:
 
 - [Argo `Workflows`](https://github.com/kubeflow/katib/tree/master/examples/v1beta1/argo)
 
-By offering the above worker job types, Katib supports multiple ML frameworks.
+通过提供上述工作类型，Katib 支持多种 ML 框架
 
 ## 下一步
 
-Follow the [getting-started guide](/docs/components/katib/hyperparameter/)
-to set up Katib and run some hyperparameter tuning examples.
+查看[入门指引](/docs/components/katib/hyperparameter/)
+来设置 Katib 及运行一些超参转换示例。

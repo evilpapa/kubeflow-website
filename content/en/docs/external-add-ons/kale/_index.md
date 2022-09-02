@@ -1,6 +1,6 @@
 +++
 title = "Kale"
-description = "Kale enables data scientists to orchestrate end-to-end machine learning (ML) workflows."
+description = "Kale 使数据科学家能够协调端到端机器学习 （ML） 工作流。"
 weight = 30
 +++
 

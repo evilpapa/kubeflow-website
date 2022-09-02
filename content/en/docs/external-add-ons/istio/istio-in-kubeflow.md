@@ -1,6 +1,6 @@
 +++
-title = "Istio Usage in Kubeflow"
-description = "Managing access to Kubeflow applications and resources via Istio"
+title = "Istio 在 Kubeflow 中的使用"
+description = "管理通过 Istio 访问 Kubeflow 应用及资源"
 weight = 50
                     
 +++

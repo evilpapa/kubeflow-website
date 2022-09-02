@@ -14,11 +14,11 @@ properties for all environment variables in each Katib component.
 If a variable has a mandatory property, you need to set the relevant
 environment variable in an appropriate Katib component's manifest.
 
-## Katib Controller
+## Katib 控制器
 
-Bellow are the environment variables for the
-[Katib Controller](https://github.com/kubeflow/katib/blob/master/manifests/v1beta1/components/controller/controller.yaml)
-deployment:
+以下为
+[Katib 控制器](https://github.com/kubeflow/katib/blob/master/manifests/v1beta1/components/controller/controller.yaml)
+部署的环境变量
 
 <div class="table-responsive">
   <table class="table table-bordered">
@@ -33,38 +33,39 @@ deployment:
     <tbody>
       <tr>
         <td><code>KATIB_CORE_NAMESPACE</code></td>
-        <td>Base Namespace for all Katib components and default Experiment</td>
+        <td>所有 Katib 组件和默认实验的基础命名空间</td>
         <td><code>metadata.namespace</code></td>
         <td>Yes</td>
       </tr>
       <tr>
         <td><code>KATIB_SUGGESTION_COMPOSER</code></td>
         <td> <a href="https://github.com/kubeflow/katib/blob/master/pkg/controller.v1beta1/suggestion/composer/composer.go">Composer</a>
-          for the Katib Suggestions. You can use your own Composer</td>
+          for the Katib Suggestions. 你可以使用自己的 Composer</td>
         <td>general</td>
         <td>No</td>
       </tr>
       <tr>
         <td><code>KATIB_DB_MANAGER_SERVICE_NAMESPACE</code></td>
-        <td>Katib DB Manager Namespace</td>
+        <td>Katib DB 管理空间</td>
         <td><code>KATIB_CORE_NAMESPACE</code> env variable</td>
         <td>No</td>
       </tr>
       <tr>
         <td><code>KATIB_DB_MANAGER_SERVICE_IP</code></td>
-        <td>Katib DB Manager IP</td>
+        <td>Katib DB 管理 IP</td>
         <td>katib-db-manager</td>
         <td>No</td>
       </tr>
        <tr>
         <td><code>KATIB_DB_MANAGER_SERVICE_PORT</code></td>
-        <td>Katib DB Manager Port</td>
+        <td>Katib DB 管理端口</td>
         <td>6789</td>
         <td>No</td>
       </tr>
     </tbody>
   </table>
 </div>
+
 
 Katib Controller calls Katib DB Manager with this address expression:
 
@@ -123,7 +124,7 @@ deployment:
 
 Katib UI calls Katib DB Manager with the same address expression as Katib Controller.
 
-## Katib DB Manager
+## Katib DB 管理
 
 Bellow are the environment variables for the
 [Katib DB Manager](https://github.com/kubeflow/katib/blob/master/manifests/v1beta1/components/db-manager/db-manager.yaml)

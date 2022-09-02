@@ -1,32 +1,33 @@
 +++
-title = "Introduction to Feast"
-description = "Overview of Feast for feature storage, management, and serving"
+title = "Feast 简介"
+description = "Feast 特征存储、管理和服务简介"
 weight = 10
                     
+
 +++
 
 {{% alpha-status 
   feedbacklink="https://github.com/feast-dev/feast/issues" %}}
-  
-Use [Feast](http://feast.dev/) for defining, managing, discovering, validating, and serving features to your models during training and inference.
 
-This page introduces feature store concepts as well as Feast as a component of Kubeflow.
+再训练和推理期间，使用 [Feast](http://feast.dev/) 定义、管理、发现、验证、为模型提供服务。
 
-## Introduction to feature stores
+本页介绍特征存储概念以及作为 Kubeflow 组件的 Feast。
 
-Feature stores are systems that help to address some of the key challenges that ML teams face when productionizing features
+## 特征存储介绍
 
-* __Feature sharing and reuse__: Engineering features is one of the most time consuming activities in building an end-to-end ML system, yet many teams continue to develop features in silos. This leads to a high amount of re-development and duplication of work across teams and projects.
+特征存储是有助于解决 ML 团队在生产特征时面临的一些关键挑战的系统
 
-* __Serving features at scale__: Models need data that can come from a variety of sources, including event streams, data lakes, warehouses, or notebooks. ML teams need to be able to store and serve all these data sources to their models in a performant and reliable way. The challenge is scalably producing massive datasets of features for model training, and providing access to real-time feature data at low latency and high throughput in serving.
+* __特征共享及复用__: 工程功能是构建端到端 ML 系统中最耗时的活动之一，但许多团队持续在孤岛中开发功能。这会导致跨团队和项目的大量重新开发和重复工作。
 
-* __Consistency between training and serving__: The separation between data scientists and engineering teams often lead to the re-development of feature transformations when moving from training to online serving. Inconsistencies that arise due to discrepancies between training and serving implementations frequently leads to a drop in model performance in production.
+* __大规模特征服务__: 模型需要来自各种来源的数据，包括事件流、数据湖、仓库或笔记本。ML 团队需要能够以高性能和可靠的方式将所有这些数据源存储并提供给他们的模型。挑战在于可扩展地生成用于模型训练的大量特征数据集，并在服务中以低延迟和高吞吐量提供对实时特征数据的访问。
 
-* __Point-in-time correctness__:  General purpose data systems are not built with ML use cases in mind and by extension don't provide point-in-time correct lookups of feature data. Without a point-in-time correct view of data, models are trained on datasets that are not representative of what is found in production, leading to a drop in accuracy.
+* __训练和服务之间的一致性__: 数据科学家和工程团队之间的分离通常会导致在从训练转向在线服务时重新开发特征转换。由于训练和服务实现之间的差异而出现的不一致经常导致生产中的模型性能下降。
+
+* __时序正确性__:  General purpose data systems are not built with ML use cases in mind and by extension don't provide point-in-time correct lookups of feature data. Without a point-in-time correct view of data, models are trained on datasets that are not representative of what is found in production, leading to a drop in accuracy.
 
 * __Data quality and validation__: Features are business critical inputs to ML systems. Teams need to be confident in the quality of data that is served in production and need to be able to react when there is any drift in the underlying data.
 
-## Feast as a feature store
+## Feast 作为特征存储
 
 [Feast](http://feast.dev/) is an [open-source](https://github.com/feast-dev/feast) feature store that helps teams operate ML systems at scale by allowing them to define, manage, validate, and serve features to models in production. 
 
@@ -38,21 +39,21 @@ Feast provides the following functionality:
 
 * __Historical serving__: Features that are persisted in Feast can be retrieved through its feature serving APIs to produce training datasets. Feast is able to produce massive training datasets that are agnostics of the data source that was used to ingest the data originally. Feast is also able to ensure point-in-time correctness when joining these data sources, which in turn ensures the quality and consistency of features reaching models.
 
-* __Online serving__: Feast exposes low latency serving APIs for all data that has been ingested into the system. This allows all production ML systems to use Feast as the primary data source when looking up real-time features.
+* __在线服务__: Feast exposes low latency serving APIs for all data that has been ingested into the system. This allows all production ML systems to use Feast as the primary data source when looking up real-time features.
 
 * __Consistency between training and serving__: Feast provides a consistent view of feature data through the use of a unified ingestion layer, unified serving API and canonical feature references. By building ML systems on feature references, teams abstract away the underlying data infrastructure and make it possible to safely move models between training and serving without a drop in data consistency.
- 
-* __Feature sharing and reuse__: Feast provides a discovery and metadata API that allows teams to track, share, and reuse features across projects. Feast also decouples the process of creating features from the process of consumption, meaning teams that start new projects can begin by simply consuming features that already exist in the store, instead of starting from scratch. 
 
-* __Statistics and validation__: Feast allows for the generation of statistics based on features within the systems. Feast has compatibility with TFDV, meaning statistics that are generated by Feast can be validated using TFDV. Feast also allows teams to capture TFDV schemas as part of feature definitions, allowing domain experts to define data properties that can be used for validating these features in other production settings like training, ingestion, or serving.
+* __特征共享及复用__: Feast provides a discovery and metadata API that allows teams to track, share, and reuse features across projects. Feast also decouples the process of creating features from the process of consumption, meaning teams that start new projects can begin by simply consuming features that already exist in the store, instead of starting from scratch. 
+
+* __统计及验证__: Feast allows for the generation of statistics based on features within the systems. Feast has compatibility with TFDV, meaning statistics that are generated by Feast can be validated using TFDV. Feast also allows teams to capture TFDV schemas as part of feature definitions, allowing domain experts to define data properties that can be used for validating these features in other production settings like training, ingestion, or serving.
 
 ## 下一步
 
 Please follow the [Getting Started with Feast](/docs/external-add-ons/feature-store/getting-started/) guide to set up Feast and run walk through our tutorials.
 
-## Resources
+## 资源
 
-* [Feast: Documentation](http://docs.feast.dev/)
-* [Feast: Source Code](https://github.com/feast-dev/feast)
+* [Feast: 文档](http://docs.feast.dev/)
+* [Feast: 源码](https://github.com/feast-dev/feast)
 * [Google Cloud - Introducing Feast: An open source feature store for machine learning](https://cloud.google.com/blog/products/ai-machine-learning/introducing-feast-an-open-source-feature-store-for-machine-learning)
 * [Medium - Feast: Bridging ML Models and Data](https://blog.gojekengineering.com/feast-bridging-ml-models-and-data-efd06b7d1644)

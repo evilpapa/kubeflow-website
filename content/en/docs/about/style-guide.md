@@ -21,9 +21,9 @@ The Kubeflow docs aim for:
 Use American spelling rather than Commonwealth or British spelling.
 Refer to [Merriam-Webster's Collegiate Dictionary, Eleventh Edition](http://www.merriam-webster.com/).
 
-## Use capital letters sparingly
+## 谨慎使用大写字母
 
-Some hints:
+一些提示：
 
 - Capitalize only the first letter of each heading within the page. (That is, use sentence case.)
 - Capitalize (almost) every word in page titles. (That is, use title case.) 
@@ -228,7 +228,6 @@ Below are some tips for writing short sentences.
     </tbody>
   </table>
 </div>
-
 <div class="table-responsive">
   <table class="table table-bordered">
     <thead class="thead-light">
@@ -243,7 +242,7 @@ Below are some tips for writing short sentences.
     <tbody>
       <tr>
         <td>
-          <p>To train a model:</p>
+          <p>来训练一个模型：</p>
           <ol>
             <li>Package your program in a Kubernetes container.</li>
             <li>Upload the container to an online registry.</li>
@@ -257,6 +256,7 @@ Below are some tips for writing short sentences.
     </tbody>
   </table>
 </div>
+
 
 ## Avoid too much text styling
 

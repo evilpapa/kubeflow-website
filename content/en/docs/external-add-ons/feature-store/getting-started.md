@@ -1,24 +1,24 @@
 +++
-title = "Getting started with Feast"
-description = "How to set up Feast and walk through examples"
+title = "Feast 入门"
+description = "Feast 设置及示例演示"
 weight = 20
                     
 +++
 
-This guide provides the necessary resources to install [Feast](http://feast.dev/) alongside Kubeflow, describes the usage of Feast with Kubeflow components, and provides examples that users can follow to test their setup.
+本指南提供了同 Kubeflow 安装 [Feast](http://feast.dev/) 的必要资源，描述了 Feast 作为 Kubeflow 组件的使用，并提供了用户可以遵循以测试其设置的示例。
 
-For an overview of Feast, please read [Introduction to Feast](/docs/external-add-ons/feature-store/overview/).
+有关 Feast 的概述，请阅读 [Feast 简介](/docs/external-add-ons/feature-store/overview/)。
 
-## Installing Feast with Kubeflow
+## 在 Kubeflow 安装 Feast
 
-**Overview**
+**概述**
 
 * This guide assumes that you have a running Kubeflow cluster already. If you don't have Kubeflow installed, then head on over to the [Kubeflow installation guide](/docs/started/getting-started/).
 * This guide also assumes that you have a running online feature store that Feast supports (Redis, Datastore, DynamoDB).
 * The latest version of Feast does not need to be installed into Kubernetes. It is possible to run Feast completely from CI or as a client library (during training or inference)
 * Feast requires a bucket (S3, GCS, Minio, etc) to maintain a feature registry, requires an online feature store for serving feature values, and it requires a scheduler to keep the online store up to date.
 
-**Installation**
+**安装**
 
 To use Feast with Kubeflow, please follow the following steps
   * [Install Feast](https://docs.feast.dev/how-to-guides/feast-gcp-aws/install-feast) into your development environment, as well as any environment where you want to register feature views or read features from the feature store.
@@ -28,22 +28,22 @@ To use Feast with Kubeflow, please follow the following steps
   * [Load features into the online store](https://docs.feast.dev/how-to-guides/feast-gcp-aws/load-data-into-the-online-store). This step can also be executed from a Kubernetes cron job.
   * [Read features from the online store](https://docs.feast.dev/how-to-guides/feast-gcp-aws/read-features-from-the-online-store). This step is typically executed from your model serving service, right before calling your model for a prediction.
 
-**Advanced**
+**高级**
 * Please see [this guide](https://docs.feast.dev/how-to-guides/running-feast-in-production) which provides best practices for running Feast in a production context.
 * Please see [this guide](https://docs.google.com/document/u/1/d/1AOsr_baczuARjCpmZgVd8mCqTF4AZ49OEyU4Cn-uTT0/edit) for upgrading from Feast 0.9 (Spark-based) to the latest Feast (0.12+).
 
-## Accessing Feast from Kubeflow
+## 从 Kubeflow 访问 Feast
 
 Once Feast is installed within the same Kubernetes cluster as Kubeflow, users can access its APIs directly without any additional steps.
 
 Feast APIs can roughly be grouped into the following sections:
-* __Feature definition and management__: Feast provides both a [Python SDK](https://docs.feast.dev/getting-started/quickstart) and [CLI](https://docs.feast.dev/reference/feast-cli-commands) for interacting with Feast Core. Feast Core allows users to define and register features and entities and their associated metadata and schemas. The Python SDK is typically used from within a Jupyter notebook by end users to administer Feast, but ML teams may opt to version control feature specifications in order to follow a GitOps based approach.
+* __特征定义及管理__: Feast provides both a [Python SDK](https://docs.feast.dev/getting-started/quickstart) and [CLI](https://docs.feast.dev/reference/feast-cli-commands) for interacting with Feast Core. Feast Core allows users to define and register features and entities and their associated metadata and schemas. The Python SDK is typically used from within a Jupyter notebook by end users to administer Feast, but ML teams may opt to version control feature specifications in order to follow a GitOps based approach.
 
-* __Model training__: The Feast Python SDK can be used to trigger the [creation of training datasets](https://docs.feast.dev/how-to-guides/feast-gcp-aws/build-a-training-dataset). The most natural place to use this SDK is to create a training dataset as part of a [Kubeflow Pipeline](/docs/components/pipelines/introduction) prior to model training.
+* __模型训练__: The Feast Python SDK can be used to trigger the [creation of training datasets](https://docs.feast.dev/how-to-guides/feast-gcp-aws/build-a-training-dataset). The most natural place to use this SDK is to create a training dataset as part of a [Kubeflow Pipeline](/docs/components/pipelines/introduction) prior to model training.
 
-* __Model serving__: The Feast Python SDK can also be used for [online feature retrieval](https://docs.feast.dev/how-to-guides/feast-gcp-aws/read-features-from-the-online-store). This client is used to retrieve feature values for inference with [Model Serving](/docs/components/pipelines/introduction) systems like KFServing, TFX, or Seldon.
+* __模型服务__: The Feast Python SDK can also be used for [online feature retrieval](https://docs.feast.dev/how-to-guides/feast-gcp-aws/read-features-from-the-online-store). This client is used to retrieve feature values for inference with [Model Serving](/docs/components/pipelines/introduction) systems like KFServing, TFX, or Seldon.
 
-## Examples
+## 示例
 
 Please see our [tutorials](https://docs.feast.dev/tutorials/tutorials-overview) section for a full list of examples
 * [Driver ranking with Feast](https://docs.feast.dev/tutorials/driver-ranking-with-feast)

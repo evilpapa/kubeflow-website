@@ -11,7 +11,7 @@ command line and the Katib user interface (UI) to perform hyperparameter tuning.
 For an overview of the concepts around Katib and hyperparameter tuning, check the
 [introduction to Katib](/docs/components/katib/overview/).
 
-## Katib setup
+## Katib 设置
 
 Let's set up and configure Katib on your Kubernetes cluster with Kubeflow.
 
@@ -51,7 +51,7 @@ Katib release (e.g. `v0.11.1`), modify `ref=master` to `ref=v0.11.1`.
       ```
 
    2. **Controller Leader Election Support**
-    
+   
       Run the following command to deploy Katib with Controller
       [Leader Election](https://kubernetes.io/blog/2016/01/simple-leader-election-with-kubernetes/):
 
