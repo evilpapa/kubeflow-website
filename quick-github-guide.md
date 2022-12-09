@@ -159,7 +159,7 @@ Here's a quick guide to a fairly standard GitHub workflow using Git on the comma
     your SSH key passphrase to the managing agent, so that you don't have to
     keep authenticating to GitHub. You need to do this again after every reboot.
 
-## More information
+## 更多信息
 
-For further information about the GitHub workflow, refer to the
-[GitHub guide to pull requests](https://help.github.com/en/articles/creating-a-pull-request).
+关于 Github workflow 的更多信息，请参考
+[GitHub guide to pull requests](https://help.github.com/en/articles/creating-a-pull-request)。

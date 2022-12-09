@@ -214,7 +214,7 @@ git submodule update --remote
 * 在文档中的用法：
 
   ```
-  You need Kubernetes version {{% kubernetes-min-version %}} or later.
+  你需要 Kubernetes 版本为 {{% kubernetes-min-version %}} 或更高。
   ```
 
 有用的 Hugo 文档：

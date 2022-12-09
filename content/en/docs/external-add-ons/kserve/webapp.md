@@ -1,6 +1,6 @@
 +++
-title = "Models UI"
-description = "Web app for managing Model servers"
+title = "模型服务界面"
+description = "模型服务管理界面"
 weight = 2
 
 +++
@@ -214,37 +214,37 @@ metadata:
 spec:
   gateways:
   - kubeflow/kubeflow-gateway
-  hosts:
+    hosts:
   - '*'
-  http:
+    http:
   - match:
     - uri:
         prefix: /grafana/
-    route:
+        route:
     - destination:
         host: grafana.knative-monitoring.svc.cluster.local
         port:
           number: 30802
-{{< /blocks/tab >}}}
-{{< blocks/tab name="AuthorizationPolicy" codelang="yaml" >}}
-apiVersion: security.istio.io/v1beta1
-kind: AuthorizationPolicy
-metadata:
-  name: models-web-app
-  namespace: kubeflow
-spec:
-  action: ALLOW
-  rules:
+    {{< /blocks/tab >}}}
+    {{< blocks/tab name="AuthorizationPolicy" codelang="yaml" >}}
+    apiVersion: security.istio.io/v1beta1
+    kind: AuthorizationPolicy
+    metadata:
+    name: models-web-app
+    namespace: kubeflow
+    spec:
+    action: ALLOW
+    rules:
   - from:
     - source:
         principals:
         - cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account
-  selector:
-    matchLabels:
+    selector:
+        matchLabels:
       kustomize.component: kserve-models-web-app
       app.kubernetes.io/component: kserve-models-web-app
-{{< /blocks/tab >}}}
-{{< /blocks/tabs >}}
+        {{< /blocks/tab >}}}
+        {{< /blocks/tabs >}}
 
 {{% alert title="Note" color="info" %}}
 If you installed the app in the _standalone_ mode then you will need to instead
