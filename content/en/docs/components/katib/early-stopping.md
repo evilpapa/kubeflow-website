@@ -62,7 +62,7 @@ Follow the
 [Katib configuration guide](/docs/components/katib/katib-config/#early-stopping-settings)
 to specify your own image for the early stopping algorithm.
 
-### Early stopping algorithms in detail
+### 详细的早期停止算法
 
 Here’s a list of the early stopping algorithms available in Katib:
 
@@ -84,18 +84,18 @@ The median stopping rule stops a pending trial `X` at step `S` if the trial's
 best objective value by step `S` is worse than the median value of the running
 averages of all completed trials' objectives reported up to step `S`.
 
-To learn more about it, check
-[Google Vizier: A Service for Black-Box Optimization](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/46180.pdf).
+要了解更多信息，请查看
+[Google Vizier: 黑盒优化服务](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/46180.pdf)。
 
-Katib supports the following early stopping settings:
+Katib 支持以下早期停止设置：
 
 <div class="table-responsive">
   <table class="table table-bordered">
     <thead class="thead-light">
       <tr>
-        <th>Setting Name</th>
-        <th>Description</th>
-        <th>Default Value</th>
+        <th>设置名</th>
+        <th>描述</th>
+        <th>默认值</th>
       </tr>
     </thead>
     <tbody>

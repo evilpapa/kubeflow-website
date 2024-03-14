@@ -67,7 +67,7 @@ NotebookTemplateSpec
 </td>
 <td>
 <p>INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
-Important: Run &ldquo;make&rdquo; to regenerate code after modifying this file</p>
+重要：在修改文件后运行 &ldquo;make&rdquo; 生成代码</p>
 </td>
 </tr>
 </table>
@@ -90,7 +90,7 @@ NotebookStatus
 <h3 id="kubeflow.org/v1.NotebookCondition">NotebookCondition
 </h3>
 <p>
-(<em>Appears on:</em>
+(<em>出现在：</em>
 <a href="#kubeflow.org/v1.NotebookStatus">NotebookStatus</a>)
 </p>
 <p>
@@ -98,8 +98,8 @@ NotebookStatus
 <table>
 <thead>
 <tr>
-<th>Field</th>
-<th>Description</th>
+<th>字段</th>
+<th>描述</th>
 </tr>
 </thead>
 <tbody>
@@ -111,7 +111,7 @@ string
 </em>
 </td>
 <td>
-<p>Type is the type of the condition. Possible values are Running|Waiting|Terminated</p>
+<p>type 条件之。可能的值为 Running|Waiting|Terminated</p>
 </td>
 </tr>
 <tr>
@@ -124,8 +124,8 @@ Kubernetes meta/v1.Time
 </em>
 </td>
 <td>
-<em>(Optional)</em>
-<p>Last time we probed the condition.</p>
+<em>「可选项」</em>
+<p>上次我们调查情况时。</p>
 </td>
 </tr>
 <tr>
@@ -136,7 +136,7 @@ string
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>(brief) reason the container is in the current state</p>
 </td>
 </tr>
@@ -148,7 +148,7 @@ string
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>Message regarding why the container is in the current state.</p>
 </td>
 </tr>
@@ -282,7 +282,7 @@ Kubernetes core/v1.PodSpec
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>List of volumes that can be mounted by containers belonging to the pod.
 More info: <a href="https://kubernetes.io/docs/concepts/storage/volumes">https://kubernetes.io/docs/concepts/storage/volumes</a></p>
 </td>
@@ -338,7 +338,7 @@ Cannot be updated.</p>
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>List of ephemeral containers run in this pod. Ephemeral containers may be run in an existing
 pod to perform user-initiated actions such as debugging. This list cannot be specified when
 creating a pod, and it cannot be modified by updating the pod spec. In order to add an
@@ -354,7 +354,7 @@ string
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>Restart policy for all containers within the pod.
 One of Always, OnFailure, Never.
 Default to Always.
@@ -369,7 +369,7 @@ int64
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>Optional duration in seconds the pod needs to terminate gracefully. May be decreased in delete request.
 Value must be non-negative integer. The value zero indicates delete immediately.
 If this value is nil, the default grace period will be used instead.
@@ -387,7 +387,7 @@ int64
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>Optional duration in seconds the pod may be active on the node relative to
 StartTime before the system will actively try to mark it failed and kill associated containers.
 Value must be a positive integer.</p>
@@ -401,7 +401,7 @@ string
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>Set DNS policy for the pod.
 Defaults to &ldquo;ClusterFirst&rdquo;.
 Valid values are &lsquo;ClusterFirstWithHostNet&rsquo;, &lsquo;ClusterFirst&rsquo;, &lsquo;Default&rsquo; or &lsquo;None&rsquo;.
@@ -418,7 +418,7 @@ map[string]string
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>NodeSelector is a selector which must be true for the pod to fit on a node.
 Selector which must match a node&rsquo;s labels for the pod to be scheduled on that node.
 More info: <a href="https://kubernetes.io/docs/concepts/configuration/assign-pod-node/">https://kubernetes.io/docs/concepts/configuration/assign-pod-node/</a></p>
@@ -432,7 +432,7 @@ string
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>ServiceAccountName is the name of the ServiceAccount to use to run this pod.
 More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/">https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</a></p>
 </td>
@@ -445,7 +445,7 @@ string
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>DeprecatedServiceAccount is a depreciated alias for ServiceAccountName.
 Deprecated: Use serviceAccountName instead.</p>
 </td>
@@ -458,7 +458,7 @@ bool
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>AutomountServiceAccountToken indicates whether a service account token should be automatically mounted.</p>
 </td>
 </tr>
@@ -470,7 +470,7 @@ string
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>NodeName is a request to schedule this pod onto a specific node. If it is non-empty,
 the scheduler simply schedules this pod onto that node, assuming that it fits resource
 requirements.</p>
@@ -484,7 +484,7 @@ bool
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>Host networking requested for this pod. Use the host&rsquo;s network namespace.
 If this option is set, the ports that will be used must be specified.
 Default to false.</p>
@@ -498,7 +498,7 @@ bool
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>Use the host&rsquo;s pid namespace.
 Optional: Default to false.</p>
 </td>
@@ -511,7 +511,7 @@ bool
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>Use the host&rsquo;s ipc namespace.
 Optional: Default to false.</p>
 </td>
@@ -524,7 +524,7 @@ bool
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>Share a single process namespace between all of the containers in a pod.
 When this is set containers will be able to view and signal processes from other containers
 in the same pod, and the first process in each container will not be assigned PID 1.
@@ -542,7 +542,7 @@ Kubernetes core/v1.PodSecurityContext
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>SecurityContext holds pod-level security attributes and common container settings.
 Optional: Defaults to empty.  See type description for default values of each field.</p>
 </td>
@@ -557,7 +557,7 @@ Optional: Defaults to empty.  See type description for default values of each fi
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>ImagePullSecrets is an optional list of references to secrets in the same namespace to use for pulling any of the images used by this PodSpec.
 If specified, these secrets will be passed to individual puller implementations for them to use. For example,
 in the case of docker, only DockerConfig type secrets are honored.
@@ -572,7 +572,7 @@ string
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>Specifies the hostname of the Pod
 If not specified, the pod&rsquo;s hostname will be set to a system-defined value.</p>
 </td>
@@ -585,7 +585,7 @@ string
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>If specified, the fully qualified Pod hostname will be &ldquo;<hostname>.<subdomain>.<pod namespace>.svc.<cluster domain>&rdquo;.
 If not specified, the pod will not have a domainname at all.</p>
 </td>
@@ -600,7 +600,7 @@ Kubernetes core/v1.Affinity
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>If specified, the pod&rsquo;s scheduling constraints</p>
 </td>
 </tr>
@@ -612,7 +612,7 @@ string
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>If specified, the pod will be dispatched by specified scheduler.
 If not specified, the pod will be dispatched by default scheduler.</p>
 </td>
@@ -627,7 +627,7 @@ If not specified, the pod will be dispatched by default scheduler.</p>
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>If specified, the pod&rsquo;s tolerations.</p>
 </td>
 </tr>
@@ -641,7 +641,7 @@ If not specified, the pod will be dispatched by default scheduler.</p>
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>HostAliases is an optional list of hosts and IPs that will be injected into the pod&rsquo;s hosts
 file if specified. This is only valid for non-hostNetwork pods.</p>
 </td>
@@ -654,7 +654,7 @@ string
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>If specified, indicates the pod&rsquo;s priority. &ldquo;system-node-critical&rdquo; and
 &ldquo;system-cluster-critical&rdquo; are two special keywords which indicate the
 highest priorities with the former being the highest priority. Any other
@@ -671,7 +671,7 @@ int32
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>The priority value. Various system components use this field to find the
 priority of the pod. When Priority Admission Controller is enabled, it
 prevents users from setting this field. The admission controller populates
@@ -689,7 +689,7 @@ Kubernetes core/v1.PodDNSConfig
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>Specifies the DNS parameters of a pod.
 Parameters specified here will be merged to the generated DNS
 configuration based on DNSPolicy.</p>
@@ -705,7 +705,7 @@ configuration based on DNSPolicy.</p>
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>If specified, all readiness gates will be evaluated for pod readiness.
 A pod is ready when all its containers are ready AND
 all conditions specified in the readiness gates have status equal to &ldquo;True&rdquo;
@@ -720,7 +720,7 @@ string
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>RuntimeClassName refers to a RuntimeClass object in the node.k8s.io group, which should be used
 to run this pod.  If no RuntimeClass resource matches the named class, the pod will not be run.
 If unset or empty, the &ldquo;legacy&rdquo; RuntimeClass will be used, which is an implicit class with an
@@ -737,7 +737,7 @@ bool
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>EnableServiceLinks indicates whether information about services should be injected into pod&rsquo;s
 environment variables, matching the syntax of Docker links.
 Optional: Defaults to true.</p>
@@ -751,7 +751,7 @@ string
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>PreemptionPolicy is the Policy for preempting pods with lower priority.
 One of Never, PreemptLowerPriority.
 Defaults to PreemptLowerPriority if unset.
@@ -766,7 +766,7 @@ object
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>Overhead represents the resource overhead associated with running a pod for a given RuntimeClass.
 This field will be autopopulated at admission time by the RuntimeClass admission controller. If
 the RuntimeClass admission controller is enabled, overhead must not be set in Pod create requests.
@@ -787,7 +787,7 @@ This field is alpha-level as of Kubernetes v1.16, and is only honored by servers
 </em>
 </td>
 <td>
-<em>(Optional)</em>
+<em>「可选项」</em>
 <p>TopologySpreadConstraints describes how a group of pods ought to spread across topology
 domains. Scheduler will schedule pods in a way which abides by the constraints.
 This field is alpha-level and is only honored by clusters that enables the EvenPodsSpread

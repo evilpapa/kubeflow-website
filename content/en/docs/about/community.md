@@ -20,32 +20,32 @@ Kubeflow Slack 工作空间有很多频道，下面是一些实例：
 | 一般讨论                 | [#general](https://kubeflow.slack.com/archives/C7REE0ETX)
 | 特性请求                 | [#feature-requests](https://kubeflow.slack.com/archives/C01A7RYEYMB)
 | 发布招聘                 | [#job-postings](https://kubeflow.slack.com/archives/CJ9PJE5FS)
-| Kubeflow - 工作流       | [#kubeflow-pipelines](https://kubeflow.slack.com/archives/CE10KS9M4)
-| Kubeflow - Notebooks | [#kubeflow-notebooks](https://kubeflow.slack.com/archives/CESP7FCQ7)
-| Kubeflow - KFServing | [#kubeflow-kfserving](https://kubeflow.slack.com/archives/CH6E58LNP)
-| 平台 - AWS             | [#platform-aws](https://kubeflow.slack.com/archives/CKBA5D0MU)
-| 平台 - Azure     | [#platform-azure](https://kubeflow.slack.com/archives/CUW6SLCPR)
-| 平台 - GCP       | [#platform-gcp](https://kubeflow.slack.com/archives/CKH7V1M7F)
+| Kubeflow - 工作流        | [#kubeflow-pipelines](https://kubeflow.slack.com/archives/CE10KS9M4)
+| Kubeflow - Notebooks    | [#kubeflow-notebooks](https://kubeflow.slack.com/archives/CESP7FCQ7)
+| Kubeflow - KFServing    | [#kubeflow-kfserving](https://kubeflow.slack.com/archives/CH6E58LNP)
+| 平台 - AWS              | [#platform-aws](https://kubeflow.slack.com/archives/CKBA5D0MU)
+| 平台 - Azure            | [#platform-azure](https://kubeflow.slack.com/archives/CUW6SLCPR)
+| 平台 - GCP              | [#platform-gcp](https://kubeflow.slack.com/archives/CKH7V1M7F)
 | 用户 - 中国              | [#users-china](https://kubeflow.slack.com/archives/C93HYNM9C)
 | 用户 - 韩国              | [#users-korea](https://kubeflow.slack.com/archives/CKPCJB9AP)
-| 用户 - 大洋洲             | [#users-oceania](https://kubeflow.slack.com/archives/C023ZN1R9FC)
+| 用户 - 大洋洲            | [#users-oceania](https://kubeflow.slack.com/archives/C023ZN1R9FC)
 
 ## 邮件列表
 
-官方 Kubeflow 邮件列表是一个叫 [kubeflow-discuss](https://groups.google.com/g/kubeflow-discuss) 的  Google Group。
+官方 Kubeflow 邮件列表是一个叫 [kubeflow-discuss](https://groups.google.com/g/kubeflow-discuss) 的  Google 讨论组。
 
 更多关于 Kubeflow 邮件列表细节：
 
-| 主题 | 邮件列表                                                             |
+| 主题 | 邮件列表                                                          |
 | --- |------------------------------------------------------------------|
-| 一般讨论 | [kubeflow-discuss](https://groups.google.com/g/kubeflow-discuss) 
+| 一般讨论 | [kubeflow-discuss](https://groups.google.com/g/kubeflow-discuss) |
 
 ## 每周社区电话
 
 Kubeflow 社区每周二主持一个公开的电话，在 `US East/EMEA` 和 `US West/APAC` 时间友好交替。
 
 {{% alert title="小提示" color="info" %}}
-加入 [kubeflow-discuss](https://groups.google.com/g/kubeflow-discuss) Google Group 会自动发送一个日历邀请到你的邮件地址。
+加入 [kubeflow-discuss](https://groups.google.com/g/kubeflow-discuss) Google 讨论组会自动发送一个日历邀请到你的邮件地址。
 {{% /alert %}}
 
 更多 Kubeflow 每周社区电话细节：

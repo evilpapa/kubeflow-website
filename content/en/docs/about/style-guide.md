@@ -4,17 +4,14 @@ description = "编写 Kubeflow 文档的风格指南"
 weight = 90
 +++
 
-This style guide is for the [Kubeflow documentation](/docs/).
-The style guide helps contributors to write documentation that readers can understand quickly and correctly. 
+此风格指南是针对 [Kubeflow 文档的](/docs/)。
+文档指南帮助贡献者撰写能让读者更快速且正确理解的文档。
 
-The Kubeflow docs aim for:
+Kubeflow 文档目标：
 
-- Consistency in style and terminology, so that readers can expect certain
-  structures and conventions. Readers don't have to keep re-learning how to use
-  the documentation or questioning whether they've understood something
-  correctly.
-- Clear, concise writing so that readers can quickly find and understand the
-  information they need.
+- 在样式和术语上保持一致，以便读者可以以特定的结构和约定预期。
+  读者不必反复学习如何使用文档或者质疑自己是否正确理解了某些内容。
+- 简明、清晰的写作更能让读者快速找到并理解他们需要的信息。
 
 ## 使用标准美式拼写
 
@@ -25,38 +22,38 @@ Refer to [Merriam-Webster's Collegiate Dictionary, Eleventh Edition](http://www.
 
 一些提示：
 
-- Capitalize only the first letter of each heading within the page. (That is, use sentence case.)
-- Capitalize (almost) every word in page titles. (That is, use title case.) 
-  The little words like "and", "in", etc, don't get a capital letter.
-- In page content, use capitals only for brand names, like Kubeflow, Kubernetes, and so on. 
-  See more about brand names [below](#use-full-correct-brand-names).
-- Don't use capital letters to emphasize words.
+- 仅将页面中每个标题的第一个字母大写。 （即使用句子大小写。）
+- 大写（几乎）页面标题中的每个单词。 （也就是说，使用标题大小写。）
+  “and”、“in”等小词没有大写字母。
+- 在页内文章，为品牌名，如 Kubeflow、Kubernetes 等品牌名使用大写。
+  参考[如下](#use-full-correct-brand-names)品牌名。
+- 不要为强调词使用大小写。
 
-## Spell out abbreviations and acronyms on first use
+## 拼全首次使用的缩写和首字母缩略词
 
-Always spell out the full term for every abbreviation or acronym the first time you use it on the page. 
-Don't assume people know what an abbreviation or acronym means, even if it seems like common knowledge.
+当你第一次在页面上使用缩写或首字母缩写时，一定要把它的全名拼出来。
+不要以为人们知道缩写或首字母缩写的意思，即使这看起来像是常识。
 
-Example: "To run Kubernetes locally in a virtual machine (VM)"
+示例： “在虚拟机（VM）中本地化运行 Kubernetes”
 
-## Use contractions if you want to
+## 如果你想使用缩写的话
 
-For example, it's fine to write "it's" instead of "it is".
+比如：使用 "it's" 替代 "it is" 的写法是可以的。
 
 <a id="brand-names"></a>
 
-## Use full, correct brand names
+## 使用完整、正确的品牌名称
 
-When referring to a product or brand, use the full name. 
-Capitalize the name as the product owners do in the product documentation. 
-Do not use abbreviations even if they're in common use, unless the product owner has sanctioned the abbreviation.
+当提到产品或品牌时，请使用全名。
+如产品所有者在产品文档中所做的那样，将名称大写。
+不要使用缩写，即使它们是常用的，除非产品所有者批准了缩写。
 
 <div class="table-responsive">
   <table class="table table-bordered">
     <thead class="thead-light">
       <tr>
-        <th>Use this</th>
-        <th>Instead of this</th>
+        <th>使用如下</th>
+        <th>替代如下</th>
       </tr>
     </thead>
     <tbody>
@@ -76,128 +73,127 @@ Do not use abbreviations even if they're in common use, unless the product owner
   </table>
 </div>
 
-## Be consistent with punctuation
+## 与标点符号一致
 
-Use punctuation consistently within a page. 
-For example, if you use a period (full stop) after every item in list, then use a period on all other lists on the page.
+在页面中始终使用标点符号。
+例如，如果在列表中的每个项目后使用句点（句号），则在页面上的所有其他列表上使用句点。
 
-Check the other pages if you're unsure about a particular convention.
+如果您不确定某个特定的约定，请查看其他页面。
 
-Examples:
+示例：
 
-- Most pages in the Kubeflow docs use a period at the end of every list item.
-- There is no period at the end of the page subtitle and the subtitle need not be a full sentence. 
-  (The subtitle comes from the `description` in the front matter of each page.)
+- Kubeflow文档中的大多数页面在每个列表项的末尾都使用句点。
+- 页面副标题的末尾没有句号，并且副标题不需要是一个完整的句子。
+  （副标题来自于每页首页的“描述”。）
 
-## Use active voice rather than passive voice
+## 使用主动语音而不是被动语音
 
-Passive voice is often confusing, as it's not clear who should perform the action.
+被动语态通常令人困惑，因为不清楚谁应该执行动作。
 
 <div class="table-responsive">
   <table class="table table-bordered">
     <thead class="thead-light">
       <tr>
-        <th>Use active voice</th>
-        <th>Instead of passive voice</th>
+        <th>使用主动语音</th>
+        <th>替代被动语音</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>You can configure Kubeflow to</td>
-        <td>Kubeflow can be configured to</td>
+        <td>你可以配置 Kubeflow 为</td>
+        <td>Kubeflow 可配置为</td>
       </tr>
       <tr>
-        <td>Add the directory to your path</td>
-        <td>The directory should be added to your path</td>
+        <td>添加文件夹到目录</td>
+        <td>文件夹应添加到你的目录</td>
       </tr>
     </tbody>
   </table>
 </div>
 
-## Use simple present tense
+## 使用简单现在时
 
-Avoid future tense ("will") and complex syntax such as conjunctive mood ("would", "should").
+避免将来时（“will”）和复杂的语法，如连词语气（“would”，“should”）。
 
 <div class="table-responsive">
   <table class="table table-bordered">
     <thead class="thead-light">
       <tr>
-        <th>Use simple present tense</th>
-        <th>Instead of future tense or complex syntax</th>
+        <th>使用简单现在时</th>
+        <th>代替将来时或复杂语法</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>The following command provisions a virtual machine</td>
-        <td>The following command will provision a virtual machine</td>
+        <td>以下命令提供一个虚拟机</td>
+        <td>以下命令将提供一个虚拟机</td>
       </tr>
       <tr>
-        <td>If you add this configuration element, the system is open to
-          the Internet</td>
-        <td>If you added this configuration element, the system would be open to
-          the Internet</td>
+        <td>如果添加以下配置元素，系统打开网络</td>
+        <td>如果以下元素被添加，系统将打开网络</td>
       </tr>
     </tbody>
   </table>
 </div>
 
-**Exception:** Use future tense if it's necessary to convey the correct meaning. This requirement is rare.
+**Exception:** 如果有必要传达正确的意思，请使用将来时态。这种要求很少见。
 
-## Address the audience directly
+## 直接向听众讲话
 
-Using "we" in a sentence can be confusing, because the reader may not know whether they're part of the "we" you're describing. 
+在句子中使用“我们”可能会令人困惑，因为读者可能不知道他们是否是你所描述的“我们”的一部分。
 
-For example, compare the following two statements:
+例如，比较以下两种语句：
 
-- "In this release we've added many new features."
-- "In this tutorial we build a flying saucer."
+- “在这个版本中，我们添加了许多新功能。”
+- “在本教程中，我们制作了一个飞碟。”
 
-The words "the developer" or "the user" can be ambiguous. 
-For example, if the reader is building a product that also has users, 
-then the reader does not know whether you're referring to the reader or the users of their product.
+“开发人员”或“用户”这两个词可能有歧义。
+
+例如如果读者正在构建一个也有用户的产品，
+那么读者就不知道你指的是读者还是他们产品的用户。
 
 <div class="table-responsive">
   <table class="table table-bordered">
     <thead class="thead-light">
       <tr>
-        <th>Address the reader directly</th>
-        <th>Instead of "we", "the user", or "the developer"</th>
+        <th>直接向读者致辞</th>
+        <th>而不是“我们”、“用户”或“开发人员”</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>Include the directory in your path</td>
-        <td>The user must make sure that the directory is included in their path
+        <td>将文件夹包含到路径</td>
+        <td>用户需要确保文件夹包含到他们的路径
         </td>
       </tr>
       <tr>
-        <td>In this tutorial you build a flying saucer</td>
-        <td>In this tutorial we build a flying saucer</td>
+        <td>在本教程中，您将构建一个飞碟</td>
+        <td>在本教程中，我们将构建一个飞碟</td>
       </tr>
     </tbody>
   </table>
 </div>
 
-## Use short, simple sentences
+## 使用简短的句子
 
-Keep sentences short. Short sentences are easier to read than long ones. 
-Below are some tips for writing short sentences.
+保持句子简短。短句比长句更容易阅读。
+下面是一些写短句的技巧。
 
 <div class="table-responsive">
   <table class="table table-bordered">
     <thead class="thead-light">
       <tr>
-        <th colspan="2">Use fewer words instead of many words that convey the same meaning</th>
+        <th colspan="2">少用单词，不要用很多表达相同意思的单词</th>
       </tr>
       <tr>
-        <th>Use this</th>
-        <th>Instead of this</th>
+        <th>使用以下</th>
+        <th>代替以下</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>You can use</td>
-        <td>It is also possible to use</td>
+        <td>您可以使用</td>
+        <td>也可以使用</td>
       </tr>
       <tr>
         <td>You can</td>
@@ -211,19 +207,18 @@ Below are some tips for writing short sentences.
   <table class="table table-bordered">
     <thead class="thead-light">
       <tr>
-        <th colspan="2">Split a single long sentence into two or more shorter ones</th>
+        <th colspan="2">把一个长句分成两个或两个以上的短句</th>
       </tr>
       <tr>
-        <th>Use this</th>
-        <th>Instead of this</th>
+        <th>使用以下</th>
+        <th>代替以下</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>You do not need a running GKE cluster. The deployment process
-          creates a cluster for you</td>
-        <td>You do not need a running GKE cluster, because the deployment 
-          process creates a cluster for you</td>
+        <td>您不需要运行GKE集群。部署过程
+          为您创建一个集群</td>
+        <td>您不需要运行GKE集群，因为部署流程为您创建一个集群</td>
       </tr>
     </tbody>
   </table>
@@ -232,11 +227,11 @@ Below are some tips for writing short sentences.
   <table class="table table-bordered">
     <thead class="thead-light">
       <tr>
-        <th colspan="2">Use a list instead of a long sentence showing various options</th>
+        <th colspan="2">使用列表而不是长句来显示各种选项</th>
       </tr>
       <tr>
-        <th>Use this</th>
-        <th>Instead of this</th>
+        <th>使用以下</th>
+        <th>代替以下</th>
       </tr>
     </thead>
     <tbody>
@@ -244,45 +239,45 @@ Below are some tips for writing short sentences.
         <td>
           <p>来训练一个模型：</p>
           <ol>
-            <li>Package your program in a Kubernetes container.</li>
-            <li>Upload the container to an online registry.</li>
-            <li>Submit your training job.</li>
+            <li>打包应用为Kubernetes 容器。</li>
+            <li>上传融到到在线仓库。</li>
+            <li>提交训练工作。</li>
           </ol>
         </td>
-        <td>To train a model, you must package your program in a Kubernetes 
-          container, upload the container to an online registry, and submit your 
-          training job.</td>
+        <td>要训练模型，必须将程序打包到Kubernetes中
+          容器，将容器上传到在线注册表，然后提交您的
+          培训工作。</td>
       </tr>
     </tbody>
   </table>
 </div>
 
 
-## Avoid too much text styling
+## 避免过多的文本样式
 
-Use **bold text** when referring to UI controls or other UI elements.
+当渲染 UI 控件或其他 UI 元素时使用 **粗体文本**。
 
-Use `code style` for:
+为以下内容使用 `代码样式`：
 
-- filenames, directories, and paths
-- inline code and commands
-- object field names
+- 文件名，文件夹，以及路径
+- 行内代码及命令
+- 对象字段名
 
-Avoid using bold text or capital letters for emphasis. 
-If a page has too much textual highlighting it becomes confusing and even annoying.
+避免使用粗体或大写字母进行强调。 
+如果页面上有太多的文本高亮，它会变得混乱甚至让人感到反感。
 
-## Use angle brackets for placeholders
+## 使用尖括号表示占位符
 
-For example:
+比如：
 
 - `export KUBEFLOW_USERNAME=<your username>`
 - `--email <your email address>`
 
-## Style your images
+## 自定义图片样式
 
-The Kubeflow docs recognise Bootstrap classes to style images and other content.
+Kubeflow文档使用 Bootstrap 类来为图像和其他内容添加样式。
 
-The following code snippet shows the typical styling that makes an image show up nicely on the page:
+以下代码片段展示了使图像在页面上显示得漂亮的典型样式：
 
 ```
 <img src="/docs/images/my-image.png"
@@ -290,14 +285,14 @@ The following code snippet shows the typical styling that makes an image show up
   class="mt-3 mb-3 p-3 border border-info rounded">
 ```
 
-To see some examples of styled images, take a look at the [OAuth setup page](/docs/gke/deploy/oauth-setup/).
+要查看一些图片样式示例，请移步到 [OAuth 设置页](/docs/gke/deploy/oauth-setup/)。
 
-For more help, see the guide to [Bootstrap image styling](https://getbootstrap.com/docs/4.6/content/images/) and the Bootstrap utilities, such as [borders](https://getbootstrap.com/docs/4.6/utilities/borders/).
+更多帮助，请查看[Bootstrap 图片样式](https://getbootstrap.com/docs/4.6/content/images/) 指引以及 Bootstrap 工具，如 [边框](https://getbootstrap.com/docs/4.6/utilities/borders/)。
 
-## A detailed style guide
+## 更详细的样式指引
 
-The [Google Developer Documentation Style Guide](https://developers.google.com/style/) contains detailed information about specific aspects of writing clear, readable, succinct documentation for a developer audience.
+[Google 开发文档样式指引](https://developers.google.com/style/) 包含了有关为开发人员受众编写清晰、易读、简洁文档的具体方面的详细信息。
 
 ## 下一步
 
-- Take a look at the [documentation README](https://github.com/kubeflow/website/blob/master/README.md) for guidance on contributing to the Kubeflow docs.
+- 参考 [文档 README](https://github.com/kubeflow/website/blob/master/README.md) 引导来为 Kubeflow 文档进行贡献。
